@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
+              "ToolTip": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
+              "RelativeToolTip": "project_alpha_0.1\\Form1.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T20:12:44.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
+              "ToolTip": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T20:08:53.472Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
+              "ToolTip": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "RelativeToolTip": "project_alpha_0.1\\Menu.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAQwDcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T17:13:12.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
+              "ToolTip": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T17:13:05.025Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "signIn.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
+              "ToolTip": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\signIn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T19:55:34.233Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "signIn.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
+              "ToolTip": "C:\\Users\\matez\\source\\repos\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T19:55:41.165Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

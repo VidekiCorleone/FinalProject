@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace project_alpha_0._1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            Start();
+            button1.Click += signinFunction;
+            button2.Click += closingFunction;
+        }
+
+        public void Start()
+        {
+            Image image = Image.FromFile("hatter_main.jpeg");
+            this.BackgroundImage = image;
+
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            label1.Text = "Cickányok parkolóháza";
+            int labelMid = label1.Width / 2;
+            int dGWmid = dataGridView1.Width / 2;
+            int siBtnMid = button1.Width / 2;
+            int exitBtnMid = button2.Width / 2;
+            label1.Left = this.Width / 2 - labelMid;
+            dataGridView1.Left = this.Width / 2 - dGWmid;
+            button1.Left = this.Width / 2 - siBtnMid;
+            button2.Left = this.Width / 2 - exitBtnMid;
+
+            dataGridView1.Height = this.Height - 80;
+
+            int dGWmidH = dataGridView1.Height / 2;
+            dataGridView1.Top = this.Height / 2 - dGWmidH;
+
+            int pbMiddle = pictureBox1.Width / 2;
+            pictureBox1.Left = this.Width / 2 - pbMiddle;
+
+            button1.Text = "Bejelentkezés";
+            button2.Text = "Kilépés";
+        }
+
+        public void signinFunction(object s, EventArgs e)
+        {
+            this.Hide();
+            signIn signInForm = new signIn();
+            signInForm.ShowDialog();
+        }
+
+        public void closingFunction(object s, EventArgs e)
+        {
+            const string message = "Biztosan ki akarsz lépni?";
+            const string caption = "Kilépés";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+    }
+}
