@@ -1,0 +1,44 @@
+
+Table Parkhouse {
+  id integer [primary key]
+  capacity integer
+  address varchar
+  rating int
+  opening datetime
+  car_height int
+  price int
+  max_stay_time datetime
+  parkh_id integer
+}
+
+Table users {
+  id integer [primary key]
+  name varchar
+  car_id integer
+  email varchar
+  phone_num varchar
+  role varchar
+  username varchar
+  password varchar
+}
+
+Table reservations {
+  id integer [primary key]
+  active datetime
+  inactive datetime
+  reservation_time_day datetime
+  sum int
+  reservation_owner_id integer
+  park_slot int
+}
+
+Table car{
+  car_id integer [primary key]
+  plate varchar
+  height int
+  type varchar
+}
+
+Ref: users.car_id > car.car_id
+Ref: users.id > reservations.reservation_owner_id
+Ref: reservations.park_slot > Parkhouse.parkh_id
