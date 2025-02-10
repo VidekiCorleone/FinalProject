@@ -30,6 +30,9 @@ namespace project_alpha_0._1
             this.FormBorderStyle = FormBorderStyle.None;
 
             label1.Text = "Cickányok parkolóháza";
+            button1.Text = "Bejelentkezés";
+            button2.Text = "Bezárás";
+
             int labelMid = label1.Width / 2;
             int dGWmid = dataGridView1.Width / 2;
             int siBtnMid = button1.Width / 2;
@@ -47,21 +50,23 @@ namespace project_alpha_0._1
             int pbMiddle = pictureBox1.Width / 2;
             pictureBox1.Left = this.Width / 2 - pbMiddle;
 
-            button1.Text = "Bejelentkezés";
-            button2.Text = "Kilépés";
+            //button1.Text = "Bejelentkezés";
+            //button2.Text = "Bezárás";
         }
 
         public void signinFunction(object s, EventArgs e)
         {
             this.Hide();
             signIn signInForm = new signIn();
-            signInForm.ShowDialog();
+            signInForm.Show();
+            //signIn signInForm = new signIn();
+            //signInForm.ShowDialog();
         }
 
         public void closingFunction(object s, EventArgs e)
         {
-            const string message = "Biztosan ki akarsz lépni?";
-            const string caption = "Kilépés";
+            const string message = "Biztosan be akarod zárni?";
+            const string caption = "Bezárás";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.YesNo,
                                          MessageBoxIcon.Question);
