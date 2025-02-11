@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace project_alpha_0._1
 {
@@ -15,10 +17,12 @@ namespace project_alpha_0._1
         public signIn()
         {
             InitializeComponent();
-            this.AcceptButton = button2; // enter gomb = bejelentkezés
             Start();
             button1.Click += closeFunc;
             button2.Click += signInFunc;
+            // enter gomb = bejelentkezés
+            this.KeyPreview = true;
+            this.KeyDown += Form1_KeyDown;
         }
 
         public void Start()
@@ -42,10 +46,34 @@ namespace project_alpha_0._1
             //Image kiskocsi = Image.FromFile("kiskocsi.png");
         }
 
-        public void signInFunc(object s, EventArgs e)
+        public async void signInFunc(object s, EventArgs e)
         {
             var user = textBox1.Text.ToLower();
             var pass = textBox2.Text.ToLower();
+
+            using (HttpClient client = new HttpClient())
+            {
+                var content = new StringContent(JsonConvert.SerializeObject(new { username = user, password = pass }), Encoding.UTF8, "application/json");
+                var response = await client.PostAsync("http://localhost:3000/login", content);
+                var responseString = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<dynamic>(responseString);
+
+                if (result.success == true)
+                {
+                    this.Hide();
+                    Menu menu = new Menu();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    //MessageBox.Show("Helytelen felhasználónév vagy jelszó!");
+                    const string message = "Helytelen felhasználónév vagy jelszó!";
+                    const string caption = "Helytelen adat";
+                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
             if (user == "admin" && pass == "admin")
             {
                 this.Hide();
@@ -74,6 +102,14 @@ namespace project_alpha_0._1
                 form1.ShowDialog();*/
 
                 Application.Exit();
+            }
+        }
+
+        private void Form1_KeyDown(object s, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button2.PerformClick();
             }
         }
     }
