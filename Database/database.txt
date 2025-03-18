@@ -5,10 +5,11 @@ Table Parkhouse {
   address varchar
   rating int
   opening datetime
+  closing datetime
   car_height int
   price int
-  max_stay_time datetime
-  parkh_id integer
+  max_stay_time integer
+  parkslot_id integer
 }
 
 Table users {
@@ -29,7 +30,8 @@ Table reservations {
   reservation_time_day datetime
   sum int
   reservation_owner_id integer
-  park_slot int
+  park_slot integer
+  park_house_id integer
 }
 
 Table car{
@@ -37,8 +39,11 @@ Table car{
   plate varchar
   height int
   type varchar
+  user_id integer
 }
 
 Ref: users.car_id > car.car_id
 Ref: users.id > reservations.reservation_owner_id
-Ref: reservations.park_slot > Parkhouse.parkh_id
+Ref: reservations.park_slot > Parkhouse.parkslot_id
+Ref: users.id > car.user_id
+Ref: reservations.park_house_id > Parkhouse.ids

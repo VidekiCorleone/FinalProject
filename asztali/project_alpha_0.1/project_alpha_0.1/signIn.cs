@@ -51,7 +51,7 @@ namespace project_alpha_0._1
             var user = textBox1.Text.ToLower();
             var pass = textBox2.Text.ToLower();
 
-            using (HttpClient client = new HttpClient())
+            /*using (HttpClient client = new HttpClient())
             {
                 var content = new StringContent(JsonConvert.SerializeObject(new { username = user, password = pass }), Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:3000/login", content);
@@ -71,7 +71,7 @@ namespace project_alpha_0._1
                     const string caption = "Helytelen adat";
                     MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            }*/
 
 
             if (user == "admin" && pass == "admin")

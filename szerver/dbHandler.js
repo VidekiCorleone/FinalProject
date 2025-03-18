@@ -7,7 +7,7 @@ const HOST = process.env.HOST
 
 const dbHandler = new Sequelize(DBNAME,USERNAME,PASSWORD,{
     dialect:'mysql',
-    host:HOST    
+    host:HOST
 })
 
 exports.users = dbHandler.define('user',{
