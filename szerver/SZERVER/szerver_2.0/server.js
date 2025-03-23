@@ -22,7 +22,7 @@ dbHandler.userTable.sync({ alter: true }) // A 'users' tábla előbb jön létre
     .then(() => dbHandler.reservationTable.sync({ alter: true }))
     .then(() => {
         server.listen(PORT, () => {
-            console.log('A szerver a fut a ' + PORT + ' porton');
+            console.log('A szerver a fut a ' + PORT + '-es porton');
         });
     })
     .catch((error) => {

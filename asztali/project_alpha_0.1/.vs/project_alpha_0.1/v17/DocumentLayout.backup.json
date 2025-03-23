@@ -44,12 +44,9 @@
               "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
               "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
               "RelativeToolTip": "project_alpha_0.1\\Form1.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAxwDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T20:12:44.837Z",
-              "EditorCaption": ""
-<<<<<<< HEAD
-=======
+              "WhenOpened": "2025-01-15T20:12:44.837Z"
             },
             {
               "$type": "Document",
@@ -60,28 +57,11 @@
               "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs [Design]",
               "RelativeToolTip": "project_alpha_0.1\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T20:08:53.472Z",
-              "EditorCaption": " [Design]"
->>>>>>> 9199d8453785152e04e31b9f4dff49846dd23477
+              "WhenOpened": "2025-01-15T20:08:53.472Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-<<<<<<< HEAD
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
-              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs [Design]",
-              "RelativeToolTip": "project_alpha_0.1\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T20:08:53.472Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-=======
->>>>>>> 9199d8453785152e04e31b9f4dff49846dd23477
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
@@ -89,8 +69,9 @@
               "RelativeToolTip": "project_alpha_0.1\\Menu.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAQwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T17:13:12.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-15T17:13:12.959Z"
+<<<<<<< HEAD
+=======
             },
             {
               "$type": "Document",
@@ -99,18 +80,28 @@
               "DocumentMoniker": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
               "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
-<<<<<<< HEAD
-              "RelativeToolTip": "project_alpha_0.1\\Menu.cs [Design]",
-=======
               "RelativeToolTip": "..\\..\\..\\..\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
->>>>>>> 9199d8453785152e04e31b9f4dff49846dd23477
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T17:13:05.025Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-15T17:13:05.025Z"
+>>>>>>> 9199d8453785152e04e31b9f4dff49846dd23477
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+<<<<<<< HEAD
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T17:13:05.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+=======
+>>>>>>> 9199d8453785152e04e31b9f4dff49846dd23477
               "Title": "signIn.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
@@ -129,7 +120,7 @@
               "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
 <<<<<<< HEAD
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowDkAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAowDoAAABUAAAAAAAAAA==",
 =======
               "ViewState": "AgIAADYAAAAAAAAAAAAwwEwAAAAzAAAAAAAAAA==",
 >>>>>>> 9199d8453785152e04e31b9f4dff49846dd23477
