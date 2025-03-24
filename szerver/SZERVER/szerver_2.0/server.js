@@ -1,7 +1,10 @@
 const express = require('express')
 const server = express()
 require('dotenv').config()
+const cors = require('cors');
 
+
+server.use(cors());
 server.use(express.json())
 server.use(express.static('public'))
 const PORT = process.env.PORT
@@ -128,11 +131,11 @@ server.post('/register', async(req,res)=>{
                 //id, name, car_id, email, phone_num, role, username, password
                 await dbHandler.userTable.create({ // Javítva: dbHandler.users -> dbHandler.userTable
                     username: req.body.registerUser,
-                    role: req.body.registerRole,
+                    role: 0,
                     password: req.body.registerPassword,
                     name: req.body.registerName,
-                    phone: req.body.registerPhone,
-                    email: req.body.registerEmail,
+                    phone: 0,
+                    email: req.body.registerEmail
                 })
                 res.status(201)
                 res.json({'message':'Sikeres regisztráció'})
