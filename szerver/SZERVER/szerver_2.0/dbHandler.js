@@ -1,4 +1,4 @@
-const {Sequelize, DataTypes, Model } = require('sequelize')
+const {Sequelize, DataTypes, Model, Op} = require('sequelize')
 require('dotenv').config()
 const DBNAME = process.env.DBNAME
 const USERNAME = 'root'
