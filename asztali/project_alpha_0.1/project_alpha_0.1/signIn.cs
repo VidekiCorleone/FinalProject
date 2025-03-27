@@ -21,7 +21,7 @@ namespace project_alpha_0._1
         {
             InitializeComponent();
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://127.1.1.1:3000/login");
+            _httpClient.BaseAddress = new Uri("http://127.1.1.1:3000/loginAdmin");
             Start();
             button1.Click += closeFunc;
             button2.Click += signInFunc;
@@ -79,7 +79,8 @@ namespace project_alpha_0._1
                 BejelentkezesiAdatok bejelentkezesiAdatok = new BejelentkezesiAdatok
                 {
                     uName = felhasznalonev,
-                    uPass = jelszo
+                    uPass = jelszo,
+                    uRole = 2
                 };
 
                 var tokenValasz = await Bejelentkezes(bejelentkezesiAdatok);
@@ -90,11 +91,13 @@ namespace project_alpha_0._1
                     Properties.Settings.Default.Save();
 
                     this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    this.Hide();
+                    Menu menu = new Menu();
+                    menu.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Hibás felhasználónév vagy jelszó!");
+                    MessageBox.Show("Hibás felhasználónév, jelszó vagy nem megfelelő jogosultság!");
                     Visszaallitas();
                 }
             }
@@ -156,8 +159,9 @@ namespace project_alpha_0._1
             {
                 var bejelentkezesiObjektum = new
                 {
-                    username = adatok.uName,
-                    password = adatok.uPass
+                    loginUser = adatok.uName,
+                    loginPassword = adatok.uPass,
+                    role = adatok.uRole
                 };
 
                 var tartalom = new StringContent(
@@ -166,12 +170,12 @@ namespace project_alpha_0._1
                     "application/json"
                 );
 
-                var valasz = await _httpClient.PostAsync("http://127.1.1.1:3000/login", tartalom);
+                var valasz = await _httpClient.PostAsync("http://127.1.1.1:3000/loginAdmin", tartalom);
 
                 if (!valasz.IsSuccessStatusCode)
                 {
-                    var hibaUzenet = await valasz.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Bejelentkezési hiba: {hibaUzenet}");
+                    /*var hibaUzenet = await valasz.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Bejelentkezési hiba: {hibaUzenet}");*/
                     return null;
                 }
 

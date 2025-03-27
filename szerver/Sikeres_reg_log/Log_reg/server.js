@@ -208,4 +208,31 @@ server.post('/login', loginLimiter, async (req, res) => {
     }
 });
 
+server.post('/loginAdmin', loginLimiter, async (req, res) => {
+    try {
+        const user = await dbHandler.userTable.findOne({
+            where: { username: req.body.loginUser, role: 2 }
+        });
+        
+        if (!user || !user.password || !user.role) {
+            return res.status(401).json({ error: 'Hibás felhasználónév, jelszó vagy nem megfelelő jogosultság.' });
+        }
 
+        const isValidPassword = await bcrypt.compare(req.body.loginPassword, user.password);
+
+        if (!isValidPassword) {
+            return res.status(401).json({ error: 'Hibás felhasználónév vagy jelszó' });
+        }
+
+        const token = JWT.sign(
+            { username: user.username, email: user.email, role: user.role },
+            SUPERSECRET,
+            { expiresIn: '1h' }
+        );
+
+        res.json({ token });
+    } catch (error) {
+        console.error('Bejelentkezési hiba:', error);
+        res.status(500).json({ error: 'Bejelentkezési hiba' });
+    }
+});
