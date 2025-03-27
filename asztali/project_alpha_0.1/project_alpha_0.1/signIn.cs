@@ -9,17 +9,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
+using project_alpha_0._1.osztalyok;
 
 namespace project_alpha_0._1
 {
     public partial class signIn : Form
     {
+        private readonly HttpClient _httpClient;
+
         public signIn()
         {
             InitializeComponent();
+            _httpClient = new HttpClient();
+            _httpClient.BaseAddress = new Uri("http://127.1.1.1:3000/loginAdmin");
             Start();
             button1.Click += closeFunc;
             button2.Click += signInFunc;
+
+
             // enter gomb = bejelentkezés
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
@@ -48,33 +55,60 @@ namespace project_alpha_0._1
 
         public async void signInFunc(object s, EventArgs e)
         {
-            var user = textBox1.Text.ToLower();
-            var pass = textBox2.Text.ToLower();
+            /*var user = textBox1.Text.ToLower();
+            var pass = textBox2.Text.ToLower();*/
 
-            /*using (HttpClient client = new HttpClient())
+
+
+            try
             {
-                var content = new StringContent(JsonConvert.SerializeObject(new { username = user, password = pass }), Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("http://localhost:3000/login", content);
-                var responseString = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<dynamic>(responseString);
+                // Várakozási állapot jelzése
+                button2.Enabled = false;
+                button2.Text = "Bejelentkezés...";
 
-                if (result.success == true)
+                string felhasznalonev = textBox1.Text.Trim();
+                string jelszo = textBox2.Text;
+
+                if (string.IsNullOrEmpty(felhasznalonev) || string.IsNullOrEmpty(jelszo))
                 {
+                    MessageBox.Show("Kérlek töltsd ki mindkét mezőt!");
+                    Visszaallitas();
+                    return;
+                }
+
+                BejelentkezesiAdatok bejelentkezesiAdatok = new BejelentkezesiAdatok
+                {
+                    uName = felhasznalonev,
+                    uPass = jelszo,
+                    uRole = 2
+                };
+
+                var tokenValasz = await Bejelentkezes(bejelentkezesiAdatok);
+
+                if (tokenValasz != null && !string.IsNullOrEmpty(tokenValasz.Token))
+                {
+                    Properties.Settings.Default.Token = tokenValasz.Token;
+                    Properties.Settings.Default.Save();
+
+                    this.DialogResult = DialogResult.OK;
                     this.Hide();
                     Menu menu = new Menu();
-                    menu.ShowDialog();
+                    menu.Show();
                 }
                 else
                 {
-                    //MessageBox.Show("Helytelen felhasználónév vagy jelszó!");
-                    const string message = "Helytelen felhasználónév vagy jelszó!";
-                    const string caption = "Helytelen adat";
-                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hibás felhasználónév, jelszó vagy nem megfelelő jogosultság!");
+                    Visszaallitas();
                 }
-            }*/
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Váratlan hiba történt: {ex.Message}");
+                Visszaallitas();
+            }
 
 
-            if (user == "admin" && pass == "admin")
+            /*if (user == "admin" && pass == "admin")
             {
                 this.Hide();
                 Menu menu = new Menu();
@@ -86,7 +120,13 @@ namespace project_alpha_0._1
                 const string message = "Helytelen felhasználónév vagy jelszó!";
                 const string caption = "Helytelen adat";
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
+        }
+
+        private void Visszaallitas()
+        {
+            button2.Enabled = true;
+            button2.Text = "Bejelentkezés";
         }
 
         public void closeFunc(object s, EventArgs e)
@@ -110,6 +150,51 @@ namespace project_alpha_0._1
             if (e.KeyCode == Keys.Enter)
             {
                 button2.PerformClick();
+            }
+        }
+
+        private async Task<TokenValasz> Bejelentkezes(BejelentkezesiAdatok adatok)
+        {
+            try
+            {
+                var bejelentkezesiObjektum = new
+                {
+                    loginUser = adatok.uName,
+                    loginPassword = adatok.uPass,
+                    role = adatok.uRole
+                };
+
+                var tartalom = new StringContent(
+                    JsonConvert.SerializeObject(bejelentkezesiObjektum),
+                    Encoding.UTF8,
+                    "application/json"
+                );
+
+                var valasz = await _httpClient.PostAsync("http://127.1.1.1:3000/loginAdmin", tartalom);
+
+                if (!valasz.IsSuccessStatusCode)
+                {
+                    /*var hibaUzenet = await valasz.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Bejelentkezési hiba: {hibaUzenet}");*/
+                    return null;
+                }
+
+                var tokenValaszJson = await valasz.Content.ReadAsStringAsync();
+
+                try
+                {
+                    return JsonConvert.DeserializeObject<TokenValasz>(tokenValaszJson);
+                }
+                catch (JsonException ex)
+                {
+                    MessageBox.Show($"Hibás válasz formátum: {ex.Message}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hálózati hiba: {ex.Message}");
+                return null;
             }
         }
     }
