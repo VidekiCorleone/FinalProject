@@ -9,7 +9,7 @@ const { Sequelize, DataTypes, Model, SequelizeUniqueConstraintError, Op } = requ
 
 server.use(cors({
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
 }));
 server.use(express.json())
 server.use(express.static('public'))
@@ -94,14 +94,50 @@ const authenticate = () => async (req, res, next) => {
 
 server.get('/profile', authenticate(), async (req, res) => {
     try {
+        // Felhasználónév a JWT tokenből
+        const username = req.user.username;
+
+        // Felhasználói adatok lekérdezése
         const user = await dbHandler.userTable.findOne({
-            where: { username: req.user.username },
-            attributes: { exclude: ['password'] }
+            where: { username: username }, // Keresés felhasználónév alapján
+            attributes: { exclude: ['password'] } // Jelszó kizárása a válaszból
         });
-        
-        res.json(user);
+
+        if (user) {
+            res.json(user);
+        } else {
+            res.status(404).json({ error: 'Felhasználó nem található!' });
+        }
     } catch (error) {
-        res.status(500).json({ error: 'Profil betöltési hiba' });
+        console.error('Profil lekérdezési hiba:', error);
+        res.status(500).json({ error: 'Profil lekérdezési hiba!' });
+    }
+});
+
+server.put('/profileDataUpdate', authenticate(), async (req, res) => {
+    try {
+        const { username, password, name, email, phone_num } = req.body; // Módosítandó adatok
+        const currentUsername = req.user.username; // Tokenből kinyert jelenlegi felhasználónév
+
+        const user = await dbHandler.userTable.findOne({ where: { username: currentUsername } });
+
+        if (!user) {
+            return res.status(404).json({ error: 'Felhasználó nem található!' });
+        }
+
+        // Adatok frissítése
+        user.username = username || user.username; // Felhasználónév frissítése
+        user.password = password ? await bcrypt.hash(password, 10) : user.password; // Jelszó hash-elése és frissítése
+        user.name = name || user.name;
+        user.email = email || user.email;
+        user.phone_num = phone_num || user.phone_num;
+
+        await user.save(); // Mentés az adatbázisban
+
+        res.json({ message: 'Adatok sikeresen frissítve', user });
+    } catch (error) {
+        console.error('Frissítési hiba:', error);
+        res.status(500).json({ error: 'Hiba történt az adatok frissítésekor!' });
     }
 });
 
