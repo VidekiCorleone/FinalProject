@@ -1,4 +1,6 @@
-﻿using System;
+﻿using project_alpha_0._1.osztalyok;
+using project_alpha_0._1.userCoontrol_ok;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +14,64 @@ namespace project_alpha_0._1
 {
     public partial class userEdit : Form
     {
+
+        
+
         public userEdit()
         {
             InitializeComponent();
+            
             Start();
             button1.Click += backBtn;
             button2.Click += deleteBtn;
             button3.Click += modifyBtn;
             button4.Click += addBtn;
+
+            LoadUserControls();
         }
+
+
+        private void LoadUserControls()
+        {
+            userControlProfile profileControl = new userControlProfile();
+            List<userData> userDataList = profileControl.GetUserData();
+
+            panel1.Controls.Clear();
+            int xOffset = 0;
+            int yOffset = 0;
+            int controlsPerRow = 3;
+            int controlWidth = 190; // Adjust based on the actual width of userControlProfile
+            int controlHeight = 175; // Adjust based on the actual height of userControlProfile
+            HashSet<string> addedUsernames = new HashSet<string>();
+
+            for (int i = 0; i < userDataList.Count; i++)
+            {
+                var userData = userDataList[i];
+                if (addedUsernames.Contains(userData.username))
+                {
+                    continue; // Skip if the user has already been added
+                }
+
+                userControlProfile userControl = new userControlProfile();
+                userControl.textBox1.Text = userData.name;
+                userControl.textBox2.Text = userData.username;
+                userControl.textBox3.Text = userData.email;
+                userControl.textBox4.Text = userData.phoneNumber.ToString();
+
+                int row = i / controlsPerRow;
+                int col = i % controlsPerRow;
+
+                userControl.Location = new System.Drawing.Point(
+                    col * (controlWidth),
+                    row * (controlHeight)
+                );
+
+                panel1.Controls.Add(userControl);
+                addedUsernames.Add(userData.username); // Add the username to the set
+            }
+        }
+
+
 
         public void Start()
         {
@@ -31,6 +82,8 @@ namespace project_alpha_0._1
             button2.Text = "Törlés";
             button3.Text = "Módosítás";
             button4.Text = "Hozzáadás";
+
+            panel1.AutoScroll = true;
 
             int label1Mid = label1.Width / 2;
             int button1Mid = button1.Width / 2;

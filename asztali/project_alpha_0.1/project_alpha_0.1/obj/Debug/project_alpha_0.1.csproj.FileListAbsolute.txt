@@ -52,3 +52,4 @@ C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_al
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.exe
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.pdb
+C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlProfile.resources
