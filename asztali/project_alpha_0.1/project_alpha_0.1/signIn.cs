@@ -156,8 +156,8 @@ namespace project_alpha_0._1
             {
                 var bejelentkezesiObjektum = new
                 {
-                    username = adatok.uName,
-                    password = adatok.uPass
+                    loginUser = adatok.uName,
+                    loginPassword = adatok.uPass
                 };
 
                 var tartalom = new StringContent(

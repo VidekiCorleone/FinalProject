@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\",
+  "WorkspaceRootPath": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "signIn.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs [Design]",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs [Design]",
               "RelativeToolTip": "project_alpha_0.1\\signIn.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-26T14:14:32.583Z",
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "signIn.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAmwG4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-26T13:33:38.537Z",
               "EditorCaption": ""
