@@ -25,6 +25,9 @@ namespace project_alpha_0._1
         {
             this.FormBorderStyle = FormBorderStyle.None;
 
+            this.BackColor = Color.FromArgb(93, 135, 54);
+            label1.BackColor = Color.FromArgb(93, 135, 54);
+
             label1.Text = "Foglalások kezelése";
             button1.Text = "Vissza";
             button2.Text = "Törlés";

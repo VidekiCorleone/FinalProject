@@ -25,6 +25,13 @@ namespace project_alpha_0._1
         {
             this.FormBorderStyle = FormBorderStyle.None;
 
+            this.BackColor = Color.FromArgb(93, 135, 54);
+            label1.BackColor = Color.FromArgb(93, 135, 54);
+            label2.BackColor = Color.FromArgb(93, 135, 54);
+            label3.BackColor = Color.FromArgb(93, 135, 54);
+            label4.BackColor = Color.FromArgb(93, 135, 54);
+            label5.BackColor = Color.FromArgb(93, 135, 54);
+
             label1.Text = "Foglalások módosítása";
             label2.Text = "Foglalás kezdete:";
             label3.Text = "Foglalás vége:";

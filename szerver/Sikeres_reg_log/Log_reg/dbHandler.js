@@ -133,6 +133,7 @@ Parkhouse.init({
     'parkslot_id':{
         type: DataTypes.INTEGER,
         allowNull: false
+        //Lehet törlésre fog kerülni.
     }
 },{
     sequelize:dbHandler,

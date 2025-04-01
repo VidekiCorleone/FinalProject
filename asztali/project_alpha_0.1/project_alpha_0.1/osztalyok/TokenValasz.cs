@@ -10,4 +10,10 @@ namespace project_alpha_0._1.osztalyok
     {
         public string Token { get; set; }
     }
+
+    public class signin
+    {
+        public string userNev { get; set; }
+        public string userJelszo { get; set; }
+    }
 }

@@ -12,7 +12,7 @@ namespace project_alpha_0._1.osztalyok
         public string username { get; set; }
         public string email { get; set; }
         public int phoneNumber { get; set; }
-
+        public string password { get; set; }
 
     }
 }
