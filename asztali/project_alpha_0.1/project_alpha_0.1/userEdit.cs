@@ -38,7 +38,7 @@ namespace project_alpha_0._1
 
             panel1.Controls.Clear();
             int controlsPerRow = 2;
-            int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth - 16) / 2; // Adjust based on the actual width of userControlProfile
+            int controlWidth = (this.Width - SystemInformation.VerticalScrollBarWidth) / 2; // Adjust based on the actual width of userControlProfile
             int controlHeight = 175; // Adjust based on the actual height of userControlProfile
             HashSet<string> addedUsernames = new HashSet<string>();
 
@@ -55,6 +55,7 @@ namespace project_alpha_0._1
                 userControl.textBox2.Text = userData.username;
                 userControl.textBox3.Text = userData.email;
                 userControl.textBox4.Text = userData.phoneNumber.ToString();
+                userControl.textBox5.Text = userData.password;
 
                 int row = i / controlsPerRow;
                 int col = i % controlsPerRow;
