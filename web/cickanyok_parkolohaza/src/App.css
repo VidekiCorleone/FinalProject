@@ -1,0 +1,109 @@
+.header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.headerText {
+  font-size: 1.5em;
+  color: rgb(0, 0, 0);
+}
+
+.card {
+  padding: 2em;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+button {
+  background-color: black;
+  color: white;
+  margin: 15px 5px;
+}
+
+body {
+  background-image: url('src/assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.welcomeSign {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1em;
+  border-radius: 8px;
+  margin: 1em;
+  text-align: justify; /* Sorkizárttá teszi a szöveget */
+  max-width: 600px; /* Maximális szélesség beállítása */
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  text-align: center; /* Középre igazítja a tartalmat */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logreg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-top: 4px;
+}

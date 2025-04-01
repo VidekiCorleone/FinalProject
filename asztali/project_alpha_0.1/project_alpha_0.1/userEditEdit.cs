@@ -23,6 +23,7 @@ namespace project_alpha_0._1
         public void Start()
         {
             this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Felhasználó módosítása";
             label2.Text = "Név:";

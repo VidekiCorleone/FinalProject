@@ -18,7 +18,7 @@ class User extends Model{
                 order: [['car_id', 'DESC']]
             });
 
-            return lastUser ? lastUser.car_id + 1 : 1000; // Kezdő érték
+            return lastUser ? lastUser.car_id + 1 : 1; // Kezdő érték
         } catch (error) {
             console.error('getNextCarId error:', error);
             throw new Error('Cannot determine next car ID');
@@ -31,7 +31,7 @@ class User extends Model{
                 order: [['reservation_id', 'DESC']]
             });
 
-            return lastUser ? lastUser.reservation_id + 1 : 2000; // Kezdő érték
+            return lastUser ? lastUser.reservation_id + 1 : 1; // Kezdő érték
         } catch (error) {
             console.error('getNextReservationId error:', error);
             throw new Error('Cannot determine next reservation ID');
