@@ -119,6 +119,8 @@ body {
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Árnyék a menü jobb oldalán */
   border-radius: 8px; /* Lekerekített sarkok */
+  color: black; /* Szöveg színe */
+  z-index: 1000; /* Magasabb réteg, mint a háttér */
 }
 
 .menu h1 {
@@ -130,7 +132,6 @@ body {
 .menu-buttons {
   display: flex;
   flex-direction: column; /* Gombok egymás alá helyezése */
-  gap: 10px; /* Távolság a gombok között */
 }
 
 .menu-button {
@@ -138,7 +139,7 @@ body {
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #007bff; /* Gomb háttérszíne */
+  background-color: green; /* Gomb háttérszíne */
   color: white; /* Gomb szövegszíne */
   border-radius: 5px;
   text-align: left; /* Szöveg balra igazítása */
@@ -165,4 +166,16 @@ body {
 
 .logout-button:hover {
   background-color: #a71d2a; /* Hover állapot színe */
+}
+
+.user-data {
+  position: center; /* Középre helyezés helyett pontos pozíció */
+  background-color: rgba(255, 255, 255, 0.9); /* Háttérszín */
+  padding: 20px; /* Nagyobb belső margó */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+  color: black; /* Szöveg színe */
+  width: 300px; /* Szélesség */
+  font-size: 18px; /* Nagyobb betűméret */
+  font-weight: bold; /* Félkövér szöveg */
 }
