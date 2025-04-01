@@ -2,6 +2,9 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
+  // Állapotok
+  const [userData, setUserData] = useState(null); // Felhasználói adatok tárolása
+  const [showUserData, setShowUserData] = useState(false); // Felhasználói adatok megjelenítésének állapota
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const [loginEmail, setLoginEmail] = useState('');
@@ -10,44 +13,53 @@ function App() {
   const [regPassword, setRegPassword] = useState('');
   const [regName, setRegName] = useState('');
   const [regPhone, setRegPhone] = useState('');
-  const [loggedIN, setLoggedIN] = useState(false);
+  const [loggedIN, setLoggedIN] = useState(!!sessionStorage.getItem('token'));
 
+  // Eseménykezelők
   const handleLoginClick = () => setShowLoginModal(true);
   const handleRegistrationClick = () => setShowRegistrationModal(true);
   const handleCloseModal = () => {
     setShowLoginModal(false);
     setShowRegistrationModal(false);
   };
+
   const handleRegistrationSubmit = async () => {
     try {
-        const response = await fetch('http://127.1.1.1:3000/registration', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                registerName: regName,
-                registerPassword: regPassword,
-                registerEmail: regEmail,
-                registerPhone: regPhone
-            }),
-            credentials: 'include'
-        });
+      const response = await fetch('http://127.1.1.1:3000/registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          registerName: regName,
+          registerPassword: regPassword,
+          registerEmail: regEmail,
+          registerPhone: regPhone,
+        }),
+        credentials: 'include',
+      });
 
-        if (response.ok) {
-            const data = await response.json();
-            alert('Sikeres regisztráció');
-            handleCloseModal();
-        } else {
-            const errorData = await response.json();
-            console.error('Regisztrációs hiba:', errorData);
-            alert(`Hiba: ${errorData.error}`);
-        }
+      if (response.ok) {
+        const data = await response.json();
+        alert('Sikeres regisztráció');
+        handleCloseModal();
+      } else {
+        const errorData = await response.json();
+        console.error('Regisztrációs hiba:', errorData);
+        alert(`Hiba: ${errorData.error}`);
+      }
     } catch (error) {
-        console.error('Regisztrációs hiba:', error);
+      console.error('Regisztrációs hiba:', error);
     }
-};
+  };
 
+  const handleLogout = () => {
+    setLoggedIN(false);
+    setUserData(null); // Felhasználói adatok törlése
+    setShowUserData(false); // Felhasználói adatok megjelenítésének alaphelyzetbe állítása
+    sessionStorage.removeItem('token'); // Token törlése
+    alert('Sikeres kijelentkezés!');
+  };
 
   const handleLoginSubmit = async () => {
     try {
@@ -62,8 +74,10 @@ function App() {
 
       const result = await response.json();
       if (response.status === 200) {
-        sessionStorage.setItem('token', result.token);
-        setLoggedIN(true);
+        sessionStorage.setItem('token', result.token); // Token mentése
+        setLoggedIN(true); // Bejelentkezési állapot frissítése
+        setUserData(null); // Felhasználói adatok alaphelyzetbe állítása
+        setShowUserData(false); // Felhasználói adatok megjelenítésének alaphelyzetbe állítása
         alert('Sikeres bejelentkezés!');
         handleCloseModal();
       } else {
@@ -76,31 +90,73 @@ function App() {
     }
   };
 
-  const handleLogout = () => {
-    setLoggedIN(false);
-    sessionStorage.removeItem('token');
-    alert('Sikeres kijelentkezés!');
+  const handleShowUserData = async () => {
+    try {
+      const token = sessionStorage.getItem('token'); // Token lekérése
+      if (!token) {
+        alert('Nincs token! Jelentkezz be újra.');
+        return;
+      }
+
+      const response = await fetch('http://127.1.1.1:3000/get-user-data', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`, // Token küldése a fejlécben
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUserData(data); // Felhasználói adatok mentése az állapotba
+        setShowUserData(true); // Megjelenítés engedélyezése
+      } else {
+        const errorData = await response.json();
+        console.error('Hiba:', errorData.error);
+        alert(`Hiba: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error('Hiba a felhasználói adatok lekérése során:', error);
+      alert('Hiba történt a felhasználói adatok lekérése során.');
+    }
   };
 
+  // Komponensek
   const Menu = () => (
-    <div className="menu">
-      <h1>Menü</h1>
-      <div className="menu-buttons">
-        <button className="menu-button">Saját adatok</button>
-        <button className="menu-button">Parkolóházak listája</button>
-        <button className="menu-button">Eddigi foglalásaim</button>
-        <button className="menu-button">Visszajelzések</button>
+    <>
+      <div className="menu">
+        <h1>Menü</h1>
+        <div className="menu-buttons">
+          <button className="menu-button" onClick={handleShowUserData}>
+            Saját adatok
+          </button>
+          <button className="menu-button">Parkolóházak listája</button>
+          <button className="menu-button">Eddigi foglalásaim</button>
+          <button className="menu-button">Visszajelzések</button>
+        </div>
       </div>
-    </div>
+
+      {showUserData && userData && (
+        <div className="user-data">
+          <h2>Felhasználói adatok</h2>
+          <p><strong>Felhasználónév:</strong> {userData.username}</p>
+          <p><strong>Email:</strong> {userData.email}</p>
+          <p><strong>Telefonszám:</strong> {userData.phone_num}</p>
+          <p><strong>Szerepkör:</strong> {userData.role}</p>
+        </div>
+      )}
+    </>
   );
 
+  // JSX Struktúra
   return (
     <>
+      {/* Fejléc */}
       <div className="header">
         <img src="./src/assets/smartcar.png" alt="Logo" className="logo" />
         <span className="headerText">Cickányok parkolóháza</span>
       </div>
 
+      {/* Fő tartalom */}
       {!loggedIN ? (
         <>
           <div className="card">
@@ -126,12 +182,14 @@ function App() {
         <Menu />
       )}
 
+      {/* Kijelentkezés gomb */}
       {loggedIN && (
         <button className="logout-button" onClick={handleLogout}>
           Kijelentkezés
         </button>
       )}
 
+      {/* Bejelentkezési modal */}
       {showLoginModal && (
         <div className="modal">
           <div className="modal-content">
@@ -166,6 +224,7 @@ function App() {
         </div>
       )}
 
+      {/* Regisztrációs modal */}
       {showRegistrationModal && (
         <div className="modal">
           <div className="modal-content">
