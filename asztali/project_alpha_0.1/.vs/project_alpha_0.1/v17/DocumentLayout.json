@@ -1,43 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\",
+  "WorkspaceRootPath": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\",
   "Documents": [
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-=======
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
->>>>>>> 055e742ae56201083e19e13efa55b4fb6a5de02f
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_alpha_0.1\\signIn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_alpha_0.1\\Menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-=======
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> 055e742ae56201083e19e13efa55b4fb6a5de02f
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,121 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
           "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
-              "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
-              "RelativeToolTip": "project_alpha_0.1\\Menu.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAQwDMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T17:13:12.959Z",
-              "EditorCaption": ""
-=======
-          "SelectedChildIndex": 5,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
-              "RelativeToolTip": "project_alpha_0.1\\Form1.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwDIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T16:46:09.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
-              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T16:46:09.943Z"
->>>>>>> 055e742ae56201083e19e13efa55b4fb6a5de02f
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
-<<<<<<< HEAD
-              "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
-              "RelativeToolTip": "project_alpha_0.1\\Menu.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T17:13:05.025Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "signIn.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
-              "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs [Design]",
-              "RelativeToolTip": "project_alpha_0.1\\signIn.cs [Design]",
-=======
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
               "RelativeToolTip": "project_alpha_0.1\\Menu.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAQwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T16:46:09.947Z"
+              "WhenOpened": "2025-03-26T10:17:47.252Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Menu.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\Menu.cs",
-              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Zsiros.Mate.Ferenc\\Desktop\\proj\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
->>>>>>> 055e742ae56201083e19e13efa55b4fb6a5de02f
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T16:46:09.948Z"
+              "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2025-03-26T10:17:49.163Z"
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 0,
-              "Title": "signIn.cs",
-              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
-              "ToolTip": "C:\\Users\\Zsiros.Mate.ferenc\\Desktop\\parkolo_project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
-              "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowDcAAABaAAAAAAAAAA==",
-=======
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "signIn.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs [Design]",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs [Design]",
               "RelativeToolTip": "project_alpha_0.1\\signIn.cs [Design]",
->>>>>>> 055e742ae56201083e19e13efa55b4fb6a5de02f
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T16:46:09.949Z",
+              "WhenOpened": "2025-03-26T10:17:49.164Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "signIn.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
               "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAwwFAAAAAiAAAAAAAAAA==",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEIAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T16:46:10.384Z",
+              "WhenOpened": "2025-03-26T10:17:49.166Z",
               "EditorCaption": ""
             }
           ]
