@@ -37,8 +37,6 @@ namespace project_alpha_0._1
             List<userData> userDataList = profileControl.GetUserData();
 
             panel1.Controls.Clear();
-            int xOffset = 0;
-            int yOffset = 0;
             int controlsPerRow = 3;
             int controlWidth = 190; // Adjust based on the actual width of userControlProfile
             int controlHeight = 175; // Adjust based on the actual height of userControlProfile
