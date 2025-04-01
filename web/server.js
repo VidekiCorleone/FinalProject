@@ -47,47 +47,46 @@ Promise.all([
     process.exit(1)
 })
 
-// Regisztrációs végpont
 server.post('/registration', async (req, res) => {
     try {
-      if (!req.body.regName || !req.body.regPassword || !req.body.regEmail) {
-        return res.status(400).json({ error: 'Hiányzó adat a regisztrációs kérésben!' });
-      }
-  
-      const existingUser = await dbHandler.userTable.findOne({
-        where: {
-          [Op.or]: [
-            { username: req.body.regName },
-            { email: req.body.regEmail }
-          ]
-        }
-      });
-  
-      if (existingUser) {
-        return res.status(400).json({ error: 'Már létezik ilyen felhasználónév vagy email cím!' });
-      }
-  
-      const hashedPassword = await bcrypt.hash(req.body.regPassword, 10);
-      const carId = await dbHandler.userTable.getNextCarId();
-      const reservationId = await dbHandler.userTable.getNextReservationId();
+        console.log('Regisztrációs kérés:', req.body);
 
-      const user = await dbHandler.userTable.create({
-        username: req.body.regName,
-        password: hashedPassword,
-        email: req.body.regEmail,
-        role: 0,
-        name: req.body.regName,
-        phone_num: req.body.regPhone || '123456789', // Alapértelmezett érték, ha nincs megadva
-        car_id: carId,
-        reservation_id: reservationId,
-      });
-  
-      return res.status(201).json({ message: 'Sikeres regisztráció' });
+        if (!req.body.registerName || !req.body.registerPassword || !req.body.registerEmail) {
+            return res.status(400).json({ error: 'Hiányzó adat a regisztrációs kérésben!' });
+        }
+
+        const existingUser = await dbHandler.userTable.findOne({
+            where: {
+                [Op.or]: [
+                    { username: req.body.registerName },
+                    { email: req.body.registerEmail }
+                ]
+            }
+        });
+
+        if (existingUser) {
+            return res.status(400).json({ error: 'Már létezik ilyen felhasználónév vagy email cím!' });
+        }
+
+        const hashedPassword = await bcrypt.hash(req.body.registerPassword, 10);
+
+        const user = await dbHandler.userTable.create({
+            username: req.body.registerName,
+            password: hashedPassword,
+            email: req.body.registerEmail,
+            role: 0,
+            name: req.body.registerName,
+            phone_num: req.body.registerPhone || '123456789',
+            car_id: req.body.car_id || 0, // Alapértelmezett érték
+            reservation_id: req.body.reservation_id || 0, // Alapértelmezett érték
+        });
+
+        return res.status(201).json({ message: 'Sikeres regisztráció' });
     } catch (error) {
-      console.error('Regisztrációs hiba:', error);
-      return res.status(500).json({ error: 'Regisztrációs hiba történt!' });
+        console.error('Regisztrációs hiba:', error);
+        return res.status(500).json({ error: 'Regisztrációs hiba történt!' });
     }
-  });
+});
 
 // Bejelentkezési végpont
 server.post('/login', async (req, res) => {
@@ -99,7 +98,7 @@ server.post('/login', async (req, res) => {
             });
         }
 
-        // Felhasználó keresése
+        // Felhasználó keresése email alapján
         const user = await dbHandler.userTable.findOne({
             where: { email: req.body.loginEmail }
         });
@@ -113,7 +112,7 @@ server.post('/login', async (req, res) => {
         // Jelszó ellenőrzése
         const isValidPassword = await bcrypt.compare(
             req.body.loginPassword,
-            user.password // JAVÍTVA: jelszo helyett password
+            user.password
         );
 
         if (!isValidPassword) {
