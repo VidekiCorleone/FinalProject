@@ -25,52 +25,44 @@ function App() {
     setShowRegistrationModal(false);
   };
 
-  const handleLoginSubmit = async () => {
-    try {
-      const response = await fetch('http://127.1.1.1:3000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'Application/JSON' },
-        body: JSON.stringify({
-          loginEmail: loginEmail,
-          loginPassword: loginPassword,
-        }),
-      });
-  
-      const result = await response.json();
-      if (response.status !== 200) {
-        console.log(result.message);
-        alert('Sikertelen bejelentkezés');
-        return;
+  const handleLoginSubmit = () => {
+    const loginRequest = new XMLHttpRequest();
+    loginRequest.open('POST', 'http://127.0.0.1:5173/login');
+    loginRequest.setRequestHeader('Content-Type', 'application/json');
+    loginRequest.send(
+      JSON.stringify({
+        loginEmail: loginEmail,
+        loginPassword: loginPassword,
+      })
+    );
+    loginRequest.onreadystatechange = () => {
+      if (loginRequest.status === 200 && loginRequest.readyState === 4) {
+        alert('Sikeres bejelentkezés');
+        handleCloseModal();
       }
-  
-      alert('Sikeres bejelentkezés');
-      handleCloseModal();
-    } catch (error) {
-      console.error('Bejelentkezési hiba:', error);
-      alert('Bejelentkezési hiba történt!');
-    }
+    };
   };
 
   const handleRegistrationSubmit = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:3000/registration', {
+      const response = await fetch('http://127.0.0.1:5173/registration', {
         method: 'POST',
         headers: { 'Content-Type': 'Application/JSON' },
         body: JSON.stringify({
-          regName: regName,
-          regPassword: regPassword,
-          regEmail: regEmail,
-          regPhone: regPhone || 'N/A', // Alapértelmezett érték, ha nincs megadva
+          registerName: regName,
+          registerPassword: regPassword,
+          registerEmail: regEmail,
+          registerPhone: regPhone || "123456789", // Alapértelmezett érték
         }),
       });
-  
+
       const result = await response.json();
       if (response.status !== 201) {
         console.log(result.message);
         alert('Sikertelen regisztráció');
         return;
       }
-  
+
       alert('Sikeres regisztráció');
       handleCloseModal();
     } catch (error) {

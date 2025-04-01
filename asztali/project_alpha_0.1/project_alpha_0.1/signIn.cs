@@ -49,6 +49,7 @@ namespace project_alpha_0._1
             button2.Left = this.Width / 2 + 40;
 
             this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.FromArgb(93, 135, 54);
 
             //Image kiskocsi = Image.FromFile("kiskocsi.png");
         }

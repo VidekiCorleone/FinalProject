@@ -13,10 +13,8 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 
 // CORS konfiguráció
-const allowedOrigins = [
+{const allowedOrigins = [
     'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'http://127.1.1.1:3000',
     'http://localhost:5173'
 ];
 
@@ -31,7 +29,8 @@ server.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
-}));
+}));}
+
 
 // Adatbázis szinkronizáció
 Promise.all([
