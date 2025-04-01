@@ -10,5 +10,6 @@ namespace project_alpha_0._1.osztalyok
     {
         public string uName { get; set; }
         public string uPass { get; set; }
+        public int uRole {  get; set; }
     }
 }
