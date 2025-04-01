@@ -150,6 +150,7 @@
     </Compile>
     <Compile Include="osztalyok\BejelentkezesiAdatok.cs" />
     <Compile Include="osztalyok\TokenValasz.cs" />
+    <Compile Include="osztalyok\userData.cs" />
     <Compile Include="parkinGarageEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +182,9 @@
     </Compile>
     <Compile Include="signIn.Designer.cs">
       <DependentUpon>signIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userControl-ok\userControlProfile.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="userEdit.cs">
       <SubType>Form</SubType>
@@ -230,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="signIn.resx">
       <DependentUpon>signIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userControl-ok\userControlProfile.resx">
+      <DependentUpon>userControlProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userEdit.resx">
       <DependentUpon>userEdit.cs</DependentUpon>

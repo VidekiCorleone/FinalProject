@@ -53,7 +53,7 @@ namespace project_alpha_0._1
             this.panel1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.panel1.Location = new System.Drawing.Point(82, 74);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(598, 350);
+            this.panel1.Size = new System.Drawing.Size(600, 350);
             this.panel1.TabIndex = 1;
             // 
             // button1
@@ -76,7 +76,7 @@ namespace project_alpha_0._1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(384, 470);
+            this.button3.Location = new System.Drawing.Point(385, 470);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 56);
             this.button3.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace project_alpha_0._1
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(534, 470);
+            this.button4.Location = new System.Drawing.Point(536, 470);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 56);
             this.button4.TabIndex = 5;
