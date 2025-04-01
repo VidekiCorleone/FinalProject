@@ -18,6 +18,36 @@ function App() {
     setShowLoginModal(false);
     setShowRegistrationModal(false);
   };
+  const handleRegistrationSubmit = async () => {
+    try {
+        const response = await fetch('http://127.1.1.1:3000/registration', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                registerName: regName,
+                registerPassword: regPassword,
+                registerEmail: regEmail,
+                registerPhone: regPhone
+            }),
+            credentials: 'include'
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert('Sikeres regisztráció');
+            handleCloseModal();
+        } else {
+            const errorData = await response.json();
+            console.error('Regisztrációs hiba:', errorData);
+            alert(`Hiba: ${errorData.error}`);
+        }
+    } catch (error) {
+        console.error('Regisztrációs hiba:', error);
+    }
+};
+
 
   const handleLoginSubmit = async () => {
     try {
