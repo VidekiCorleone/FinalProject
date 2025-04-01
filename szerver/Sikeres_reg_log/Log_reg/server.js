@@ -198,7 +198,10 @@ server.post('/login', loginLimiter, async (req, res) => {
             { expiresIn: '1h' }
         );
 
-        res.json({ token });
+        res.json({
+            token,
+            id:user.id
+            });
     } catch (error) {
         console.error('Bejelentkezési hiba:', error);
         res.status(500).json({ error: 'Bejelentkezési hiba!' });
