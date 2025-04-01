@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\",
+  "WorkspaceRootPath": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +30,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "userEdit.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\userEdit.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
-              "RelativeToolTip": "project_alpha_0.1\\userEdit.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAcwCoAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "userData.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userData.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\userData.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userData.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\userData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T18:08:23.335Z",
+              "WhenOpened": "2025-04-01T10:02:27.886Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "userEdit.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\userEdit.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs [Design]",
-              "RelativeToolTip": "project_alpha_0.1\\userEdit.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "userControlProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs*",
+              "RelativeToolTip": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs*",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAmwKQAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T17:47:26.142Z",
+              "WhenOpened": "2025-04-01T09:15:37.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "userControlProfile.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs [Design]*",
+              "RelativeToolTip": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T09:15:03.659Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "userControlProfile.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs [Design]",
-              "RelativeToolTip": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs [Design]",
+              "Title": "userEdit.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userEdit.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
+              "RelativeToolTip": "project_alpha_0.1\\userEdit.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwDEAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T17:47:12.269Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-01T09:14:07.775Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "userControlProfile.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "RelativeToolTip": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAD4v1kAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "userEdit.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userEdit.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\userEdit.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T17:46:47.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T09:13:10.469Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

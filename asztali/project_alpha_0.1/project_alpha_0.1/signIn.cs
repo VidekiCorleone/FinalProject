@@ -163,6 +163,7 @@ namespace project_alpha_0._1
                     loginUser = adatok.uName,
                     loginPassword = adatok.uPass,
                     role = adatok.uRole
+
                 };
 
                 var tartalom = new StringContent(
