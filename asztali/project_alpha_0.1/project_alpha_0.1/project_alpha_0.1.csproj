@@ -183,7 +183,7 @@
     <Compile Include="signIn.Designer.cs">
       <DependentUpon>signIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="userControl-ok\userControlProfile.cs">
+    <Compile Include="userCoontrol-ok\userControlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="userEdit.cs">
@@ -235,7 +235,7 @@
     <EmbeddedResource Include="signIn.resx">
       <DependentUpon>signIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userControl-ok\userControlProfile.resx">
+    <EmbeddedResource Include="userCoontrol-ok\userControlProfile.resx">
       <DependentUpon>userControlProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userEdit.resx">

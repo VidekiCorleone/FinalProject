@@ -1,59 +1,57 @@
-const express = require('express')
-const server = express()
-require('dotenv').config()
+const express = require('express');
+const server = express();
+require('dotenv').config();
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const rateLimit = require('express-rate-limit');
 const { Sequelize, DataTypes, Model, SequelizeUniqueConstraintError, Op } = require('sequelize');
 
-
 server.use(cors({
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
-server.use(express.json())
-server.use(express.static('public'))
-const PORT = process.env.PORT
 
-const JWT = require('jsonwebtoken')
-//middleware
+const JWT = require('jsonwebtoken');
 
-const timeLimit = '1h'
-const SUPERSECRET = process.env.SECRETKEY
+server.use(express.json());
+server.use(express.static('public'));
+const PORT = process.env.PORT;
 
-const dbHandler = require('./dbHandler')
-const exp = require('constants');
-const { error } = require('console');
 
+// Middleware
+const timeLimit = '1h';
+const SUPERSECRET = process.env.SECRETKEY;
+
+const dbHandler = require('./dbHandler');
+
+const exp = require('constants');//????
+const { error } = require('console');//????
 
 dbHandler.userTable.sync({ alter: true })
-    .then(() => dbHandler.carTable.sync({ alter: true })) 
+    .then(() => dbHandler.carTable.sync({ alter: true }))
     .then(() => dbHandler.parkhouseTable.sync({ alter: true }))
     .then(() => dbHandler.reservationTable.sync({ alter: true }))
     .then(() => {
         server.listen(PORT, () => {
-            console.log('A szerver a fut a ' + PORT + '-es porton');
+            console.log(`A szerver fut a ${PORT}-es porton`);
         });
     })
     .catch((error) => {
         console.error('Hiba történt a táblák szinkronizálása során:', error);
     });
 
-
-    const loginLimiter = rateLimit({
-        windowMs: 15 * 60 * 1000, 
-        max: 5, 
-        message: 'Túl sok próbálkozás. Kérlek várj!'
-    });
-
-
-
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 5,
+    message: 'Túl sok próbálkozás. Kérlek várj!'
+});
 
 server.get('/parkhouse/capacity', async (req, res) => {
     try {
-        const parkhouse = await dbHandler.parkhouseTable.findOne({ // Javítva: dbHandler.parkhouse -> dbHandler.parkhouseTable
+        const parkhouse = await dbHandler.parkhouseTable.findOne({ 
             where: {
-                id: 1 // Az első parkolóház, vagy ahol a parkolóház azonosítója
+                id: 1 
             }
         });
 
@@ -68,12 +66,10 @@ server.get('/parkhouse/capacity', async (req, res) => {
     res.end()
 })
 
-
-
 const authenticate = () => async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
-        
+
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
             return res.status(401).json({ 
                 error: 'Érvénytelen token formátum' 
@@ -92,15 +88,14 @@ const authenticate = () => async (req, res, next) => {
     }
 };
 
+
 server.get('/profile', authenticate(), async (req, res) => {
     try {
-        // Felhasználónév a JWT tokenből
-        const username = req.user.username;
+        const userId = req.user.id;
 
-        // Felhasználói adatok lekérdezése
         const user = await dbHandler.userTable.findOne({
-            where: { username: username }, // Keresés felhasználónév alapján
-            attributes: { exclude: ['password'] } // Jelszó kizárása a válaszból
+            where: { id: userId },
+            attributes: { exclude: ['password'] }
         });
 
         if (user) {
@@ -114,25 +109,25 @@ server.get('/profile', authenticate(), async (req, res) => {
     }
 });
 
+
 server.put('/profileDataUpdate', authenticate(), async (req, res) => {
     try {
-        const { username, password, name, email, phone_num } = req.body; // Módosítandó adatok
-        const currentUsername = req.user.username; // Tokenből kinyert jelenlegi felhasználónév
+        const { username, password, name, email, phone_num } = req.body;
+        const userId = req.user.id;
 
-        const user = await dbHandler.userTable.findOne({ where: { username: currentUsername } });
+        const user = await dbHandler.userTable.findOne({ where: { id: userId } });
 
         if (!user) {
             return res.status(404).json({ error: 'Felhasználó nem található!' });
         }
 
-        // Adatok frissítése
-        user.username = username || user.username; // Felhasználónév frissítése
-        user.password = password ? await bcrypt.hash(password, 10) : user.password; // Jelszó hash-elése és frissítése
+        user.username = username || user.username;
+        user.password = password ? await bcrypt.hash(password, 10) : user.password;
         user.name = name || user.name;
         user.email = email || user.email;
         user.phone_num = phone_num || user.phone_num;
 
-        await user.save(); // Mentés az adatbázisban
+        await user.save();
 
         res.json({ message: 'Adatok sikeresen frissítve', user });
     } catch (error) {
@@ -141,7 +136,7 @@ server.put('/profileDataUpdate', authenticate(), async (req, res) => {
     }
 });
 
-
+// Felhasználó regisztráció
 server.post('/register', async (req, res) => {
     try {
         console.log('Request body:', req.body); // Hibakereséshez
@@ -151,11 +146,11 @@ server.post('/register', async (req, res) => {
         }
 
         const existingUser = await dbHandler.userTable.findOne({
-            where: {
+            where: { 
                 [Op.or]: [
                     { username: req.body.registerUser },
                     { email: req.body.registerEmail }
-                ]
+                ] 
             }
         });
 
@@ -180,7 +175,7 @@ server.post('/register', async (req, res) => {
         });
 
         const token = JWT.sign(
-            { username: user.username, email: user.email, role: user.role },
+            { id: user.id, username: user.username, email: user.email, role: user.role },
             SUPERSECRET,
             { expiresIn: '1h' }
         );
@@ -192,8 +187,7 @@ server.post('/register', async (req, res) => {
     }
 });
 
-
-
+// Hibakezelés
 server.use((err, req, res, next) => {
     if (error instanceof Sequelize.UniqueConstraintError) {
         return res.status(400).json({
@@ -214,13 +208,12 @@ server.use((err, req, res, next) => {
     });
 });
 
-
+// Bejelentkezés ID alapú tokennel
 server.post('/login', loginLimiter, async (req, res) => {
     try {
-        const user = await dbHandler.userTable.findOne({
-            where: { username: req.body.loginUser }
-        });
-        
+        const user = await dbHandler.userTable.findOne({ 
+            where: { username: req.body.loginUser } });
+
         if (!user || !user.password) {
             return res.status(401).json({ error: 'Hibás felhasználónév vagy jelszó' });
         }
@@ -232,17 +225,21 @@ server.post('/login', loginLimiter, async (req, res) => {
         }
 
         const token = JWT.sign(
-            { username: user.username, email: user.email, role: user.role },
+            { id: user.id, username: user.username, email: user.email, role: user.role },
             SUPERSECRET,
             { expiresIn: '1h' }
         );
 
-        res.json({ token });
+        res.json({
+            token,
+            id:user.id
+            });
     } catch (error) {
         console.error('Bejelentkezési hiba:', error);
-        res.status(500).json({ error: 'Bejelentkezési hiba' });
+        res.status(500).json({ error: 'Bejelentkezési hiba!' });
     }
 });
+
 
 server.post('/loginAdmin', loginLimiter, async (req, res) => {
     try {

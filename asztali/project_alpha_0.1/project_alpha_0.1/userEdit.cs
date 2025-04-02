@@ -31,14 +31,15 @@ namespace project_alpha_0._1
         }
 
 
-        private void LoadUserControls()
+        private async void LoadUserControls()
         {
             userControlProfile profileControl = new userControlProfile();
-            List<userData> userDataList = profileControl.GetUserData();
+            List<userData> userDataList = await profileControl.GetUserDataAsync();
 
             panel1.Controls.Clear();
             int controlsPerRow = 2;
-            int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth - 16) / 2; // Adjust based on the actual width of userControlProfile
+            int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth) / 2; // Adjust based on the actual width of userControlProfile
+            panel1.Width = controlWidth * 2 + SystemInformation.VerticalScrollBarWidth;
             int controlHeight = 175; // Adjust based on the actual height of userControlProfile
             HashSet<string> addedUsernames = new HashSet<string>();
 
@@ -74,7 +75,9 @@ namespace project_alpha_0._1
         public void Start()
         {
             this.FormBorderStyle = FormBorderStyle.None;
+
             this.BackColor = Color.FromArgb(93, 135, 54);
+            label1.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Felhasználók kezelése";
             button1.Text = "Vissza";

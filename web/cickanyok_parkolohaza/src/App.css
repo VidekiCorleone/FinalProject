@@ -4,6 +4,7 @@
   left: 10px;
   display: flex;
   align-items: center;
+  margin-left: 20px; /* Ugyanaz a távolság, mint a menü */
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
@@ -11,8 +12,9 @@
 }
 
 .logo {
-  height: 50px;
-  margin-right: 10px;
+  width: 50px; /* Példa méret a logóhoz */
+  height: auto;
+  margin-right: 10px; /* Távolság a logó és a szöveg között */
 }
 
 .headerText {
@@ -106,4 +108,74 @@ body {
   align-items: center;
   margin: auto;
   margin-top: 4px;
+}
+
+.menu {
+  position: fixed; /* Rögzített pozíció a bal oldalon */
+  top: 70px;
+  left: 20px; /* Ugyanaz a távolság, mint a logónál */
+  width: 200px; /* Menüsáv szélessége */
+  background-color: #f4f4f4; /* Háttérszín */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Árnyék a menü jobb oldalán */
+  border-radius: 8px; /* Lekerekített sarkok */
+  color: black; /* Szöveg színe */
+  z-index: 1000; /* Magasabb réteg, mint a háttér */
+}
+
+.menu h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column; /* Gombok egymás alá helyezése */
+}
+
+.menu-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: green; /* Gomb háttérszíne */
+  color: white; /* Gomb szövegszíne */
+  border-radius: 5px;
+  text-align: left; /* Szöveg balra igazítása */
+}
+
+.menu-button:hover {
+  background-color: #0056b3; /* Hover állapot színe */
+}
+
+.logout-button {
+  position: fixed; /* Rögzített pozíció */
+  top: 20px; /* Távolság a felső éltől */
+  right: 20px; /* Távolság a jobb éltől */
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.8);
+  
+  color: rgb(0, 0, 0); /* Fehér szöveg */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Árnyék */
+}
+
+.logout-button:hover {
+  background-color: #a71d2a; /* Hover állapot színe */
+}
+
+.user-data {
+  position: center; /* Középre helyezés helyett pontos pozíció */
+  background-color: rgba(255, 255, 255, 0.9); /* Háttérszín */
+  padding: 20px; /* Nagyobb belső margó */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+  color: black; /* Szöveg színe */
+  width: 300px; /* Szélesség */
+  font-size: 18px; /* Nagyobb betűméret */
+  font-weight: bold; /* Félkövér szöveg */
 }
