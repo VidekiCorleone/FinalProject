@@ -114,7 +114,7 @@ body {
   position: fixed; /* Rögzített pozíció a bal oldalon */
   top: 70px;
   left: 20px; /* Ugyanaz a távolság, mint a logónál */
-  width: 200px; /* Menüsáv szélessége */
+  width: 600px; /* Menüsáv szélessége */
   background-color: #f4f4f4; /* Háttérszín */
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Árnyék a menü jobb oldalán */
@@ -124,7 +124,7 @@ body {
 }
 
 .menu h1 {
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -136,7 +136,7 @@ body {
 
 .menu-button {
   padding: 10px 15px;
-  font-size: 16px;
+  font-size: 26px;
   cursor: pointer;
   border: none;
   background-color: green; /* Gomb háttérszíne */
@@ -175,7 +175,8 @@ body {
   border-radius: 8px; /* Lekerekített sarkok */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
   color: black; /* Szöveg színe */
-  width: 300px; /* Szélesség */
+  width: 400px; /* Szélesség */
+  height: 400px;
   font-size: 18px; /* Nagyobb betűméret */
   font-weight: bold; /* Félkövér szöveg */
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import clickSound from './assets/audio.mp3';
 
 function App() {
   // Állapotok
@@ -142,17 +143,24 @@ function App() {
           <p><strong>Email:</strong> {userData.email}</p>
           <p><strong>Telefonszám:</strong> {userData.phone_num}</p>
           <p><strong>Szerepkör:</strong> {userData.role}</p>
+          <p><strong>Rendszám:</strong> {userData.plate}</p>
+          <p><strong>Típus:</strong> {userData.type}</p>
         </div>
       )}
     </>
   );
+
+  const playSound = () => {
+    const audio = new Audio(clickSound);
+    audio.play();
+  };
 
   // JSX Struktúra
   return (
     <>
       {/* Fejléc */}
       <div className="header">
-        <img src="./src/assets/smartcar.png" alt="Logo" className="logo" />
+        <img src="./src/assets/smartcar.png" alt="Logo" className="logo"  onClick={playSound}/>
         <span className="headerText">Cickányok parkolóháza</span>
       </div>
 
