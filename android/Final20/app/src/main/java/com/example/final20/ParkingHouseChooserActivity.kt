@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.gridlayout.widget.GridLayout
 import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
@@ -49,13 +50,18 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
     }
 
     private fun generateParkingButtons(jsonArray: JSONArray) {
-        val layout = findViewById<LinearLayout>(R.id.buttonContainer) // Hely, ahová gombokat rakunk
+        val layout = findViewById<GridLayout>(R.id.buttonContainer2) // GridLayout használata
+        layout.columnCount = 2 // Maximum 2 oszlop
 
         for (i in 0 until jsonArray.length()) {
             val parkhouse = jsonArray.getJSONObject(i)
             val button = Button(this)
 
             button.text = parkhouse.getString("name") // Parkolóház neve
+            button.layoutParams = GridLayout.LayoutParams().apply {
+                width = 400 // Gomb szélessége
+                height = 400 // Gomb magassága
+            }
             button.setOnClickListener {
                 Toast.makeText(this, "Kiválasztott parkolóház: ${parkhouse.getString("name")}", Toast.LENGTH_SHORT).show()
             }

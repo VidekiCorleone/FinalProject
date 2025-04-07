@@ -13,7 +13,7 @@ class ChoosingMenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choosing_menu)
 
 
-        val myProfileBTN = findViewById<Button>(R.id.myCarBTN)
+        val myProfileBTN = findViewById<Button>(R.id.myProfileBTN)
         val parkingSlotsBTN = findViewById<Button>(R.id.ParkingPickBTN)
         val myReservationsBTN = findViewById<Button>(R.id.MyBookingBTN)
         val logOutBTN = findViewById<Button>(R.id.LogoutBTN)
