@@ -9,16 +9,17 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
-class PasswordChangerActivity : AppCompatActivity() {
+class CarProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_password_changer)
+        setContentView(R.layout.activity_car_profile)
 
-        val backBTN = findViewById<Button>(R.id.backBTN2)
-        val changePasswordBTN = findViewById<Button>(R.id.ChangePassBTN)
-        val oldPasswordET = findViewById<EditText>(R.id.editTextText)
-        val newPasswordET = findViewById<EditText>(R.id.editTextText2)
-        val newPasswordAgainET = findViewById<EditText>(R.id.editTextText3)
+        val plateNumberET = findViewById<EditText>(R.id.plateNumberET_CR)
+        val carHeightET = findViewById<EditText>(R.id.heightET_CR)
+        val carTypeET = findViewById<EditText>(R.id.typeET_CR)
+        val registerCarBTN = findViewById<Button>(R.id.registerCarBTN) // Gomb hozzáadása
+        val backBTN = findViewById<Button>(R.id.BackBTN5)
+
 
         val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
         val token = sharedPreferences.getString("TOKEN", null)
@@ -32,25 +33,21 @@ class PasswordChangerActivity : AppCompatActivity() {
             finish()
         }
 
-        changePasswordBTN.setOnClickListener {
-            val oldPassword = oldPasswordET.text.toString().trim()
-            val newPassword = newPasswordET.text.toString().trim()
-            val newPasswordAgain = newPasswordAgainET.text.toString().trim()
+        registerCarBTN.setOnClickListener {
+            val plateNumber = plateNumberET.text.toString().trim()
+            val carHeight = carHeightET.text.toString().trim()
+            val carType = carTypeET.text.toString().trim()
 
-            if (oldPassword.isEmpty() || newPassword.isEmpty() || newPasswordAgain.isEmpty()) {
-                Toast.makeText(this, "Kérlek tölts ki minden mezőt!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (newPassword != newPasswordAgain) {
-                Toast.makeText(this, "Az új jelszavak nem egyeznek!", Toast.LENGTH_SHORT).show()
+            if (plateNumber.isEmpty() || carHeight.isEmpty() || carType.isEmpty()) {
+                Toast.makeText(this, "Minden mezőt ki kell tölteni!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val client = OkHttpClient()
             val json = JSONObject().apply {
-                put("oldPassword", oldPassword)
-                put("newPassword", newPassword)
+                put("plate", plateNumber)
+                put("height", carHeight)
+                put("type", carType)
             }
 
             val body = RequestBody.create(
@@ -59,17 +56,17 @@ class PasswordChangerActivity : AppCompatActivity() {
             )
 
             val request = Request.Builder()
-                .url("http://10.0.2.2:3000/changePassword")
+                .url("http://10.0.2.2:3000/registerCar")
                 .addHeader("Authorization", "Bearer $token")
-                .put(body)
+                .post(body)
                 .build()
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     runOnUiThread {
                         Toast.makeText(
-                            this@PasswordChangerActivity,
-                            "Nem sikerült frissíteni a jelszót!",
+                            this@CarProfileActivity,
+                            "Nem sikerült regisztrálni az autót!",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -79,16 +76,15 @@ class PasswordChangerActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         runOnUiThread {
                             Toast.makeText(
-                                this@PasswordChangerActivity,
-                                "Jelszó sikeresen frissítve!",
+                                this@CarProfileActivity,
+                                "Az autó sikeresen regisztrálva lett!",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            finish() // Visszalépés a főképernyőre
                         }
                     } else {
                         runOnUiThread {
                             Toast.makeText(
-                                this@PasswordChangerActivity,
+                                this@CarProfileActivity,
                                 "Hiba történt: ${response.message()}",
                                 Toast.LENGTH_SHORT
                             ).show()
