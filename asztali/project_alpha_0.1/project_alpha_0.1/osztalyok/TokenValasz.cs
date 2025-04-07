@@ -8,6 +8,7 @@ namespace project_alpha_0._1.osztalyok
 {
     public class TokenValasz
     {
-        public string Token { get; set; }
+        public static string Token { get; set; }
     }
+
 }

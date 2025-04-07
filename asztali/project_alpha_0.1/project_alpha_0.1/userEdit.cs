@@ -31,42 +31,20 @@ namespace project_alpha_0._1
         }
 
 
-        private void LoadUserControls()
+        private async void LoadUserControls()
         {
-            userControlProfile profileControl = new userControlProfile();
-            List<userData> userDataList = profileControl.GetUserData();
+            
 
             panel1.Controls.Clear();
             int controlsPerRow = 2;
-            int controlWidth = (this.Width - SystemInformation.VerticalScrollBarWidth) / 2; // Adjust based on the actual width of userControlProfile
+            int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth) / 2; // Adjust based on the actual width of userControlProfile
+            panel1.Width = controlWidth * 2 + SystemInformation.VerticalScrollBarWidth;
             int controlHeight = 175; // Adjust based on the actual height of userControlProfile
             HashSet<string> addedUsernames = new HashSet<string>();
 
-            for (int i = 0; i < userDataList.Count; i++)
+            for (int i = 0; i < null; i++)
             {
-                var userData = userDataList[i];
-                if (addedUsernames.Contains(userData.username))
-                {
-                    continue; // Skip if the user has already been added
-                }
-
-                userControlProfile userControl = new userControlProfile();
-                userControl.textBox1.Text = userData.name;
-                userControl.textBox2.Text = userData.username;
-                userControl.textBox3.Text = userData.email;
-                userControl.textBox4.Text = userData.phoneNumber.ToString();
-                userControl.textBox5.Text = userData.password;
-
-                int row = i / controlsPerRow;
-                int col = i % controlsPerRow;
-
-                userControl.Location = new System.Drawing.Point(
-                    col * (controlWidth),
-                    row * (controlHeight)
-                );
-
-                panel1.Controls.Add(userControl);
-                addedUsernames.Add(userData.username); // Add the username to the set
+                
             }
         }
 
@@ -75,7 +53,9 @@ namespace project_alpha_0._1
         public void Start()
         {
             this.FormBorderStyle = FormBorderStyle.None;
+
             this.BackColor = Color.FromArgb(93, 135, 54);
+            label1.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Felhasználók kezelése";
             button1.Text = "Vissza";

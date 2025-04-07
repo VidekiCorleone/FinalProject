@@ -28,9 +28,10 @@ namespace project_alpha_0._1
             this.BackgroundImage = image;
 
             this.FormBorderStyle = FormBorderStyle.None;
-            pictureBox1.BackColor = Color.FromArgb(93, 135, 54);
+
             dataGridView1.BackgroundColor = Color.FromArgb(93, 135, 54);
             label1.BackColor = Color.FromArgb(93, 135, 54);
+            pictureBox1.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Cickányok parkolóháza";
             button1.Text = "Bejelentkezés";

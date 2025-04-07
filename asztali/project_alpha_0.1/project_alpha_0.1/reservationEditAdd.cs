@@ -23,7 +23,15 @@ namespace project_alpha_0._1
         public void Start()
         {
             this.FormBorderStyle = FormBorderStyle.None;
+
             this.BackColor = Color.FromArgb(93, 135, 54);
+            label1.BackColor = Color.FromArgb(93, 135, 54);
+            label2.BackColor = Color.FromArgb(93, 135, 54);
+            label3.BackColor = Color.FromArgb(93, 135, 54);
+            label4.BackColor = Color.FromArgb(93, 135, 54);
+            label5.BackColor = Color.FromArgb(93, 135, 54);
+            label6.BackColor = Color.FromArgb(93, 135, 54);
+            label7.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Foglalás hozzáadása";
             label2.Text = "Név:";
