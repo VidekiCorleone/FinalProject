@@ -242,7 +242,8 @@ server.post('/login', loginLimiter, async (req, res) => {
 server.post('/registerCar', authenticate(), async (req, res) => {
     try {
         const { plate, height, type } = req.body;
-        const ownerId = req.user.id; 
+        const user = await dbHandler.userTable.findOne({ where: { id: req.user.id } });
+        const ownerId = user ? user.car_id : null;
 
         if (!plate || !height || !type) {
             return res.status(400).json({ error: 'Hiányzó adat az autó regisztrációhoz!' });
@@ -333,5 +334,42 @@ server.post('/loginAdmin', loginLimiter, async (req, res) => {
     } catch (error) {
         console.error('Bejelentkezési hiba:', error);
         res.status(500).json({ error: 'Bejelentkezési hiba' });
+    }
+});
+
+
+server.get('/parkhouses', async (req, res) => {
+    try {
+        const parkhouses = await dbHandler.parkhouseTable.findAll();
+        res.json(parkhouses);
+    } catch (error) {
+        console.error('Hiba a parkolóházak lekérdezésekor:', error);
+        res.status(500).json({ error: 'Nem sikerült lekérni a parkolóházakat' });
+    }
+});
+
+server.put('/changePassword', authenticate(), async (req, res) => {
+    try {
+        const { oldPassword, newPassword } = req.body;
+        const userId = req.user.id;
+
+        const user = await dbHandler.userTable.findOne({ where: { id: userId } });
+
+        if (!user) {
+            return res.status(404).json({ error: 'Felhasználó nem található!' });
+        }
+
+        const isValidPassword = await bcrypt.compare(oldPassword, user.password);
+        if (!isValidPassword) {
+            return res.status(401).json({ error: 'Hibás régi jelszó!' });
+        }
+
+        user.password = await bcrypt.hash(newPassword, 10);
+        await user.save();
+
+        res.json({ message: 'Jelszó sikeresen frissítve!' });
+    } catch (error) {
+        console.error('Jelszó módosítási hiba:', error);
+        res.status(500).json({ error: 'Hiba történt a jelszó módosítása során!' });
     }
 });
