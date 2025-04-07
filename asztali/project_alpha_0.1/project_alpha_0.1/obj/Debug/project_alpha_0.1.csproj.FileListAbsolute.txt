@@ -108,6 +108,7 @@ C:\Users\matez\Desktop\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\
 C:\Users\matez\Desktop\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
 C:\Users\matez\Desktop\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.exe
 C:\Users\matez\Desktop\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.pdb
+<<<<<<< HEAD
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.AssemblyReference.cache
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.Form1.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.Menu.resources
@@ -218,3 +219,5 @@ C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\
 C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
 C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.exe
 C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.pdb
+=======
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7

@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\",
   "Documents": [
     {
@@ -17,6 +18,46 @@
     {
       "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+  "WorkspaceRootPath": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\",
+  "Documents": [
+    {
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\projekt\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> abe37207fcf7ed6a34b8e60e2653e03b249aa43c
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\bejelentkezesiadatok.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\bejelentkezesiadatok.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\useredit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
     }
   ],
   "DocumentGroupContainers": [
@@ -26,10 +67,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "signIn.cs",
               "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
@@ -79,6 +121,127 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T09:46:18.267Z",
               "EditorCaption": ""
+=======
+<<<<<<< HEAD
+              "DocumentIndex": 0,
+              "Title": "userControlProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "RelativeToolTip": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAowFsAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T09:13:30.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "userControlProfile.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userControl-ok\\userControlProfile.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\userControl-ok\\userControlProfile.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T09:13:27.119Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
+              "RelativeToolTip": "project_alpha_0.1\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAA9AAAA",
+=======
+              "DocumentIndex": 3,
+              "Title": "BejelentkezesiAdatok.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\BejelentkezesiAdatok.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\BejelentkezesiAdatok.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\BejelentkezesiAdatok.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\BejelentkezesiAdatok.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+>>>>>>> abe37207fcf7ed6a34b8e60e2653e03b249aa43c
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T17:43:17.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TokenValasz.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T16:30:40.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\Form1.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\projekt\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\Form1.cs [Design]",
+              "RelativeToolTip": "project_alpha_0.1\\Form1.cs [Design]",
+=======
+              "DocumentIndex": 1,
+              "Title": "signIn.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowEkAAAAQAAAAAAAAAA==",
+>>>>>>> abe37207fcf7ed6a34b8e60e2653e03b249aa43c
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T16:09:35.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "userData.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userData.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\userData.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userData.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\userData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T16:03:11.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "userEdit.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userEdit.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
+              "RelativeToolTip": "project_alpha_0.1\\userEdit.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAA7wDwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T15:46:10.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "userControlProfile.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
+              "RelativeToolTip": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAADwv4kAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T14:45:14.601Z",
+              "EditorCaption": ""
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
             }
           ]
         }

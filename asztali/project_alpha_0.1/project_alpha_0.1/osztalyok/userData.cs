@@ -13,9 +13,12 @@ namespace project_alpha_0._1.osztalyok
         public string email { get; set; }
         public int phoneNumber { get; set; }
         public string password { get; set; }
+<<<<<<< HEAD
         public string role { get; set; }
         public string token { get; set; }
         public string message { get; set; }
+=======
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
 
     }
 }

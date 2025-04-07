@@ -33,7 +33,12 @@ namespace project_alpha_0._1
 
         private async void LoadUserControls()
         {
+<<<<<<< HEAD
             
+=======
+            userControlProfile profileControl = new userControlProfile();
+            List<userData> userDataList = await profileControl.GetUserDataAsync();
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
 
             panel1.Controls.Clear();
             int controlsPerRow = 2;
@@ -44,7 +49,32 @@ namespace project_alpha_0._1
 
             for (int i = 0; i < null; i++)
             {
+<<<<<<< HEAD
                 
+=======
+                var userData = userDataList[i];
+                if (addedUsernames.Contains(userData.username))
+                {
+                    continue; // Skip if the user has already been added
+                }
+
+                userControlProfile userControl = new userControlProfile();
+                userControl.textBox1.Text = userData.name;
+                userControl.textBox2.Text = userData.username;
+                userControl.textBox3.Text = userData.email;
+                userControl.textBox4.Text = userData.phoneNumber.ToString();
+
+                int row = i / controlsPerRow;
+                int col = i % controlsPerRow;
+
+                userControl.Location = new System.Drawing.Point(
+                    col * (controlWidth),
+                    row * (controlHeight)
+                );
+
+                panel1.Controls.Add(userControl);
+                addedUsernames.Add(userData.username); // Add the username to the set
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
             }
         }
 
