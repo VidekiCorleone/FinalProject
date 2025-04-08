@@ -1,5 +1,23 @@
 {
   "Version": 1,
+<<<<<<< HEAD
+  "WorkspaceRootPath": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\httprequestek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\httprequestek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\zsiros.mate.ferenc\\desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
   "WorkspaceRootPath": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\",
   "Documents": [
     {
@@ -20,6 +38,7 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\tokenvalasz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,10 +49,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 1,
+              "Title": "signIn.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\signIn.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
+              "RelativeToolTip": "project_alpha_0.1\\signIn.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowD8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T09:52:18.907Z",
+=======
               "DocumentIndex": 4,
               "Title": "TokenValasz.cs",
               "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\TokenValasz.cs",
@@ -43,10 +73,22 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T16:30:40.156Z",
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 2,
+              "Title": "userData.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userData.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\userData.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\userData.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\userData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T09:50:15.19Z",
+=======
               "DocumentIndex": 0,
               "Title": "signIn.cs",
               "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\signIn.cs",
@@ -69,11 +111,22 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T16:03:11.929Z",
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+<<<<<<< HEAD
+              "Title": "TokenValasz.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\TokenValasz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T09:48:13.171Z",
+=======
               "Title": "userEdit.cs",
               "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEdit.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\userEdit.cs",
@@ -82,10 +135,22 @@
               "ViewState": "AgIAACEAAAAAAAAAAAA7wDwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T15:46:10.355Z",
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 0,
+              "Title": "HttpRequestek.cs",
+              "DocumentMoniker": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
+              "ToolTip": "C:\\Users\\Zsiros.Mate.Ferenc\\Desktop\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
+              "RelativeToolTip": "project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwDYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T09:46:18.267Z",
+=======
               "DocumentIndex": 1,
               "Title": "userControlProfile.cs",
               "DocumentMoniker": "C:\\Users\\matez\\Desktop\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
@@ -95,6 +160,7 @@
               "ViewState": "AgIAAHUAAAAAAAAAAAAmwIcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T14:45:14.601Z",
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
               "EditorCaption": ""
             }
           ]

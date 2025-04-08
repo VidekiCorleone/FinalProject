@@ -148,7 +148,7 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="osztalyok\BejelentkezesiAdatok.cs" />
+    <Compile Include="osztalyok\HttpRequestek.cs" />
     <Compile Include="osztalyok\TokenValasz.cs" />
     <Compile Include="osztalyok\userData.cs" />
     <Compile Include="parkinGarageEdit.cs">

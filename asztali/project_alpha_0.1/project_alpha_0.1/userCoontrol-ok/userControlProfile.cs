@@ -59,6 +59,14 @@ namespace project_alpha_0._1.userCoontrol_ok
             button1.Left = button2.Left - button1.Width - 10;
             button3.Left = button2.Left + button2.Width + 10;
 
+<<<<<<< HEAD
+            
+        }
+
+
+
+        
+=======
             List<userData> users = await GetUserDataAsync();
 
             if (users.Count > 0)
@@ -185,6 +193,7 @@ namespace project_alpha_0._1.userCoontrol_ok
                 return new List<userData>(); // Üres lista hiba esetén
             }
         }
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
 
         private void InitializeComponent()
         {

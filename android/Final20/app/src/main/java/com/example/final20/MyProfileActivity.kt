@@ -25,10 +25,6 @@ class MyProfileActivity : AppCompatActivity() {
         val passwordChanger = findViewById<Button>(R.id.passwordChangeBTN)
 
 
-        var isPasswordVisible = false
-
-
-
         val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
         val token = sharedPreferences.getString("TOKEN", null)
         val userId = sharedPreferences.getString("USER_ID", null) // ID tárolása

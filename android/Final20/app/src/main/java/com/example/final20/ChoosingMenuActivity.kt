@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class ChoosingMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,10 +13,11 @@ class ChoosingMenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choosing_menu)
 
 
-        val myProfileBTN = findViewById<Button>(R.id.MyProfileBTN)
+        val myProfileBTN = findViewById<Button>(R.id.myProfileBTN)
         val parkingSlotsBTN = findViewById<Button>(R.id.ParkingPickBTN)
         val myReservationsBTN = findViewById<Button>(R.id.MyBookingBTN)
         val logOutBTN = findViewById<Button>(R.id.LogoutBTN)
+        val carProfileBTN = findViewById<Button>(R.id.myCarBTN)
 
 
         myProfileBTN.setOnClickListener {
@@ -33,6 +32,11 @@ class ChoosingMenuActivity : AppCompatActivity() {
 
         myReservationsBTN.setOnClickListener {
             val intent = Intent(this, MyReservationActivity::class.java)
+            startActivity(intent)
+        }
+
+        carProfileBTN.setOnClickListener {
+            val intent = Intent(this, CarProfileActivity::class.java)
             startActivity(intent)
         }
 

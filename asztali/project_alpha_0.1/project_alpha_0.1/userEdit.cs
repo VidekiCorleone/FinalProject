@@ -33,8 +33,12 @@ namespace project_alpha_0._1
 
         private async void LoadUserControls()
         {
+<<<<<<< HEAD
+            
+=======
             userControlProfile profileControl = new userControlProfile();
             List<userData> userDataList = await profileControl.GetUserDataAsync();
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
 
             panel1.Controls.Clear();
             int controlsPerRow = 2;
@@ -43,8 +47,11 @@ namespace project_alpha_0._1
             int controlHeight = 175; // Adjust based on the actual height of userControlProfile
             HashSet<string> addedUsernames = new HashSet<string>();
 
-            for (int i = 0; i < userDataList.Count; i++)
+            for (int i = 0; i < null; i++)
             {
+<<<<<<< HEAD
+                
+=======
                 var userData = userDataList[i];
                 if (addedUsernames.Contains(userData.username))
                 {
@@ -67,6 +74,7 @@ namespace project_alpha_0._1
 
                 panel1.Controls.Add(userControl);
                 addedUsernames.Add(userData.username); // Add the username to the set
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
             }
         }
 

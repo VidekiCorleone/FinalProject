@@ -15,13 +15,11 @@ namespace project_alpha_0._1
 {
     public partial class signIn : Form
     {
-        private readonly HttpClient _httpClient;
+        HttpRequestek request = new HttpRequestek();
 
         public signIn()
         {
             InitializeComponent();
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://127.1.1.1:3000/loginAdmin");
             Start();
             button1.Click += closeFunc;
             button2.Click += signInFunc;
@@ -60,56 +58,16 @@ namespace project_alpha_0._1
 
         public async void signInFunc(object s, EventArgs e)
         {
-            /*var user = textBox1.Text.ToLower();
-            var pass = textBox2.Text.ToLower();*/
-
-
-
-            try
+            string result = await request.postLogin(textBox1.Text, textBox2.Text);
+            MessageBox.Show(result);
+            if (result == "Sikeres bejelentkezés, shalom!")
             {
-                // Várakozási állapot jelzése
-                button2.Enabled = false;
-                button2.Text = "Bejelentkezés...";
-
-                string felhasznalonev = textBox1.Text.Trim();
-                string jelszo = textBox2.Text;
-
-                if (string.IsNullOrEmpty(felhasznalonev) || string.IsNullOrEmpty(jelszo))
-                {
-                    MessageBox.Show("Kérlek töltsd ki mindkét mezőt!");
-                    Visszaallitas();
-                    return;
-                }
-
-                BejelentkezesiAdatok bejelentkezesiAdatok = new BejelentkezesiAdatok
-                {
-                    uName = felhasznalonev,
-                    uPass = jelszo,
-                    uRole = 2
-                };
-
-                var tokenValasz = await Bejelentkezes(bejelentkezesiAdatok);
-
-                if (tokenValasz != null && !string.IsNullOrEmpty(tokenValasz.Token))
-                {
-                    Properties.Settings.Default.Token = tokenValasz.Token;
-                    Properties.Settings.Default.Save();
-
-                    this.DialogResult = DialogResult.OK;
-                    this.Hide();
-                    Menu menu = new Menu();
-                    menu.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Hibás felhasználónév, jelszó vagy nem megfelelő jogosultság!");
-                    Visszaallitas();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Váratlan hiba történt: {ex.Message}");
-                Visszaallitas();
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                button1.Enabled = false;
+                Menu menu = new Menu();
+                menu.Show();
+                this.Hide();
             }
 
 
@@ -126,12 +84,6 @@ namespace project_alpha_0._1
                 const string caption = "Helytelen adat";
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }*/
-        }
-
-        private void Visszaallitas()
-        {
-            button2.Enabled = true;
-            button2.Text = "Bejelentkezés";
         }
 
         public void closeFunc(object s, EventArgs e)
@@ -157,6 +109,8 @@ namespace project_alpha_0._1
                 button2.PerformClick();
             }
         }
+<<<<<<< HEAD
+=======
 
         private async Task<TokenValasz> Bejelentkezes(BejelentkezesiAdatok adatok)
         {
@@ -202,5 +156,6 @@ namespace project_alpha_0._1
                 return null;
             }
         }
+>>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
     }
 }

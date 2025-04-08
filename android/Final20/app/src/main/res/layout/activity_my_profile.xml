@@ -37,7 +37,7 @@
                     app:srcCompat="@drawable/smart_car_1820656__1_" />
 
                 <TextView
-                    android:id="@+id/myprofileTV"
+                    android:id="@+id/myCarTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
@@ -50,7 +50,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/nameTV"
+                    android:id="@+id/plateNumberTV2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -61,7 +61,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/myprofileTV" />
+                    app:layout_constraintTop_toBottomOf="@id/myCarTV" />
 
                 <EditText
                     android:id="@+id/nameET"
@@ -74,7 +74,7 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/nameTV" />
+                    app:layout_constraintTop_toBottomOf="@id/plateNumberTV2" />
 
                 <TextView
                     android:id="@+id/emailTV"
@@ -130,7 +130,7 @@
                     app:layout_constraintTop_toBottomOf="@id/telNumberTV" />
 
                 <TextView
-                    android:id="@+id/plateNumberTV"
+                    android:id="@+id/usernameTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -152,7 +152,7 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/plateNumberTV" />
+                    app:layout_constraintTop_toBottomOf="@id/usernameTV" />
 
                 <Button
                     android:id="@+id/BackBTN"
