@@ -19,7 +19,7 @@ data class ParkhouseCapacity(val capacity: Int)
 
 // Retrofit interfész az API végpont lekérdezéséhez
 interface ParkhouseService {
-    @GET("/parkhouse/capacity")
+    @GET("/parkhouse/capacity/1")
     fun getParkhouseCapacity(): Call<ParkhouseCapacity>
 }
 

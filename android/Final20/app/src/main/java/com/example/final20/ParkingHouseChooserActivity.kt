@@ -1,6 +1,10 @@
 package com.example.final20
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.util.Size
+import android.webkit.WebSettings.TextSize
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -33,9 +37,13 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
+
                 if (response.isSuccessful) {
                     val responseBody = response.body()?.string()
                     val jsonArray = JSONArray(responseBody)
+
+                    Log.d("fetchParkhouses", "Lekérés indult...")
+                    Log.d("fetchParkhouses", "Response: $responseBody")
 
                     runOnUiThread {
                         generateParkingButtons(jsonArray)
@@ -50,23 +58,50 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
     }
 
     private fun generateParkingButtons(jsonArray: JSONArray) {
-        val layout = findViewById<GridLayout>(R.id.buttonContainer2) // GridLayout használata
-        layout.columnCount = 2 // Maximum 2 oszlop
+        val layout = findViewById<GridLayout>(R.id.buttonContainer2)
+
 
         for (i in 0 until jsonArray.length()) {
             val parkhouse = jsonArray.getJSONObject(i)
             val button = Button(this)
 
-            button.text = parkhouse.getString("name") // Parkolóház neve
+            // Gomb szöveg beállítása
+            button.text = parkhouse.optString("name", "Ismeretlen parkolóház")
             button.layoutParams = GridLayout.LayoutParams().apply {
-                width = 400 // Gomb szélessége
-                height = 400 // Gomb magassága
-            }
-            button.setOnClickListener {
-                Toast.makeText(this, "Kiválasztott parkolóház: ${parkhouse.getString("name")}", Toast.LENGTH_SHORT).show()
+                width = 550
+                height = 550
+                setMargins(20, 20, 20, 20)
             }
 
-            layout.addView(button) // Gomb hozzáadása a felülethez
+            // Gombhoz megfelelő Activity hozzárendelése
+            button.setOnClickListener {
+                val intent = when (parkhouse.getInt("id")) {
+                    1 -> Intent(this, ParkingHouseAActivity::class.java)
+                    2 -> Intent(this, ParkingHouseBActivity::class.java)
+                    3 -> Intent(this, ParkingHouseCActivity::class.java)
+                    4 -> Intent(this, ParkingHouseDActivity::class.java)
+                    else -> {
+                        Toast.makeText(this, "Ismeretlen parkolóház!", Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener
+                    }
+                }
+
+                // Ha további adatokat kell átadni az Activity-nek:
+                intent.putExtra("parkhouseId", parkhouse.getInt("id"))
+                intent.putExtra("parkhouseName", parkhouse.optString("name", "Ismeretlen"))
+
+                startActivity(intent) // Új Activity indítása
+            }
+
+            layout.addView(button)
         }
     }
+
+//            button.setOnClickListener {
+//                val intent = Intent(this, ParkingSlotActivity::class.java)
+//                intent.putExtra("parkhouseId", parkhouse.getString("_id")) // Parkolóház ID átadása
+//                startActivity(intent)
+//            }
+
+
 }
