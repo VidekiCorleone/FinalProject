@@ -348,8 +348,8 @@ server.post('/loginAdmin', async (req, res) => {
             { expiresIn: '1h' }
         );
 
-        console.log(token)
-        console.log(user)
+        //console.log(token)
+        //console.log(user)
         res.json({ "token":token, 'id': user.id, 'name': user.name, 'username': user.username, 'email': user.email, 'phone_num': user.phone_num, 'role': user.role});
     } catch (error) {
         console.error('Bejelentkezési hiba:', error);

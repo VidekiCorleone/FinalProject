@@ -12,6 +12,7 @@ using MySqlX.XDevAPI;
 
 namespace project_alpha_0._1.userCoontrol_ok
 {
+
     internal class userControlProfile : UserControl
     {
         public Label label1;
@@ -29,29 +30,38 @@ namespace project_alpha_0._1.userCoontrol_ok
         public Label label5;
         public Label label4;
 
+        HttpRequestek request = new HttpRequestek();
+
         public userControlProfile()
         {
             InitializeComponent();
             Start();
+            button1.Click += GetReady;
+            button2.Click += editData;
         }
 
         public async void Start()
         {
-            label1.Text = "Név: ";
+            label1.Text = "Név:";
             label1.BackColor = Color.FromArgb(169, 196, 108);
             label2.Text = "Felhasználónév: ";
             label2.BackColor = Color.FromArgb(169, 196, 108);
-            label3.Text = "E-mail: ";
+            label3.Text = "E-mail:";
             label3.BackColor = Color.FromArgb(169, 196, 108);
-            label4.Text = "Telefonszám: ";
+            label4.Text = "Telefonszám:";
             label4.BackColor = Color.FromArgb(169, 196, 108);
-            label5.Text = "Jelszó: ";
+            label5.Text = "Jelszó:";
             label5.BackColor = Color.FromArgb(169, 196, 108);
 
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            textBox4.Enabled = false;
             textBox5.Enabled = false;
 
             button1.Text = "Módosítás";
             button2.Text = "Mentés";
+            button2.Enabled = false;
             button3.Text = "Törlés";
 
             this.BackColor = Color.FromArgb(244, 255, 195);
@@ -64,7 +74,35 @@ namespace project_alpha_0._1.userCoontrol_ok
             
         }
 
-        
+        public void GetReady(object s, EventArgs e)
+        {
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
+            textBox3.Enabled = true;
+            textBox4.Enabled = true;
+            textBox5.Enabled = true;
+
+            button1.Enabled = false;
+            button2.Enabled = true;
+        }
+
+        public async void editData(object s, EventArgs e)
+        {
+            string result = await request.putProfileDataUpdate(textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, int.Parse(textBox4.Text));
+            MessageBox.Show(result);
+            if(result == "Adatok sikeresen frissítve!")
+            {
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                textBox3.Enabled = false;
+                textBox4.Enabled = false;
+                textBox5.Enabled = false;
+
+                button1.Enabled = true;
+                button2.Enabled = false;
+            }
+
+        }
 
 
 
