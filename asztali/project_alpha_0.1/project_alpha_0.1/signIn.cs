@@ -109,53 +109,5 @@ namespace project_alpha_0._1
                 button2.PerformClick();
             }
         }
-<<<<<<< HEAD
-=======
-
-        private async Task<TokenValasz> Bejelentkezes(BejelentkezesiAdatok adatok)
-        {
-            try
-            {
-                var bejelentkezesiObjektum = new
-                {
-                    loginUser = adatok.uName,
-                    loginPassword = adatok.uPass,
-                    role = adatok.uRole
-                };
-
-                var tartalom = new StringContent(
-                    JsonConvert.SerializeObject(bejelentkezesiObjektum),
-                    Encoding.UTF8,
-                    "application/json"
-                );
-
-                var valasz = await _httpClient.PostAsync("http://127.1.1.1:3000/loginAdmin", tartalom);
-
-                if (!valasz.IsSuccessStatusCode)
-                {
-                    /*var hibaUzenet = await valasz.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Bejelentkezési hiba: {hibaUzenet}");*/
-                    return null;
-                }
-
-                var tokenValaszJson = await valasz.Content.ReadAsStringAsync();
-
-                try
-                {
-                    return JsonConvert.DeserializeObject<TokenValasz>(tokenValaszJson);
-                }
-                catch (JsonException ex)
-                {
-                    MessageBox.Show($"Hibás válasz formátum: {ex.Message}");
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hálózati hiba: {ex.Message}");
-                return null;
-            }
-        }
->>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
     }
 }

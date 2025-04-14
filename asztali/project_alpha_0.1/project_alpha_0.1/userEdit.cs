@@ -22,6 +22,7 @@ namespace project_alpha_0._1
             InitializeComponent();
             
             Start();
+
             button1.Click += backBtn;
             button2.Click += deleteBtn;
             button3.Click += modifyBtn;
@@ -33,48 +34,54 @@ namespace project_alpha_0._1
 
         private async void LoadUserControls()
         {
-<<<<<<< HEAD
-            
-=======
-            userControlProfile profileControl = new userControlProfile();
-            List<userData> userDataList = await profileControl.GetUserDataAsync();
->>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
 
-            panel1.Controls.Clear();
-            int controlsPerRow = 2;
-            int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth) / 2; // Adjust based on the actual width of userControlProfile
-            panel1.Width = controlWidth * 2 + SystemInformation.VerticalScrollBarWidth;
-            int controlHeight = 175; // Adjust based on the actual height of userControlProfile
-            HashSet<string> addedUsernames = new HashSet<string>();
-
-            for (int i = 0; i < null; i++)
+            try
             {
-<<<<<<< HEAD
-                
-=======
-                var userData = userDataList[i];
-                if (addedUsernames.Contains(userData.username))
+                int xPosition = 0;
+                int yPosition = 0;
+                int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth) / 2; // Adjust based on the actual width of userControlProfile
+                panel1.Width = controlWidth * 2 + SystemInformation.VerticalScrollBarWidth;
+                int controlHeight = 175; // Adjust based on the actual height of userControlProfile
+
+                HttpRequestek request = new HttpRequestek();
+
+                List<UserProfile> userProfiles = await request.getUserProfiles();
+
+                panel1.Controls.Clear();
+
+
+                for (int i = 0; i < userProfiles.Count; i++)
                 {
-                    continue; // Skip if the user has already been added
+                    var user = userProfiles[i];
+
+                    var userProfileControl = new userControlProfile()
+                    {
+                        textBox1 = { Text = user.name },
+                        textBox2 = { Text = user.username },
+                        textBox3 = { Text = user.email },
+                        textBox4 = { Text = user.phone_num },
+                        textBox5 = { Text = "********" } // Password is not displayed
+                    };
+
+                    userProfileControl.Location = new Point(xPosition, yPosition);
+                    userProfileControl.Size = new Size(controlWidth, controlHeight);
+
+                    panel1.Controls.Add(userProfileControl);
+
+                    if ((i + 1) % 2 == 0)
+                    {
+                        xPosition = 0;
+                        yPosition += controlHeight;
+                    }
+                    else
+                    {
+                        xPosition += controlWidth;
+                    }
                 }
-
-                userControlProfile userControl = new userControlProfile();
-                userControl.textBox1.Text = userData.name;
-                userControl.textBox2.Text = userData.username;
-                userControl.textBox3.Text = userData.email;
-                userControl.textBox4.Text = userData.phoneNumber.ToString();
-
-                int row = i / controlsPerRow;
-                int col = i % controlsPerRow;
-
-                userControl.Location = new System.Drawing.Point(
-                    col * (controlWidth),
-                    row * (controlHeight)
-                );
-
-                panel1.Controls.Add(userControl);
-                addedUsernames.Add(userData.username); // Add the username to the set
->>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Valami nagyon el van baszva ", e.Message);
             }
         }
 

@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace project_alpha_0._1.osztalyok
 {
-    internal class userData
+    internal class UserProfile
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string username { get; set; }
         public string email { get; set; }
-        public int phoneNumber { get; set; }
-        public string password { get; set; }
-        public string role { get; set; }
-        public string token { get; set; }
-        public string message { get; set; }
+        public string phone_num { get; set; }
+        public string username { get; set; }
 
     }
 }

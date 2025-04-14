@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using System.Text;
+using MySqlX.XDevAPI;
 
 namespace project_alpha_0._1.userCoontrol_ok
 {
@@ -31,7 +32,6 @@ namespace project_alpha_0._1.userCoontrol_ok
         public userControlProfile()
         {
             InitializeComponent();
-
             Start();
         }
 
@@ -48,6 +48,8 @@ namespace project_alpha_0._1.userCoontrol_ok
             label5.Text = "Jelszó: ";
             label5.BackColor = Color.FromArgb(169, 196, 108);
 
+            textBox5.Enabled = false;
+
             button1.Text = "Módosítás";
             button2.Text = "Mentés";
             button3.Text = "Törlés";
@@ -59,141 +61,13 @@ namespace project_alpha_0._1.userCoontrol_ok
             button1.Left = button2.Left - button1.Width - 10;
             button3.Left = button2.Left + button2.Width + 10;
 
-<<<<<<< HEAD
             
         }
 
-
-
         
-=======
-            List<userData> users = await GetUserDataAsync();
-
-            if (users.Count > 0)
-            {
-                for (int i = 0; i < users.Count; i++)
-                {
-                    var userData = users[0];
-                    textBox1.Text = userData.name;
-                    textBox2.Text = userData.username;
-                    textBox3.Text = userData.email;
-                    textBox4.Text = userData.phoneNumber.ToString();
-                }
-
-            }
-        }
-
-        private HttpClient _httpClient;
-        private readonly string BaseUrl = "http://127.1.1.1:3000"; // A szerver URL-je
 
 
-        private async Task<TokenValasz> Bejelentkezes(BejelentkezesiAdatok adatok)
-        {
-            try
-            {
-                var bejelentkezesiObjektum = new
-                {
-                    loginUser = adatok.uName,
-                    loginPassword = adatok.uPass,
-                    role = adatok.uRole
-                };
 
-                var tartalom = new StringContent(
-                    JsonConvert.SerializeObject(bejelentkezesiObjektum),
-                    Encoding.UTF8,
-                    "application/json"
-                );
-
-                var valasz = await _httpClient.PostAsync("http://127.1.1.1:3000/loginAdmin", tartalom);
-
-                if (!valasz.IsSuccessStatusCode)
-                {
-                    /*var hibaUzenet = await valasz.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Bejelentkezési hiba: {hibaUzenet}");*/
-                    return null;
-                }
-
-                var tokenValaszJson = await valasz.Content.ReadAsStringAsync();
-
-                try
-                {
-                    return JsonConvert.DeserializeObject<TokenValasz>(tokenValaszJson);
-                }
-                catch (JsonException ex)
-                {
-                    MessageBox.Show($"Hibás válasz formátum: {ex.Message}");
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hálózati hiba: {ex.Message}");
-                return null;
-            }
-        }
-
-
-        TokenValasz tokenValasz = new TokenValasz();
-
-        
-        public async Task<List<userData>> GetUserDataAsync()
-        {
-
-            BejelentkezesiAdatok bejelentkezesiAdatok = new BejelentkezesiAdatok
-            {
-                uName = felhasznalonev,
-                uPass = jelszo,
-                uRole = 2
-            };
-
-
-            var tokenValasz = await Bejelentkezes(bejelentkezesiAdatok);
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(BaseUrl);
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenValasz.Token);
-
-
-                    // HTTP GET kérés küldése
-                    HttpResponseMessage response = await client.GetAsync("/profile");
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("Nem sikerült lekérdezni az adatokat.");
-                        return new List<userData>(); // Üres lista visszaadása hiba esetén
-                    }
-
-                    // JSON válasz feldolgozása
-                    string jsonString = await response.Content.ReadAsStringAsync();
-                    var users = JsonConvert.DeserializeObject<List<userData>>(jsonString);
-
-                    // UserControl-ok hozzáadása
-                    foreach (var user in users)
-                    {
-                        var userControl = new userControlProfile
-                        {
-                            textBox1 = { Text = user.name },
-                            textBox2 = { Text = user.username },
-                            textBox3 = { Text = user.email },
-                            textBox4 = { Text = user.phoneNumber.ToString() },
-                            textBox5 = { Text = "[Titkosított jelszó]" } // A jelszó nem visszafejthető
-                        };
-
-                        panel1.Controls.Add(userControl); // Panelhez hozzáadás
-                    }
-
-                    return users; // Felhasználói lista visszaadása
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hiba történt: {ex.Message}");
-                return new List<userData>(); // Üres lista hiba esetén
-            }
-        }
->>>>>>> 585c1f699e7fe2245f3811ca44b1b8f55ed6a1f7
 
         private void InitializeComponent()
         {
