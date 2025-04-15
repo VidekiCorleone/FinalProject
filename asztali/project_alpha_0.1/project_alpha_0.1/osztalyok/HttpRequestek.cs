@@ -43,16 +43,22 @@ namespace project_alpha_0._1.osztalyok
                 };
 
                 string jsonString = JsonConvert.SerializeObject(JsonData);
-                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "Application/JSON");
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(url, sendThis);
 
                 string result = await response.Content.ReadAsStringAsync();
                 message = JsonConvert.DeserializeObject<userData>(result);
                 TokenValasz.Token = message.token;
                 //MessageBox.Show(message.token);
-                MessageBox.Show(TokenValasz.Token);
+                //MessageBox.Show(TokenValasz.Token);
                 //MessageBox.Show(message.message);
-                response.EnsureSuccessStatusCode();
+                if (!response.IsSuccessStatusCode)
+                {
+                    // Írjuk ki, melyik státuszkód és az esetleges hibaüzenet a válaszból
+                    MessageBox.Show($"Hiba: {response.StatusCode}\nVálasz: {result}");
+                    return "Hiba történt a bejelentkezés során!";
+                }
+
                 return "Sikeres bejelentkezés, shalom!";
             }
             catch (Exception e)
@@ -69,7 +75,6 @@ namespace project_alpha_0._1.osztalyok
             }
             
         }
-
 
         public async Task<List<UserProfile>> getUserProfiles()
         {
@@ -91,5 +96,45 @@ namespace project_alpha_0._1.osztalyok
                 return userList;
             }
         }
+
+        public async Task<string> putProfileDataUpdate(int id, string uName, string pName, string uPass, string uEmail, int uPhone)
+        {
+            string url = "http://127.1.1.1:3000/profileDataUpdate/" + id;
+            userData message = new userData();
+
+            try
+            {
+                var JsonData = new {
+                    username = uName,
+                    name = pName,
+                    email = uEmail,
+                    phone_num = uPhone,
+                    password = uPass
+                };
+
+                string jsonString = JsonConvert.SerializeObject(JsonData);
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "Application/JSON");
+                HttpResponseMessage response = await client.PutAsync(url, sendThis);
+
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<userData>(result);
+                TokenValasz.Token = message.token;
+                response.EnsureSuccessStatusCode();
+                return "Adatok sikeresen frissítve!";
+            }
+            catch (Exception e)
+            {
+                if (message == null)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                else
+                {
+                    MessageBox.Show(message.message);
+                }
+                return "Hiba történt az adatok frissítése során!";
+            }
+        }
+
     }
 }

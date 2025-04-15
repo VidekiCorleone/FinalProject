@@ -162,7 +162,6 @@ C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
 C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\bin\Debug\project_alpha_0.1.exe.config
 C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\bin\Debug\project_alpha_0.1.exe
 C:\Users\Zsiros.Mate.Ferenc\Desktop\asztali\project_alpha_0.1\project_alpha_0.1\bin\Debug\project_alpha_0.1.pdb
@@ -273,3 +272,4 @@ E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_a
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.exe
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.pdb
+C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.CopyComplete

@@ -60,7 +60,7 @@ namespace project_alpha_0._1
                         textBox2 = { Text = user.username },
                         textBox3 = { Text = user.email },
                         textBox4 = { Text = user.phone_num },
-                        textBox5 = { Text = "********" } // Password is not displayed
+                        textBox5 = { Text = "" } // Password is not displayed
                     };
 
                     userProfileControl.Location = new Point(xPosition, yPosition);
