@@ -16,84 +16,99 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 
+
+
 class ParkingHouseBActivity : AppCompatActivity() {
+
+    private var selectedNum: Int = 0
+
+
+    private lateinit var createButtons: Button
+    private lateinit var buttonContainer: GridLayout
+    private val buttonList = mutableListOf<Button>() // Lista a gombok tárolására
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_parking_house_bactivity)
 
+        buttonContainer = findViewById(R.id.buttonContainer)
+
+        // Call `createDynamicButtons` when the app starts
+        createDynamicButtons()
+
+        val BTN_back = findViewById<Button>(R.id.backBTN)
+        BTN_back.setOnClickListener {
+            val intent = Intent(this, ParkingHouseChooserActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
-        class ParkingHouseABctivity : AppCompatActivity() {
+    }
+    private fun generateButtons(numberOfButtons: Int) {
+        Log.d("ParkingHouseBActivity", "Gombok generálása, száma: $numberOfButtons")
+        buttonContainer.removeAllViews()
+        buttonList.clear()
 
-            private var selectedNum: Int = 0
-
-
-            private lateinit var createButtons: Button
-            private lateinit var buttonContainer: GridLayout
-            private val buttonList = mutableListOf<Button>() // Lista a gombok tárolására
-
-
-            override fun onCreate(savedInstanceState: Bundle?) {
-                super.onCreate(savedInstanceState)
-                setContentView(R.layout.activity_parking_house_bactivity)
-
-
-                buttonContainer = findViewById(R.id.buttonContainer)
-
-                // Az alkalmazás indításakor hívjuk meg a `createDynamicButtons` metódust
-                createDynamicButtons()
-
-                val BTN_back = findViewById<Button>(R.id.backBTN);
-                BTN_back.setOnClickListener {
-                    val intent = Intent(this, ParkingHouseChooserActivity::class.java)
-                    startActivity(intent)
-                }
+        for (i in 1..numberOfButtons) {
+            val button = Button(this)
+            button.text = "Parking slot $i"
+            button.layoutParams = GridLayout.LayoutParams().apply {
+                width = 500
+                height = GridLayout.LayoutParams.WRAP_CONTENT
+                setMargins(8, 8, 8, 8)
             }
-            private fun createDynamicButtons() {
-               // val service = RetrofitClient.instance.create(ParkhouseService::class.java)
-
-                // A parkolóház ID-t dinamikusan adhatod át
-                val parkhouseId = 2 // Példa ID, dinamikusan is átadható
-                service.getParkhouseCapacity(parkhouseId).enqueue(object : retrofit2.Callback<ParkhouseCapacity> {
-                    override fun onResponse(call: Call<ParkhouseCapacity>, response: retrofit2.Response<ParkhouseCapacity>) {
-                        if (response.isSuccessful) {
-                            val capacity = response.body()?.capacity ?: 0
-                            generateButtons(capacity)
-                        } else {
-                            Toast.makeText(this@ParkingHouseBActivity, "Hiba a kapacitás lekérdezésénél", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-
-                    override fun onFailure(call: Call<ParkhouseCapacity>, t: Throwable) {
-                        Toast.makeText(this@ParkingHouseBActivity, "Hálózati hiba: ${t.message}", Toast.LENGTH_SHORT).show()
-                    }
-                })
+            button.setOnClickListener {
+                selectedNum = i
+                val dialog = DialogFragment(selectedNum)
+                dialog.show(supportFragmentManager, "CustomDialog")
             }
-
-            private fun generateButtons(numberOfButtons: Int) {
-                Log.d("ParkingHouseBActivity", "Gombok generálása, száma: $numberOfButtons")
-                buttonContainer.removeAllViews()
-                buttonList.clear()
-
-                for (i in 1..numberOfButtons) {
-                    val button = Button(this)
-                    button.text = "Parking slot $i"
-                    button.layoutParams = GridLayout.LayoutParams().apply {
-                        width = 500
-                        height = GridLayout.LayoutParams.WRAP_CONTENT
-                        setMargins(8, 8, 8, 8)
-                    }
-                    button.setOnClickListener {
-                        selectedNum = i
-                        val dialog = DialogFragment(selectedNum)
-                        dialog.show(supportFragmentManager, "CustomDialog")
-                    }
-                    buttonContainer.addView(button)
-                    buttonList.add(button)
-                }
-            }
+            buttonContainer.addView(button)
+            buttonList.add(button)
         }
     }
+
+
+
+    private fun createDynamicButtons() {
+        val service = RetrofitClient.instance.create(ParkhouseService::class.java)
+
+        // A parkolóház ID-t dinamikusan adhatod át
+        val parkhouseId = 2 // Példa ID, dinamikusan is átadható
+        service.getParkhouseCapacity(parkhouseId)
+            .enqueue(object : retrofit2.Callback<ParkhouseCapacity> {
+                override fun onResponse(
+                    call: Call<ParkhouseCapacity>,
+                    response: retrofit2.Response<ParkhouseCapacity>
+                ) {
+                    Log.d("ParkHouseBActivity", "Kapacitás lekérdezés indítása.")
+                    if (response.isSuccessful) {
+                        val capacity = response.body()?.capacity ?: 0
+                        Log.d("ParkHouseBActivity", "API válasz kapacitás: $capacity")
+                        generateButtons(capacity)
+                    } else {
+                        Log.d("ParkHouseBActivity", "API válasz sikertelen.")
+                        Toast.makeText(this@ParkingHouseBActivity, "Hiba a kapacitás lekérdezésénél", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ParkhouseCapacity>, t: Throwable) {
+                    Log.e("ParkHouseBActivity", "Hálózati hiba: ${t.message}")
+                }
+            })
+    }
 }
+
+
+object RetrofitClient {
+    private const val BASE_URL = "http://10.0.2.2:3000/" // Az emulátor IP címe
+
+    val instance: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+}
+

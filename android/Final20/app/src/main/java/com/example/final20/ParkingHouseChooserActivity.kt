@@ -71,6 +71,8 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
                 width = 550
                 height = 550
                 setMargins(20, 20, 20, 20)
+                setGravity(android.view.Gravity.CENTER)
+
             }
 
             // Gombhoz megfelelő Activity hozzárendelése
@@ -96,12 +98,4 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
             layout.addView(button)
         }
     }
-
-//            button.setOnClickListener {
-//                val intent = Intent(this, ParkingSlotActivity::class.java)
-//                intent.putExtra("parkhouseId", parkhouse.getString("_id")) // Parkolóház ID átadása
-//                startActivity(intent)
-//            }
-
-
 }

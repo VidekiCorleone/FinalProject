@@ -14,13 +14,14 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 data class ParkhouseCapacity(val capacity: Int)
 
 // Retrofit interfész az API végpont lekérdezéséhez
 interface ParkhouseService {
-    @GET("/parkhouse/capacity/1")
-    fun getParkhouseCapacity(): Call<ParkhouseCapacity>
+    @GET("parkhouse/capacity/{id}")
+    fun getParkhouseCapacity(@Path("id") parkhouseId: Int): Call<ParkhouseCapacity>
 }
 
 class ParkingHouseAActivity : AppCompatActivity() {
@@ -50,26 +51,21 @@ class ParkingHouseAActivity : AppCompatActivity() {
         }
     }
     private fun createDynamicButtons() {
-        // Retrofit példány létrehozása
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:3000/") // A szerver alap URL-je (10.0.2.2 az emulátornak)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        val service = RetrofitClient.instance.create(ParkhouseService::class.java)
 
-        val service = retrofit.create(ParkhouseService::class.java)
-
-        service.getParkhouseCapacity().enqueue(object : retrofit2.Callback<ParkhouseCapacity> {
+        val parkhouseId = 1 // Use the appropriate ID for Parking House A
+        service.getParkhouseCapacity(parkhouseId).enqueue(object : retrofit2.Callback<ParkhouseCapacity> {
             override fun onResponse(call: Call<ParkhouseCapacity>, response: retrofit2.Response<ParkhouseCapacity>) {
                 if (response.isSuccessful) {
                     val capacity = response.body()?.capacity ?: 0
                     generateButtons(capacity)
                 } else {
-                    Toast.makeText(this@ParkingHouseAActivity, "Hiba a kapacitás lekérdezésénél", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ParkingHouseAActivity, "Error fetching capacity", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ParkhouseCapacity>, t: Throwable) {
-                Toast.makeText(this@ParkingHouseAActivity, "Hálózati hiba: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ParkingHouseAActivity, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
