@@ -97,9 +97,9 @@ namespace project_alpha_0._1.osztalyok
             }
         }
 
-        public async Task<string> putProfileDataUpdate(string uName, string pName, string uPass, string uEmail, int uPhone)
+        public async Task<string> putProfileDataUpdate(int id, string uName, string pName, string uPass, string uEmail, int uPhone)
         {
-            string url = "http://127.1.1.1:3000/profileDataUpdate";
+            string url = "http://127.1.1.1:3000/profileDataUpdate/" + id;
             userData message = new userData();
 
             try

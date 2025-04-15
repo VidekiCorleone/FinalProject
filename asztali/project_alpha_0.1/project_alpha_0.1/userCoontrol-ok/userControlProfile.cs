@@ -88,7 +88,7 @@ namespace project_alpha_0._1.userCoontrol_ok
 
         public async void editData(object s, EventArgs e)
         {
-            string result = await request.putProfileDataUpdate(textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, int.Parse(textBox4.Text));
+            string result = await request.putProfileDataUpdate(, textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, int.Parse(textBox4.Text));
             MessageBox.Show(result);
             if(result == "Adatok sikeresen frissítve!")
             {
