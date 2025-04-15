@@ -141,7 +141,7 @@ body {
   border: none;
   background-color: green; /* Gomb háttérszíne */
   color: white; /* Gomb szövegszíne */
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: left; /* Szöveg balra igazítása */
 }
 
@@ -159,7 +159,7 @@ body {
   
   color: rgb(0, 0, 0); /* Fehér szöveg */
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Árnyék */
 }

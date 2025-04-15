@@ -95,6 +95,8 @@ server.get('/profile', authenticate(), async (req, res) => {
         });
 
         if (user) {
+            //console.log("KOLBÁSZ");
+            //console.log(user)
             res.json(user);
         } else {
             res.status(404).json({ error: 'Felhasználó nem található!' });
@@ -104,6 +106,22 @@ server.get('/profile', authenticate(), async (req, res) => {
         res.status(500).json({ error: 'Profil lekérdezési hiba!' });
     }
 });
+
+server.get('/profileAdmin', authenticate(), async (req, res) => {
+    try {
+        const user = await dbHandler.userTable.findAll()
+
+        if(!user){
+            res.status(404).json({error : "Nincs felhasználó!"})
+        }
+        else{
+            res.json(user)
+        }
+    } catch (error) {
+        console.error('profil lekérdezési hiba: ', error)
+        res.status(500).json({ error : "Profil lekérdezési hiba!"})
+    }
+})
 
 
 server.put('/profileDataUpdate', authenticate(), async (req, res) => {
@@ -306,7 +324,7 @@ server.put('/updateCar', authenticate(), async (req, res) => {
 });
 
 
-server.post('/loginAdmin', loginLimiter, async (req, res) => {
+server.post('/loginAdmin', async (req, res) => {
     try {
         const user = await dbHandler.userTable.findOne({
             where: { username: req.body.loginUser, role: 2 }
@@ -323,12 +341,14 @@ server.post('/loginAdmin', loginLimiter, async (req, res) => {
         }
 
         const token = JWT.sign(
-            { username: user.username, email: user.email, role: user.role },
+            { id: user.id, name: user.name, username: user.username, email: user.email, role: user.role },
             SUPERSECRET,
             { expiresIn: '1h' }
         );
 
-        res.json({ token });
+        console.log(token)
+        console.log(user)
+        res.json({ "token":token, 'id': user.id, 'name': user.name, 'username': user.username, 'email': user.email, 'phone_num': user.phone_num, 'role': user.role});
     } catch (error) {
         console.error('Bejelentkezési hiba:', error);
         res.status(500).json({ error: 'Bejelentkezési hiba' });

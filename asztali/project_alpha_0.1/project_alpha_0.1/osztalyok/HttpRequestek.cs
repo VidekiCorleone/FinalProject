@@ -9,12 +9,25 @@ using Newtonsoft.Json;
 using project_alpha_0._1.osztalyok;
 using Org.BouncyCastle.Asn1.X509;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace project_alpha_0._1.osztalyok
 {
     internal class HttpRequestek
     {
         HttpClient client = new HttpClient();
+        
+        public HttpRequestek()
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", TokenValasz.Token);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Hiba történt a token beállításakor: " + e.Message);
+            }
+        }
 
         public async Task<string> postLogin(string username, string password)
         {
@@ -28,6 +41,7 @@ namespace project_alpha_0._1.osztalyok
                     loginPassword = password,
                     role = 2
                 };
+
                 string jsonString = JsonConvert.SerializeObject(JsonData);
                 StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "Application/JSON");
                 HttpResponseMessage response = await client.PostAsync(url, sendThis);
@@ -35,11 +49,10 @@ namespace project_alpha_0._1.osztalyok
                 string result = await response.Content.ReadAsStringAsync();
                 message = JsonConvert.DeserializeObject<userData>(result);
                 TokenValasz.Token = message.token;
-                MessageBox.Show(message.token);
+                //MessageBox.Show(message.token);
                 MessageBox.Show(TokenValasz.Token);
-                MessageBox.Show(message.message);
+                //MessageBox.Show(message.message);
                 response.EnsureSuccessStatusCode();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", TokenValasz.Token);
                 return "Sikeres bejelentkezés, shalom!";
             }
             catch (Exception e)
@@ -55,6 +68,28 @@ namespace project_alpha_0._1.osztalyok
                 return "Hiba történt a bejelentkezés során!";
             }
             
+        }
+
+
+        public async Task<List<UserProfile>> getUserProfiles()
+        {
+            string url = "http://127.1.1.1:3000/profileAdmin";
+            List<UserProfile> userList = new List<UserProfile>();
+
+            try
+            {
+
+                string response = await client.GetStringAsync(url);
+                userList = JsonConvert.DeserializeObject<List<UserProfile>>(response);
+
+                return userList;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Tyű valami nemjo "+ e.Message);
+                return userList;
+            }
         }
     }
 }

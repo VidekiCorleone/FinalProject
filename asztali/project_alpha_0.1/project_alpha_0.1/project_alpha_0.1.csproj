@@ -151,6 +151,7 @@
     <Compile Include="osztalyok\HttpRequestek.cs" />
     <Compile Include="osztalyok\TokenValasz.cs" />
     <Compile Include="osztalyok\userData.cs" />
+    <Compile Include="osztalyok\UserProfile.cs" />
     <Compile Include="parkinGarageEdit.cs">
       <SubType>Form</SubType>
     </Compile>

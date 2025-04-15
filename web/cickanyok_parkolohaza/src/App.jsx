@@ -8,12 +8,14 @@ function App() {
   const [showUserData, setShowUserData] = useState(false); // Felhasználói adatok megjelenítésének állapota
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
-  const [loginEmail, setLoginEmail] = useState('');
+  const [loginUser, setLoginUser] = useState(''); // Felhasználónév állapot
   const [loginPassword, setLoginPassword] = useState('');
   const [regEmail, setRegEmail] = useState('');
   const [regPassword, setRegPassword] = useState('');
   const [regName, setRegName] = useState('');
   const [regPhone, setRegPhone] = useState('');
+  const [carId, setCarId] = useState('');
+  const [reservationId, setReservationId] = useState('');
   const [loggedIN, setLoggedIN] = useState(!!sessionStorage.getItem('token'));
 
   // Eseménykezelők
@@ -26,16 +28,19 @@ function App() {
 
   const handleRegistrationSubmit = async () => {
     try {
-      const response = await fetch('http://127.1.1.1:3000/registration', {
+      const response = await fetch('http://127.1.1.1:3000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          registerName: regName,
+          registerUser: regName, // Correctly map the username
           registerPassword: regPassword,
           registerEmail: regEmail,
           registerPhone: regPhone,
+          registerName: regName, // Include the name field
+          carId: carId,
+          reservationId
         }),
         credentials: 'include',
       });
@@ -68,7 +73,7 @@ function App() {
         method: 'POST',
         headers: { 'Content-Type': 'Application/JSON' },
         body: JSON.stringify({
-          loginEmail: loginEmail,
+          loginUser: loginUser, // Felhasználónév küldése
           loginPassword: loginPassword,
         }),
       });
@@ -99,7 +104,7 @@ function App() {
         return;
       }
 
-      const response = await fetch('http://127.1.1.1:3000/get-user-data', {
+      const response = await fetch('http://127.1.1.1:3000/profile', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`, // Token küldése a fejlécben
@@ -142,7 +147,7 @@ function App() {
           <p><strong>Felhasználónév:</strong> {userData.username}</p>
           <p><strong>Email:</strong> {userData.email}</p>
           <p><strong>Telefonszám:</strong> {userData.phone_num}</p>
-          <p><strong>Szerepkör:</strong> {userData.role}</p>
+          <p><strong>Szerepkör:</strong> {userData.role === 0 ? 'Felhasználó' : userData.role}</p>
           <p><strong>Rendszám:</strong> {userData.plate}</p>
           <p><strong>Típus:</strong> {userData.type}</p>
         </div>
@@ -205,14 +210,14 @@ function App() {
               &times;
             </span>
             <h2>Bejelentkezés</h2>
-            <label htmlFor="loginEmail">Email:</label>
+            <label htmlFor="loginUser">Felhasználónév:</label>
             <br />
             <input
-              type="email"
-              id="loginEmail"
-              name="loginEmail"
-              value={loginEmail}
-              onChange={(e) => setLoginEmail(e.target.value)}
+              type="text"
+              id="loginUser"
+              name="loginUser"
+              value={loginUser}
+              onChange={(e) => setLoginUser(e.target.value)}
             />
             <br />
             <label htmlFor="loginPassword">Jelszó:</label>
