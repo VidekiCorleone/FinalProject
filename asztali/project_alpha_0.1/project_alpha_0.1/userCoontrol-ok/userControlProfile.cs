@@ -15,6 +15,8 @@ namespace project_alpha_0._1.userCoontrol_ok
 
     internal class userControlProfile : UserControl
     {
+        public int userID { get; set; }
+
         public Label label1;
         public TextBox textBox1;
         public TextBox textBox2;
@@ -88,7 +90,13 @@ namespace project_alpha_0._1.userCoontrol_ok
 
         public async void editData(object s, EventArgs e)
         {
-            string result = await request.putProfileDataUpdate(, textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, int.Parse(textBox4.Text));
+            if(userID <= 0)
+            {
+                MessageBox.Show("Hibás felhasználó azonosító!");
+                return;
+            }
+
+            string result = await request.putProfileDataUpdate(userID, textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, int.Parse(textBox4.Text));
             MessageBox.Show(result);
             if(result == "Adatok sikeresen frissítve!")
             {

@@ -56,6 +56,7 @@ namespace project_alpha_0._1
 
                     var userProfileControl = new userControlProfile()
                     {
+                        userID = user.id,
                         textBox1 = { Text = user.name },
                         textBox2 = { Text = user.username },
                         textBox3 = { Text = user.email },

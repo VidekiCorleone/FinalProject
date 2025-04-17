@@ -99,8 +99,9 @@ namespace project_alpha_0._1.osztalyok
 
         public async Task<string> putProfileDataUpdate(int id, string uName, string pName, string uPass, string uEmail, int uPhone)
         {
-            string url = "http://127.1.1.1:3000/profileDataUpdate/" + id;
-            userData message = new userData();
+            string url = "http://127.1.1.1:3000/profileDataUpdateAdmin/" + id;
+            userData message = null;
+            
 
             try
             {
@@ -118,7 +119,13 @@ namespace project_alpha_0._1.osztalyok
 
                 string result = await response.Content.ReadAsStringAsync();
                 message = JsonConvert.DeserializeObject<userData>(result);
-                TokenValasz.Token = message.token;
+
+                int currentUserId = message.id;
+
+                if (id == currentUserId)
+                {
+                    TokenValasz.Token = message.token;
+                }
                 response.EnsureSuccessStatusCode();
                 return "Adatok sikeresen frissítve!";
             }
