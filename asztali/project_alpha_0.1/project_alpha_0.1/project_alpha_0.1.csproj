@@ -199,12 +199,6 @@
     <Compile Include="userEditAdd.Designer.cs">
       <DependentUpon>userEditAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="userEditEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="userEditEdit.Designer.cs">
-      <DependentUpon>userEditEdit.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,9 +238,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="userEditAdd.resx">
       <DependentUpon>userEditAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="userEditEdit.resx">
-      <DependentUpon>userEditEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

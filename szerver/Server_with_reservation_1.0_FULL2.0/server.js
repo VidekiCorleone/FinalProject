@@ -327,7 +327,7 @@ server.put('/changePassword', authenticate(), async (req, res) => {
         const userId = req.user.id;
 
         const user = await dbHandler.userTable.findOne({ where: { id: userId } });
-        
+
         if (!user) {
             return res.status(404).json({ error: 'Felhasználó nem található!' });
         }
@@ -336,10 +336,10 @@ server.put('/changePassword', authenticate(), async (req, res) => {
         if (!isValidPassword) {
             return res.status(401).json({ error: 'Hibás régi jelszó!' });
         }
-        
+
         user.password = await bcrypt.hash(newPassword, 10);
         await user.save();
-        
+
         res.json({ message: 'Jelszó sikeresen frissítve!' });
     } catch (error) {
         console.error('Jelszó módosítási hiba:', error);
@@ -353,7 +353,7 @@ server.post('/reserve', authenticate(), async (req, res) => {
     try {
         const { slotId, parkhouseId } = req.body;
         const userId = req.user.id;
-        
+
         // Ellenőrizd, hogy a parkolóhely szabad-e
         const existingReservation = await dbHandler.reservationTable.findOne({
             where: {
@@ -362,11 +362,11 @@ server.post('/reserve', authenticate(), async (req, res) => {
                 active: true
             }
         });
-        
+
         if (existingReservation) {
             return res.status(400).json({ error: 'A parkolóhely már foglalt!' });
         }
-        
+
         // Új foglalás létrehozása
         const reservation = await dbHandler.reservationTable.create({
             park_slot: slotId,
@@ -376,7 +376,7 @@ server.post('/reserve', authenticate(), async (req, res) => {
             inactive: false,
             reservation_time_hour: 1 // Például egy órás foglalás
         });
-        
+
         res.status(201).json({ message: 'Foglalás sikeresen létrehozva!', reservation });
     } catch (error) {
         console.error('Foglalási hiba:', error);
@@ -421,7 +421,7 @@ server.post('/loginAdmin', async (req, res) => {
 server.get('/profileAdmin', authenticate(), async (req, res) => {
     try {
         const user = await dbHandler.userTable.findAll()
-        
+
         if (!user) {
             res.status(404).json({ error: "Nincs felhasználó!" })
         }
@@ -459,17 +459,59 @@ server.put('/profileDataUpdateAdmin/:id', authenticate(), async (req, res) => {
     }
 });
 
-server.delete('/userProfileDeleteAdmin/:id', authenticate(), async(req, res) => {
-    const user = await dbHandler.userTable.findOne({ where : {id : req.params.id}})
+server.delete('/userProfileDeleteAdmin/:id', authenticate(), async (req, res) => {
+    const user = await dbHandler.userTable.findOne({ where: { id: req.params.id } })
 
-    if(!user){
-        return res.status(404).json({ error : 'Felhasználó nem található!'})
+    if (!user) {
+        return res.status(404).json({ error: 'Felhasználó nem található!' })
     }
 
     await dbHandler.userTable.destroy({
-        where:{
+        where: {
             id: req.params.id
         }
     })
-    res.status(200).json({'message' : 'Felhasználó sikeresen törölve!'}).end()
+    res.status(200).json({ 'message': 'Felhasználó sikeresen törölve!' }).end()
+})
+
+server.post('/registerUser', authenticate(), async (req, res) => {
+    const existingUser = await dbHandler.userTable.findOne({
+        where: {
+            email: req.body.registerEmail
+        }
+    })
+
+    try {
+        if (existingUser) {
+            return res.status(409).json({ error: "Már létezik felhasználó ilyen e-mail címmel!" })
+        }
+    
+        const hashedPassword = await bcrypt.hash(req.body.registerPassword, 10);
+    
+        const carId = await dbHandler.userTable.getNextCarId();
+        const reservationId = await dbHandler.userTable.getNextReservationId();
+    
+        const user = await dbHandler.userTable.create({
+            username: req.body.registerUser,
+            password: hashedPassword,
+            email: req.body.registerEmail,
+            role: req.body.registerRole,
+            name: req.body.registerName,
+            phone_num: req.body.registerPhone || '12345678',
+            car_id: carId,
+            reservation_id: reservationId
+        });
+    
+        const token = JWT.sign(
+            { id: user.id, username: user.username, email: user.email, role: user.role },
+            SUPERSECRET,
+            { expiresIn: '1h' }
+        );
+    
+        res.status(201).json({ token });
+        
+    } catch (error) {
+        console.error("Létrehozási hiba!", error)
+        res.status(500).json({ error : "Hiba történt a felhasználó létrehozásakor."})
+    }
 })

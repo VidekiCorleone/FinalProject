@@ -24,8 +24,6 @@ namespace project_alpha_0._1
             Start();
 
             button1.Click += backBtn;
-            button2.Click += deleteBtn;
-            button3.Click += modifyBtn;
             button4.Click += addBtn;
 
             LoadUserControls();
@@ -97,25 +95,19 @@ namespace project_alpha_0._1
 
             label1.Text = "Felhasználók kezelése";
             button1.Text = "Vissza";
-            button2.Text = "Törlés";
-            button3.Text = "Módosítás";
             button4.Text = "Hozzáadás";
 
             panel1.AutoScroll = true;
 
             int label1Mid = label1.Width / 2;
             int button1Mid = button1.Width / 2;
-            int button2Mid = button2.Width / 2;
-            int button3Mid = button3.Width / 2;
             int button4Mid = button4.Width / 2;
             int panel1Mid = panel1.Width / 2;
 
             label1.Left = this.Width / 2 - label1Mid;
             panel1.Left = this.Width / 2 - panel1Mid;
             button1.Left = panel1.Left;
-            button2.Left = button1.Left + button1.Width + 6;
-            button3.Left = button2.Left + button2.Width + 6;
-            button4.Left = button3.Left + button3.Width + 6;
+            button4.Left = button1.Left + (button1.Width + 6) * 2;
         }
 
         public void backBtn(object s, EventArgs e)
@@ -132,28 +124,6 @@ namespace project_alpha_0._1
                 menuForm.ShowDialog();
                 //this.Close();
             }
-        }
-
-        public void deleteBtn(object s, EventArgs e)
-        {
-            const string message = "Fejlesztés alatt";
-            const string caption = "Hiba";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Error);
-        }
-
-        public void modifyBtn(object s, EventArgs e)
-        {
-            //const string message = "Fejlesztés alatt";
-            //const string caption = "Hiba";
-            //var result = MessageBox.Show(message, caption,
-            //                             MessageBoxButtons.OK,
-            //                             MessageBoxIcon.Error);
-
-            this.Hide();
-            userEditEdit userEditEditForm = new userEditEdit();
-            userEditEditForm.ShowDialog();
         }
 
         public void addBtn(object s, EventArgs e)

@@ -169,5 +169,47 @@ namespace project_alpha_0._1.osztalyok
             return true;
         }
 
+
+        public async Task<bool> postRegisterUsers(string uUname, string pass, string uEmail, int uRole, string uName, int phone)
+        {
+            string url = "http://127.1.1.1:3000/registerUser";
+            userData message = null;
+            try
+            {
+
+                var JsonData = new 
+                {
+                    registerUser = uUname,
+                    registerPassword = pass,
+                    registerEmail = uEmail,
+                    registerRole = uRole,
+                    registerName = uName,
+                    registerPhone = phone
+                };
+
+                string jsonString = JsonConvert.SerializeObject(JsonData);
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(url, sendThis);
+
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<userData>(result);
+                response.EnsureSuccessStatusCode();
+
+            }
+            catch (Exception e)
+            {
+                if (message == null)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                else
+                {
+                    MessageBox.Show(message.message);
+                }
+                return false;
+            }
+
+            return true;
+        }
     }
 }

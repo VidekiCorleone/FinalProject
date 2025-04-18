@@ -46,7 +46,6 @@ C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_al
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.signIn.resources
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userEdit.resources
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userEditAdd.resources
-C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userEditEdit.resources
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.GenerateResource.cache
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.CoreCompileInputs.cache
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
