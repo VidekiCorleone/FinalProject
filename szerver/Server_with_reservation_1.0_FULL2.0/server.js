@@ -458,3 +458,18 @@ server.put('/profileDataUpdateAdmin/:id', authenticate(), async (req, res) => {
         res.status(500).json({ error: 'Hiba történt az adatok frissítésekor!' });
     }
 });
+
+server.delete('/userProfileDeleteAdmin/:id', authenticate(), async(req, res) => {
+    const user = await dbHandler.userTable.findOne({ where : {id : req.params.id}})
+
+    if(!user){
+        return res.status(404).json({ error : 'Felhasználó nem található!'})
+    }
+
+    await dbHandler.userTable.destroy({
+        where:{
+            id: req.params.id
+        }
+    })
+    res.status(200).json({'message' : 'Felhasználó sikeresen törölve!'}).end()
+})

@@ -102,7 +102,6 @@ namespace project_alpha_0._1.osztalyok
             string url = "http://127.1.1.1:3000/profileDataUpdateAdmin/" + id;
             userData message = null;
             
-
             try
             {
                 var JsonData = new {
@@ -141,6 +140,33 @@ namespace project_alpha_0._1.osztalyok
                 }
                 return "Hiba történt az adatok frissítése során!";
             }
+        }
+
+        public async Task<bool> deleteUserProfile(int id)
+        {
+            string url = "http://127.1.1.1:3000/userProfileDeleteAdmin/" + id;
+            userData message = null;
+
+            try
+            {
+                HttpResponseMessage response = await client.DeleteAsync(url);
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<userData>(result);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception e)
+            {
+                if(message == null)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                else
+                {
+                    MessageBox.Show(message.message);
+                }
+                return false;
+            }
+            return true;
         }
 
     }

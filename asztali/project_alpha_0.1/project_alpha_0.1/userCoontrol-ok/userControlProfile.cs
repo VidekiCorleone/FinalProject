@@ -40,6 +40,7 @@ namespace project_alpha_0._1.userCoontrol_ok
             Start();
             button1.Click += GetReady;
             button2.Click += editData;
+            button3.Click += deleteUserProfile;
         }
 
         public async void Start()
@@ -110,6 +111,25 @@ namespace project_alpha_0._1.userCoontrol_ok
                 button2.Enabled = false;
             }
 
+        }
+
+        public async void deleteUserProfile(object s, EventArgs e)
+        {
+            if (userID <= 0)
+            {
+                MessageBox.Show("Hibás felhasználó azonosító!");
+                return;
+            }
+            bool result = await request.deleteUserProfile(userID);
+            if (result)
+            {
+                MessageBox.Show("Felhasználó törölve!");
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Hiba történt a felhasználó törlésekor!");
+            }
         }
 
 
