@@ -28,6 +28,37 @@ namespace project_alpha_0._1
 
             LoadUserControls();
         }
+        public void Start()
+        {
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+
+            this.BackColor = Color.FromArgb(93, 135, 54);
+            label1.BackColor = Color.FromArgb(93, 135, 54);
+            label2.BackColor = Color.FromArgb(93, 135, 54);
+
+            label1.Text = "Felhasználók kezelése";
+            label2.Text = "Szűrés felhasználónévre:";
+            button1.Text = "Vissza";
+            button4.Text = "Hozzáadás";
+
+            panel1.AutoScroll = true;
+
+            int label1Mid = label1.Width / 2;
+            int button1Mid = button1.Width / 2;
+            int button4Mid = button4.Width / 2;
+            int panel1Mid = panel1.Width / 2;
+            int label2Mid = label2.Width / 2;
+            int textBox1Mid = textBox1.Width / 2;
+
+            label1.Left = this.Width / 2 - label1Mid;
+            panel1.Left = this.Width / 2 - panel1Mid;
+            button1.Left = panel1.Left;
+            button4.Left = button1.Left + (button1.Width + 6) * 3;
+            label2.Left = label1.Left + label1Mid - label2Mid;
+            label2.Top = button1.Top;
+            textBox1.Top = label2.Top + label2.Height - 10;
+            textBox1.Left = label2.Left + label2Mid - textBox1Mid;
+        }
 
 
         private async void LoadUserControls()
@@ -84,32 +115,6 @@ namespace project_alpha_0._1
             }
         }
 
-
-
-        public void Start()
-        {
-            this.FormBorderStyle = FormBorderStyle.None;
-
-            this.BackColor = Color.FromArgb(93, 135, 54);
-            label1.BackColor = Color.FromArgb(93, 135, 54);
-
-            label1.Text = "Felhasználók kezelése";
-            button1.Text = "Vissza";
-            button4.Text = "Hozzáadás";
-
-            panel1.AutoScroll = true;
-
-            int label1Mid = label1.Width / 2;
-            int button1Mid = button1.Width / 2;
-            int button4Mid = button4.Width / 2;
-            int panel1Mid = panel1.Width / 2;
-
-            label1.Left = this.Width / 2 - label1Mid;
-            panel1.Left = this.Width / 2 - panel1Mid;
-            button1.Left = panel1.Left;
-            button4.Left = button1.Left + (button1.Width + 6) * 2;
-        }
-
         public void backBtn(object s, EventArgs e)
         {
             const string message = "Biztosan vissza akarsz lépni?";
@@ -121,7 +126,7 @@ namespace project_alpha_0._1
             {
                 this.Hide();
                 Menu menuForm = new Menu();
-                menuForm.ShowDialog();
+                menuForm.Show();
                 //this.Close();
             }
         }
@@ -136,7 +141,7 @@ namespace project_alpha_0._1
 
             this.Hide();
             userEditAdd userEditAddForm = new userEditAdd();
-            userEditAddForm.ShowDialog();
+            userEditAddForm.Show();
         }
     }
 }
