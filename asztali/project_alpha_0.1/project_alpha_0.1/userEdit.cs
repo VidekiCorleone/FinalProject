@@ -25,12 +25,16 @@ namespace project_alpha_0._1
 
             button1.Click += backBtn;
             button4.Click += addBtn;
-
+            
             LoadUserControls();
+
+            textBox1.TextChanged += btnSearch_Click;
+
+            //button2.Click += btnSearch_Click;
         }
         public void Start()
         {
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             this.BackColor = Color.FromArgb(93, 135, 54);
             label1.BackColor = Color.FromArgb(93, 135, 54);
@@ -39,6 +43,7 @@ namespace project_alpha_0._1
             label1.Text = "Felhasználók kezelése";
             label2.Text = "Szűrés felhasználónévre:";
             button1.Text = "Vissza";
+            //button2.Text = "Szűrés";
             button4.Text = "Hozzáadás";
 
             panel1.AutoScroll = true;
@@ -53,15 +58,16 @@ namespace project_alpha_0._1
             label1.Left = this.Width / 2 - label1Mid;
             panel1.Left = this.Width / 2 - panel1Mid;
             button1.Left = panel1.Left;
-            button4.Left = button1.Left + (button1.Width + 6) * 3;
-            label2.Left = label1.Left + label1Mid - label2Mid;
-            label2.Top = button1.Top;
-            textBox1.Top = label2.Top + label2.Height - 10;
-            textBox1.Left = label2.Left + label2Mid - textBox1Mid;
+            button4.Left = button1.Left + button1.Width + 6;
+            //button2.Left = panel1.Left + panel1.Width - button2.Width;
+            label2.Left = button4.Left + button4.Width + 6;
+            label2.Top = button1.Top + button1.Height / 2 - label2.Height / 2;
+            textBox1.Top = button1.Top + button1.Height / 2 - textBox1.Height / 2;
+            textBox1.Left = panel1.Left + panel1.Width - textBox1.Width;
         }
 
 
-        private async void LoadUserControls()
+        private async void LoadUserControls(string keresestext = "")
         {
 
             try
@@ -75,6 +81,13 @@ namespace project_alpha_0._1
                 HttpRequestek request = new HttpRequestek();
 
                 List<UserProfile> userProfiles = await request.getUserProfiles();
+
+                if (!string.IsNullOrWhiteSpace(keresestext))
+                {
+                    userProfiles = userProfiles
+                        .Where(u => u.username.Equals(keresestext, StringComparison.OrdinalIgnoreCase))
+                        .ToList();
+                }
 
                 panel1.Controls.Clear();
 
@@ -142,6 +155,12 @@ namespace project_alpha_0._1
             this.Hide();
             userEditAdd userEditAddForm = new userEditAdd();
             userEditAddForm.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string keresestext = textBox1.Text.Trim();
+            LoadUserControls(keresestext);
         }
     }
 }

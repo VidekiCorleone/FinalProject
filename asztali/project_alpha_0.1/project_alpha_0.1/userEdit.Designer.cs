@@ -67,7 +67,7 @@ namespace project_alpha_0._1
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(536, 470);
+            this.button4.Location = new System.Drawing.Point(234, 470);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 56);
             this.button4.TabIndex = 5;
@@ -77,17 +77,18 @@ namespace project_alpha_0._1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(326, 470);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(403, 491);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "label2";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(329, 489);
+            this.textBox1.Location = new System.Drawing.Point(536, 489);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 7;
             // 
             // userEdit
