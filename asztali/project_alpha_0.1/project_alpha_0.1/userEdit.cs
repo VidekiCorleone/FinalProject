@@ -67,7 +67,7 @@ namespace project_alpha_0._1
         }
 
 
-        private async void LoadUserControls(string keresestext = "")
+        private async void LoadUserControls(string kereses = "")
         {
 
             try
@@ -82,10 +82,10 @@ namespace project_alpha_0._1
 
                 List<UserProfile> userProfiles = await request.getUserProfiles();
 
-                if (!string.IsNullOrWhiteSpace(keresestext))
+                if (!string.IsNullOrWhiteSpace(kereses))
                 {
                     userProfiles = userProfiles
-                        .Where(u => u.username.Equals(keresestext, StringComparison.OrdinalIgnoreCase))
+                        .Where(u => u.username.Equals(kereses, StringComparison.OrdinalIgnoreCase))
                         .ToList();
                 }
 

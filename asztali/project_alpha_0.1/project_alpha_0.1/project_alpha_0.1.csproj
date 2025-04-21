@@ -149,6 +149,7 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="osztalyok\HttpRequestek.cs" />
+    <Compile Include="osztalyok\Reservations.cs" />
     <Compile Include="osztalyok\TokenValasz.cs" />
     <Compile Include="osztalyok\userData.cs" />
     <Compile Include="osztalyok\UserProfile.cs" />
@@ -172,12 +173,6 @@
     <Compile Include="reservationEditAdd.Designer.cs">
       <DependentUpon>reservationEditAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="reservationEditEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reservationEditEdit.Designer.cs">
-      <DependentUpon>reservationEditEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="signIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +180,9 @@
       <DependentUpon>signIn.cs</DependentUpon>
     </Compile>
     <Compile Include="userCoontrol-ok\userControlProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userCoontrol-ok\userControlReservation.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="userEdit.cs">
@@ -224,14 +222,14 @@
     <EmbeddedResource Include="reservationEditAdd.resx">
       <DependentUpon>reservationEditAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reservationEditEdit.resx">
-      <DependentUpon>reservationEditEdit.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="signIn.resx">
       <DependentUpon>signIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userCoontrol-ok\userControlProfile.resx">
       <DependentUpon>userControlProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userCoontrol-ok\userControlReservation.resx">
+      <DependentUpon>userControlReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userEdit.resx">
       <DependentUpon>userEdit.cs</DependentUpon>

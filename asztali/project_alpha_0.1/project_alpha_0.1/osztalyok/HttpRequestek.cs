@@ -29,6 +29,8 @@ namespace project_alpha_0._1.osztalyok
             }
         }
 
+        //Login
+
         public async Task<string> postLogin(string username, string password)
         {
             string url = "http://127.1.1.1:3000/loginAdmin";
@@ -75,6 +77,8 @@ namespace project_alpha_0._1.osztalyok
             }
             
         }
+
+        //user routes
 
         public async Task<List<UserProfile>> getUserProfiles()
         {
@@ -211,5 +215,32 @@ namespace project_alpha_0._1.osztalyok
 
             return true;
         }
+
+
+
+
+        //reservation routes
+
+        public async Task<List<Reservations>> getReservations()
+        {
+            string url = "http://127.1.1.1:3000/reservationAdmin";
+            List<Reservations> reservationList = new List<Reservations>();
+
+            try
+            {
+
+                string response = await client.GetStringAsync(url);
+                reservationList = JsonConvert.DeserializeObject<List<Reservations>>(response);
+
+                return reservationList;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Tyű valami nemjo " + e.Message);
+                return reservationList;
+            }
+        }
+
     }
 }

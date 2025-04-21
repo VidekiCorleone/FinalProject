@@ -41,7 +41,7 @@ namespace project_alpha_0._1
             label6.Text = "Jelszó:";
             label7.Text = "Szerepkör:";
             button1.Text = "Vissza";
-            button2.Text = "Módosítás";
+            button2.Text = "Hozzáadás";
 
             int label1Mid = label1.Width / 2;
             int button1Mid = button1.Width / 2;
@@ -126,11 +126,6 @@ namespace project_alpha_0._1
                     MessageBox.Show("Felhasználó hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-
-
-
-
 
             /*const string message = "Biztosan hozzáadod ezt a felhasználót?";
             const string caption = "Hozzáadás";
