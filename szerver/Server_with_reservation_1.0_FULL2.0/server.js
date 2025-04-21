@@ -387,6 +387,8 @@ server.post('/reserve', authenticate(), async (req, res) => {
 
 //Admin lekérdezések
 
+//Login
+
 server.post('/loginAdmin', async (req, res) => {
     try {
         const user = await dbHandler.userTable.findOne({
@@ -417,6 +419,8 @@ server.post('/loginAdmin', async (req, res) => {
         res.status(500).json({ error: 'Bejelentkezési hiba' });
     }
 });
+
+//user routes
 
 server.get('/profileAdmin', authenticate(), async (req, res) => {
     try {
@@ -513,5 +517,23 @@ server.post('/registerUser', authenticate(), async (req, res) => {
     } catch (error) {
         console.error("Létrehozási hiba!", error)
         res.status(500).json({ error : "Hiba történt a felhasználó létrehozásakor."})
+    }
+})
+
+//reservation routes
+
+server.get('/reservationAdmin', authenticate(), async (req, res) => {
+    try {
+        const reservation = await dbHandler.reservationTable.findAll()
+
+        if (!reservation) {
+            res.status(404).json({ error: "Nincs foglalás!" })
+        }
+        else {
+            res.json(reservation)
+        }
+    } catch (error) {
+        console.error('Foglalás lekérdezési hiba: ', error)
+        res.status(500).json({ error: "Foglalás lekérdezési hiba!" })
     }
 })
