@@ -19,12 +19,9 @@ class DialogFragment(private val slotNumber: Int) : DialogFragment() {
         val view = inflater.inflate(R.layout.dialog_layout, container, false)
 
         val slotText: TextView = view.findViewById(R.id.slot_text)
-        slotText.text = "Foglalj helyet a(z) $slotNumber. parkolóhelyre!"
+        slotText.text = "Your choosen parkspot is: $slotNumber. slot!"
 
-        val closeButton: Button = view.findViewById(R.id.button_close)
-        closeButton.setOnClickListener {
-            dismiss() // A párbeszédablak bezárása
-        }
+
 
         return view
     }
