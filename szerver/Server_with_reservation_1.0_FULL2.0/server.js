@@ -625,3 +625,47 @@ server.get('/reservationAdmin', authenticate(), async (req, res) => {
         res.status(500).json({ error: "Foglalás lekérdezési hiba!" })
     }
 })
+
+server.put('/reservationUpdateAdmin/:id', authenticate(), async (req, res) => {
+    try {
+        const { active, sum, reservation_owner_id, park_slot, parkhouse_id } = req.body;
+
+        const reserve = await dbHandler.reservationTable.findOne({ where: { id: req.params.id } });
+
+        if (!reserve) {
+            return res.status(404).json({ error: 'Foglalás nem található!' });
+        }
+
+        reserve.active = active || reserve.active;
+        reserve.sum = sum || reserve.sum
+        reserve.reservation_owner_id = reservation_owner_id || reserve.reservation_owner_id;
+        reserve.park_slot = park_slot || reserve.park_slot;
+        reserve.parkhouse_id = parkhouse_id || reserve.parkhouse_id;
+
+        await reserve.save();
+
+        res.json({ message: 'Foglalás sikeresen frissítve', reserve });
+    } catch (error) {
+        console.error('Foglalási hiba:', error);
+        res.status(500).json({ error: 'Hiba történt az foglalás frissítésekor!' });
+    }
+});
+
+server.delete('/reservationDeleteAdmin/:id', authenticate(), async(req, res) => {
+    const reserve = await dbHandler.reservationTable.findOne({
+        where:{
+            id: req.params.id
+        }
+    })
+
+    if(!reserve){
+        return res.status(404).json({ error : 'Foglalás nem található!'})
+    }
+
+    await dbHandler.reservationTable.destroy({
+        where:{
+            id: req.params.id
+        }
+    })
+    res.status(200).json({'message' : 'Sikeres törlés!'}).end()
+})

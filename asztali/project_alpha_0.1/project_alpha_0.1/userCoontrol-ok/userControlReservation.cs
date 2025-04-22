@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.Reflection;
+using project_alpha_0._1.osztalyok;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -28,6 +29,8 @@ namespace project_alpha_0._1.userCoontrol_ok
         private Button button1;
         private Panel panel1;
 
+        HttpRequestek request = new HttpRequestek();
+
         public userControlReservation()
         {
             InitializeComponent();
@@ -35,6 +38,7 @@ namespace project_alpha_0._1.userCoontrol_ok
 
             button1.Click += GetReady;
             button2.Click += editData;
+            button3.Click += deleteReservation;
         }
 
         public async void Start()
@@ -68,11 +72,22 @@ namespace project_alpha_0._1.userCoontrol_ok
             button1.Left = button2.Left - button1.Width - 10;
             button3.Left = button2.Left + button2.Width + 10;
 
+            if (textBox1.Text == "True")
+            {
+                textBox1.Text = "Igen";
+            }
+            else
+            {
+                textBox1.Text = "Nem";
+            }
+
 
         }
 
-        public void GetReady(object s, EventArgs e)
+        public async void GetReady(object s, EventArgs e)
         {
+            
+
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
@@ -85,6 +100,22 @@ namespace project_alpha_0._1.userCoontrol_ok
 
         public async void editData(object s, EventArgs e)
         {
+            if (resID <= 0)
+            {
+                MessageBox.Show("Hibás foglalás azonosító!");
+                return;
+            }
+
+            bool result = await request.putUpdateReservation(resID, bool.Parse(textBox1.Text), int.Parse(textBox2.Text), int.Parse(textBox3.Text), int.Parse(textBox4.Text), int.Parse(textBox5.Text));
+            if (result == true)
+            {
+                MessageBox.Show("Sikeres módosítás!");
+            }
+            else
+            {
+                MessageBox.Show("Sikertelen módosítás!");
+            }
+
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
@@ -96,7 +127,21 @@ namespace project_alpha_0._1.userCoontrol_ok
         }
         public async void deleteReservation(object s, EventArgs e)
         {
-
+            if (resID <= 0)
+            {
+                MessageBox.Show("Hibás foglalás azonosító!");
+                return;
+            }
+            bool result = await request.deleteReservation(resID);
+            if (result)
+            {
+                MessageBox.Show("Foglalás törölve!");
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Hiba történt a foglalás törlésekor!");
+            }
         }
 
         private void InitializeComponent()

@@ -125,6 +125,8 @@ namespace project_alpha_0._1
                         textBox5 = { Text = res.parkhouse_id.ToString() },
                     };
 
+                    
+
                     userControlReservation.Location = new Point(xPosition, yPosition);
                     userControlReservation.Size = new Size(controlWidth, controlHeight);
 

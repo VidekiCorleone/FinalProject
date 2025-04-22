@@ -10,13 +10,14 @@ using project_alpha_0._1.osztalyok;
 using Org.BouncyCastle.Asn1.X509;
 using System.Windows.Forms;
 using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace project_alpha_0._1.osztalyok
 {
     internal class HttpRequestek
     {
         HttpClient client = new HttpClient();
-        
+
         public HttpRequestek()
         {
             try
@@ -75,7 +76,7 @@ namespace project_alpha_0._1.osztalyok
                 }
                 return "Hiba történt a bejelentkezés során!";
             }
-            
+
         }
 
         //user routes
@@ -96,7 +97,7 @@ namespace project_alpha_0._1.osztalyok
             catch (Exception e)
             {
 
-                MessageBox.Show("Tyű valami nemjo "+ e.Message);
+                MessageBox.Show("Tyű valami nemjo " + e.Message);
                 return userList;
             }
         }
@@ -105,10 +106,11 @@ namespace project_alpha_0._1.osztalyok
         {
             string url = "http://127.1.1.1:3000/profileDataUpdateAdmin/" + id;
             userData message = null;
-            
+
             try
             {
-                var JsonData = new {
+                var JsonData = new
+                {
                     username = uName,
                     name = pName,
                     email = uEmail,
@@ -160,7 +162,7 @@ namespace project_alpha_0._1.osztalyok
             }
             catch (Exception e)
             {
-                if(message == null)
+                if (message == null)
                 {
                     MessageBox.Show(e.Message);
                 }
@@ -181,7 +183,7 @@ namespace project_alpha_0._1.osztalyok
             try
             {
 
-                var JsonData = new 
+                var JsonData = new
                 {
                     registerUser = uUname,
                     registerPassword = pass,
@@ -240,6 +242,61 @@ namespace project_alpha_0._1.osztalyok
                 MessageBox.Show("Tyű valami nemjo " + e.Message);
                 return reservationList;
             }
+        }
+
+
+        public async Task<bool> putUpdateReservation(int id, bool uActive, int uSum, int uReservation_owner_id, int uPark_slot, int uParkhouse_id)
+        {
+            string url = "http://127.1.1.1:3000/reservationUpdateAdmin/" + id;
+            Reservations message = null;
+
+            try
+            {
+                var JsonData = new
+                {
+                    active = uActive,
+                    sum = uSum,
+                    reservation_owner_id = uReservation_owner_id,
+                    park_slot = uPark_slot,
+                    parkhouse_id = uParkhouse_id
+                };
+
+                string jsonString = JsonConvert.SerializeObject(JsonData);
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "Application/JSON");
+                HttpResponseMessage response = await client.PutAsync(url, sendThis);
+
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<Reservations>(result);
+
+
+                response.EnsureSuccessStatusCode();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> deleteReservation(int id)
+        {
+            string url = "http://127.1.1.1:3000/reservationDeleteAdmin/" + id;
+            Reservations message = null;
+
+            try
+            {
+                HttpResponseMessage response = await client.DeleteAsync(url);
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<Reservations>(result);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
         }
 
     }
