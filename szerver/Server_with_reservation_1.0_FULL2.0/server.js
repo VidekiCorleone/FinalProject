@@ -349,10 +349,96 @@ server.put('/changePassword', authenticate(), async (req, res) => {
 
 
 
+//RESERVATION (down below)
+
+
+const checkReservationExpiryOptimized = async () => {
+    try {
+        const now = new Date();
+
+        // Csak azok a foglalások, amelyek kezdési ideje alapján lehetséges, hogy lejártak
+        const reservations = await dbHandler.reservationTable.findAll({
+            where: {
+                active: true,
+                start_time: {
+                    [Op.lte]: new Date(now.getTime() - 2 * 60 * 60 * 1000) // Az elmúlt 2 órán belüli foglalások
+                }
+            }
+        });
+
+        const expiredReservations = [];
+        reservations.forEach(async (reservation) => {
+            const startTime = reservation.start_time;
+            const expiryTime = new Date(startTime.getTime() + reservation.reservation_time_hour * 60 * 60 * 1000);
+
+            if (now > expiryTime) {
+                // A foglalás lejárt
+                await reservation.update({ active: false, inactive: true });
+                expiredReservations.push(reservation.id);
+            }
+        });
+
+        console.log('Lejárt foglalások:', expiredReservations);
+    } catch (error) {
+        console.error('Hiba a foglalások ellenőrzésekor:', error);
+    }
+};
+
+checkReservationExpiryOptimized();
+
+
+server.get('/checkReservations', authenticate(), async (req, res) => {
+    try {
+        const reservations = await dbHandler.reservationTable.findAll({
+            where: { active: true } // Csak az aktív foglalásokat ellenőrizd
+        });
+
+        const now = new Date();
+        const expiredReservations = [];
+
+        reservations.forEach(async (reservation) => {
+            const startTime = reservation.start_time;
+            const duration = reservation.reservation_time_hour; // Foglalási idő órában
+            const expiryTime = new Date(startTime.getTime() + duration * 60 * 60 * 1000);
+
+            if (now > expiryTime) {
+                // Frissítsd a státuszt, ha lejárt
+                await reservation.update({ active: false, inactive: true });
+                expiredReservations.push(reservation.id);
+            }
+        });
+
+        res.json({ message: 'Foglalások ellenőrizve!', expiredReservations });
+    } catch (error) {
+        console.error('Hiba a foglalások ellenőrzésekor:', error);
+        res.status(500).json({ error: 'Hiba történt a foglalások ellenőrzése során!' });
+    }
+});
+
+setInterval(async () => {
+    const reservations = await dbHandler.reservationTable.findAll({ where: { active: true } });
+    const now = new Date();
+
+    reservations.forEach(async (reservation) => {
+        const startTime = reservation.start_time;
+        const expiryTime = new Date(startTime.getTime() + reservation.reservation_time_hour * 60 * 60 * 1000);
+
+        if (now > expiryTime) {
+            await reservation.update({ active: false, inactive: true });
+            console.log(`Foglalás ${reservation.id} lejárt.`);
+        }
+    });
+}, 60000);
+
+
+
+
+
 server.post('/reserve', authenticate(), async (req, res) => {
     try {
         const { slotId, parkhouseId } = req.body;
         const userId = req.user.id;
+        
 
         // Ellenőrizd, hogy a parkolóhely szabad-e
         const existingReservation = await dbHandler.reservationTable.findOne({
@@ -383,6 +469,8 @@ server.post('/reserve', authenticate(), async (req, res) => {
         res.status(500).json({ error: 'Hiba történt a foglalás során!' });
     }
 });
+// RESERVATION END!
+
 
 
 //Admin lekérdezések

@@ -188,6 +188,10 @@ Reservation.init({
         autoIncrement:true,
         primaryKey:true
     },
+    'start_time':{
+        type: DataTypes.DATE,
+        allowNull: false
+    },
     'active':{
         type:DataTypes.BOOLEAN,
         allowNull:false
