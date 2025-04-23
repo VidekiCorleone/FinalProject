@@ -137,7 +137,7 @@ Parkhouse.init({
     },
     'parkslot_id':{
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
         //Lehet törlésre fog kerülni.
     }
 },{

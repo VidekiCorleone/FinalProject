@@ -9,6 +9,7 @@ namespace project_alpha_0._1.osztalyok
     internal class Reservations
     {
         public int id { get; set; }
+        public DateTime start_time { get; set; }
         public bool active { get; set; }
         public bool inactive { get; set; }
         public int reservation_time { get; set; }

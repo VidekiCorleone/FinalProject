@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project_alpha_0._1.osztalyok;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace project_alpha_0._1
             InitializeComponent();
             Start();
             button1.Click += backBtn;
-            button2.Click += modifyBtn;
+            button2.Click += addBtn;
         }
 
         public void Start()
@@ -34,12 +35,11 @@ namespace project_alpha_0._1
             label7.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Foglalás hozzáadása";
-            label2.Text = "Név:";
-            label3.Text = "E-mail:";
-            label4.Text = "Foglalás kezdete:";
-            label5.Text = "Foglalás vége:";
+            label2.Text = "Foglalás kezdete:";
+            label3.Text = "Foglalás időtartama:";
+            label4.Text = "Foglaló:";
+            label5.Text = "Parkolóhely:";
             label6.Text = "Parkolóház:";
-            label7.Text = "MIAFASZ";
             button1.Text = "Vissza";
             button2.Text = "Hozzáadás";
 
@@ -92,20 +92,38 @@ namespace project_alpha_0._1
             }
         }
 
-        public void modifyBtn(object s, EventArgs e)
+        public async void addBtn(object s, EventArgs e)
         {
-            const string message = "Biztosan hozzáadod ezt a foglalást?";
+            HttpRequestek request = new HttpRequestek();
+
+            DateTime start_time = DateTime.Parse(textBox1.Text);
+            int reservation_time_hour = int.Parse(textBox2.Text);
+            int reservation_owner_id = int.Parse(textBox3.Text);
+            int park_slot = int.Parse(textBox4.Text);
+            int parkHouse_id = int.Parse(textBox5.Text);
+
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text))
+            {
+                const string message1 = "Kérlek töltsd ki az összes mezőt!";
+                const string caption1 = "Hiba";
+                MessageBox.Show(message1, caption1,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+                return;
+            }
+
+            const string message = "Biztosan hozzáadod ezt a felhasználót?";
             const string caption = "Hozzáadás";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.YesNo,
                                          MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                const string message1 = "Fejlesztés alatt";
-                const string caption1 = "Hiba";
-                MessageBox.Show(message1, caption1,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
+                bool reqResult = await request.postReservation(start_time, reservation_time_hour, reservation_owner_id, park_slot, parkHouse_id);
+                if (reqResult == true)
+                {
+                    MessageBox.Show("Foglalás hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

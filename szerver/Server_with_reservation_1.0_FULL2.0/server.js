@@ -4,7 +4,7 @@ require('dotenv').config();
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const rateLimit = require('express-rate-limit');
-const { Sequelize, DataTypes, Model, SequelizeUniqueConstraintError, Op } = require('sequelize');
+const { Sequelize, DataTypes, Model, SequelizeUniqueConstraintError, Op, DATE } = require('sequelize');
 
 server.use(cors({
     origin: 'http://localhost:3000',
@@ -668,4 +668,39 @@ server.delete('/reservationDeleteAdmin/:id', authenticate(), async(req, res) => 
         }
     })
     res.status(200).json({'message' : 'Sikeres törlés!'}).end()
+})
+
+server.post('/registerReservationAdmin', authenticate(), async (req, res) => {
+    const { start_time, resTime, resOwnId, slotId, parkhouseId } = req.body
+
+    const existingReservation = await dbHandler.reservationTable.findOne({
+        where: {
+            active: true,
+            park_slot: slotId,
+            parkhouse_id: parkhouseId
+        }
+    })
+
+    try {
+        if (existingReservation) {
+            return res.status(409).json({ error: "A parkolóhely foglalt!" })
+        }
+    
+        const reserve = await dbHandler.reservationTable.create({
+            start_time: start_time,
+            active: true,
+            inactive: false,
+            reservation_time_hour: resTime,
+            sum: resTime * 700,
+            reservation_owner_id: resOwnId,
+            park_slot: slotId,
+            parkhouse_id: parkhouseId
+        });
+    
+        res.status(201).json({ message : "Foglalás sikeresen létrehozva!", reserve })
+        
+    } catch (error) {
+        console.error("Létrehozási hiba!", error)
+        res.status(500).json({ error : "Hiba történt a foglalás létrehozásakor."})
+    }
 })

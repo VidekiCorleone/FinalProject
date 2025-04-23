@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercoontrol-ok\\usercontrolreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercoontrol-ok\\usercontrolreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\httprequestek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\httprequestek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercoontrol-ok\\usercontrolprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\reservationeditadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\reservationeditadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\reservationedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usereditadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usereditadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\reservationedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\reservationedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\reservations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\osztalyok\\reservations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|c:\\users\\matez\\desktop\\project\\finalproject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\usercoontrol-ok\\usercontrolreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E028697B-AB08-4E50-957E-1F2B9960B1F5}|project_alpha_0.1\\project_alpha_0.1.csproj|solutionrelative:project_alpha_0.1\\usercoontrol-ok\\usercontrolreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,32 +34,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "userControlProfile.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "RelativeToolTip": "project_alpha_0.1\\userCoontrol-ok\\userControlProfile.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAcwIMAAAANAAAAAAAAAA==",
+              "Title": "userEditAdd.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEditAdd.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userEditAdd.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userEditAdd.cs",
+              "RelativeToolTip": "project_alpha_0.1\\userEditAdd.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwI4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T18:52:51.953Z",
+              "WhenOpened": "2025-04-23T19:56:09.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "userControlReservation.cs",
-              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
-              "RelativeDocumentMoniker": "project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
-              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
-              "RelativeToolTip": "project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAcwIYAAABBAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "reservationEditAdd.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\reservationEditAdd.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\reservationEditAdd.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\reservationEditAdd.cs",
+              "RelativeToolTip": "project_alpha_0.1\\reservationEditAdd.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAuwHkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:53:49.547Z",
+              "WhenOpened": "2025-04-23T19:56:03.125Z",
               "EditorCaption": ""
             },
             {
@@ -66,9 +70,22 @@
               "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\Reservations.cs",
               "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\Reservations.cs",
               "RelativeToolTip": "project_alpha_0.1\\osztalyok\\Reservations.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T19:11:31.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "userControlReservation.cs",
+              "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
+              "RelativeDocumentMoniker": "project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
+              "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
+              "RelativeToolTip": "project_alpha_0.1\\userCoontrol-ok\\userControlReservation.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAcwIIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:53:49.547Z",
               "EditorCaption": ""
             },
             {
@@ -79,20 +96,20 @@
               "RelativeDocumentMoniker": "project_alpha_0.1\\reservationEdit.cs",
               "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\reservationEdit.cs",
               "RelativeToolTip": "project_alpha_0.1\\reservationEdit.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAwwHwAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAowHwAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T19:08:15.835Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "HttpRequestek.cs",
               "DocumentMoniker": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
               "RelativeDocumentMoniker": "project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
               "ToolTip": "C:\\Users\\matez\\Desktop\\project\\FinalProject\\asztali\\project_alpha_0.1\\project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
               "RelativeToolTip": "project_alpha_0.1\\osztalyok\\HttpRequestek.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAAwBkBAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAACYBAAAAAAAAAAAQwDEBAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T17:59:54.903Z",
               "EditorCaption": ""

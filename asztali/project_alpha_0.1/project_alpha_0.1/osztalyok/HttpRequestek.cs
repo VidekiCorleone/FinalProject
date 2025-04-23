@@ -11,6 +11,7 @@ using Org.BouncyCastle.Asn1.X509;
 using System.Windows.Forms;
 using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
 
 namespace project_alpha_0._1.osztalyok
 {
@@ -299,5 +300,39 @@ namespace project_alpha_0._1.osztalyok
             return true;
         }
 
+
+        public async Task<bool> postReservation(DateTime uStartTime, int uResTime, int uResOwnId, int uSlotId, int uParkhouseId)
+        {
+            string url = "http://127.1.1.1:3000/registerReservationAdmin";
+            Reservations message = null;
+            try
+            {
+
+                var JsonData = new
+                {
+                    start_time = uStartTime,
+                    resTime = uResTime,
+                    resOwnId = uResOwnId,
+                    slotId = uSlotId,
+                    parkhouseId = uParkhouseId
+                };
+
+                string jsonString = JsonConvert.SerializeObject(JsonData);
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(url, sendThis);
+
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<Reservations>(result);
+                response.EnsureSuccessStatusCode();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+
+            return true;
+        }
     }
 }
