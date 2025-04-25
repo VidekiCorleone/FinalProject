@@ -704,3 +704,21 @@ server.post('/registerReservationAdmin', authenticate(), async (req, res) => {
         res.status(500).json({ error : "Hiba történt a foglalás létrehozásakor."})
     }
 })
+
+//parkhouse routes
+
+server.get('/parkhouseAdmin', authenticate(), async (req, res) => {
+    try {
+        const garage = await dbHandler.parkhouseTable.findAll()
+
+        if (!garage) {
+            res.status(404).json({ error: "Nincs létező parkolóházad!" })
+        }
+        else {
+            res.json(garage)
+        }
+    } catch (error) {
+        console.error('Foglalás lekérdezési hiba: ', error)
+        res.status(500).json({ error: "Foglalás lekérdezési hiba!" })
+    }
+})

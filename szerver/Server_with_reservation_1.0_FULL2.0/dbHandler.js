@@ -111,10 +111,6 @@ Parkhouse.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    'name':{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     'rating':{
         type: DataTypes.INTEGER,
         allowNull: true

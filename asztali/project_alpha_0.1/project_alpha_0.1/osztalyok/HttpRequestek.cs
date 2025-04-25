@@ -334,5 +334,29 @@ namespace project_alpha_0._1.osztalyok
 
             return true;
         }
+
+
+
+        //parkhouse routes
+
+        public async Task<List<Parkhouses>> getParkhouses()
+        {
+            string url = "http://127.1.1.1:3000/parkhouseAdmin";
+            List<Parkhouses> parkhouseList = new List<Parkhouses>();
+
+            try
+            {
+                string response = await client.GetStringAsync(url);
+                parkhouseList = JsonConvert.DeserializeObject<List<Parkhouses>>(response);
+
+                return parkhouseList;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Tyű valami nemjo " + e.Message);
+                return parkhouseList;
+            }
+        }
     }
 }

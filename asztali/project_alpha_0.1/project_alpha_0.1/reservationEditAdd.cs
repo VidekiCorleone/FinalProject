@@ -32,7 +32,6 @@ namespace project_alpha_0._1
             label4.BackColor = Color.FromArgb(93, 135, 54);
             label5.BackColor = Color.FromArgb(93, 135, 54);
             label6.BackColor = Color.FromArgb(93, 135, 54);
-            label7.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Foglalás hozzáadása";
             label2.Text = "Foglalás kezdete:";
@@ -60,21 +59,18 @@ namespace project_alpha_0._1
             textBox3.Left = button1.Left + button1Mid + 10;
             textBox4.Left = button1.Left + button1Mid + 10;
             textBox5.Left = button1.Left + button1Mid + 10;
-            textBox6.Left = button1.Left + button1Mid + 10;
 
             label2.Left = (button1.Left + button1Mid) - label2.Width;
             label3.Left = (button1.Left + button1Mid) - label3.Width;
             label4.Left = (button1.Left + button1Mid) - label4.Width;
             label5.Left = (button1.Left + button1Mid) - label5.Width;
             label6.Left = (button1.Left + button1Mid) - label6.Width;
-            label7.Left = (button1.Left + button1Mid) - label7.Width;
 
             label2.Top = textBox1.Top + ((textBox1.Height / 2) - (label2.Height / 2));
             label3.Top = textBox2.Top + ((textBox2.Height / 2) - (label3.Height / 2));
             label4.Top = textBox3.Top + ((textBox3.Height / 2) - (label4.Height / 2));
             label5.Top = textBox4.Top + ((textBox4.Height / 2) - (label5.Height / 2));
             label6.Top = textBox5.Top + ((textBox5.Height / 2) - (label6.Height / 2));
-            label7.Top = textBox6.Top + ((textBox6.Height / 2) - (label7.Height / 2));
         }
 
         public void backBtn(object s, EventArgs e)

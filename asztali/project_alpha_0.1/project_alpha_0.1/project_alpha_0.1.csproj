@@ -149,6 +149,7 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="osztalyok\HttpRequestek.cs" />
+    <Compile Include="osztalyok\Parkhouses.cs" />
     <Compile Include="osztalyok\Reservations.cs" />
     <Compile Include="osztalyok\TokenValasz.cs" />
     <Compile Include="osztalyok\userData.cs" />
