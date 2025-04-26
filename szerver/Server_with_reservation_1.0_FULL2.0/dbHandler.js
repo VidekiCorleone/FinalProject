@@ -131,11 +131,6 @@ Parkhouse.init({
         type: DataTypes.INTEGER,
         allowNull: true
     },
-    'parkslot_id':{
-        type: DataTypes.INTEGER,
-        allowNull: true
-        //Lehet törlésre fog kerülni.
-    }
 },{
     sequelize:dbHandler,
     modelName:'parkhouse'
