@@ -70,8 +70,8 @@ namespace project_alpha_0._1.userCoontrol_ok
             this.BackColor = Color.FromArgb(244, 255, 195);
             panel1.BackColor = Color.FromArgb(128, 157, 60);
 
-            button2.Left = panel1.Width / 2 - button2.Width / 2;
             button1.Left = button2.Left - button1.Width - 10;
+            button2.Left = panel1.Width / 2 - button2.Width / 2;
             button3.Left = button2.Left + button2.Width + 10;
 
             

@@ -1,4 +1,5 @@
 ﻿using project_alpha_0._1.osztalyok;
+using project_alpha_0._1.userCoontrol_ok;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +18,15 @@ namespace project_alpha_0._1
         public parkinGarageEdit()
         {
             InitializeComponent();
-            getParkingHouses();
             Start();
+
+            LoadUserControls();
 
 
             button1.Click += backBtn;
-            button2.Click += editBtn;
+            button2.Click += addBtn;
+
+            textBox1.TextChanged += btnSearch_Click;
         }
         public void Start()
         {
@@ -33,15 +37,24 @@ namespace project_alpha_0._1
 
             label1.Text = "Parkolóház választó";
             label1.Font = new Font("Arial", 20, FontStyle.Bold);
+            label2.Text = "Szűrés névre:";
 
             button1.Text = "Vissza";
             button2.Text = "Hozzáadás";
 
             int label1Mid = label1.Width / 2;
+            int panel1Mid = panel1.Width / 2;
+            int button1Mid = button1.Width / 2;
+            int button2Mid = button2.Width / 2;
 
             label1.Left = this.Width / 2 - label1Mid;
-            button1.Left = this.Width / 2 - button1.Width - 40;
-            button2.Left = this.Width / 2 + 40;
+            panel1.Left = this.Width / 2 - panel1Mid;
+            button1.Left = panel1.Left;
+            button2.Left = button1.Left + button1.Width + 6;
+            label2.Left = button2.Left + button2.Width + 6;
+            label2.Top = button1.Top + button1.Height / 2 - label2.Height / 2;
+            textBox1.Top = button1.Top + button1.Height / 2 - textBox1.Height / 2;
+            textBox1.Left = panel1.Left + panel1.Width - textBox1.Width;
 
             //button2.Left = button1.Width + ;
         }
@@ -62,77 +75,96 @@ namespace project_alpha_0._1
             }
         }
 
-        public void editBtn(object s, EventArgs e)
+        public void addBtn(object s, EventArgs e)
+        {
+            /*const string message = "Fejlesztés alatt";
+            const string caption = "Hiba";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Error);*/
+            this.Close();
+            parkinGarageEditAdd addForm = new parkinGarageEditAdd();
+            addForm.Show();
+        }
+
+        /*public void errorBtn(object s, EventArgs e)
         {
             const string message = "Fejlesztés alatt";
             const string caption = "Hiba";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.OK,
                                          MessageBoxIcon.Error);
-        }
+        }*/
 
-        public void errorBtn(object s, EventArgs e)
+        private async void LoadUserControls(string kereses = "")
         {
-            const string message = "Fejlesztés alatt";
-            const string caption = "Hiba";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Error);
-        }
 
-        private async void getParkingHouses()
-        {
-            int topMargin = label1.Bottom + 10;
-            int bottomBoundary = Math.Min(button1.Top, button2.Top) - 10;
-            int dynamicAreaHeight = bottomBoundary - topMargin;
-
-            Point panelLocation = new Point(100, 100);
-            Size panelSize = new Size(600, 350);
-
-            FlowLayoutPanel dynamicButtonPanel = new FlowLayoutPanel
+            try
             {
-                Location = panelLocation,
-                Size = panelSize,
-                BackColor = Color.FromArgb(169, 196, 108),
-                AutoScroll = true,
-                FlowDirection = FlowDirection.LeftToRight,
-                WrapContents = true,
-                Padding = new Padding(10)
-            };
+                int xPosition = 0;
+                int yPosition = 0;
+                int controlWidth = (panel1.Width - SystemInformation.VerticalScrollBarWidth) / 2;
+                panel1.Width = controlWidth * 2 + SystemInformation.VerticalScrollBarWidth;
+                int controlHeight = 175;
 
-            this.Controls.Add(dynamicButtonPanel);
-            dynamicButtonPanel.BringToFront();
+                HttpRequestek request = new HttpRequestek();
 
-            List<Parkhouses> garages = await request.getParkhouses();
+                List<Parkhouses> parkhouses = await request.getParkhouses();
 
-            foreach (var garage in garages)
-            {
-                Button btn = new Button
+                if (!string.IsNullOrWhiteSpace(kereses))
                 {
-                    Text = garage.name,
-                    Width = 125,
-                    Height = 50,
-                    Margin = new Padding(10),
-                    BackColor = Color.FromArgb(244, 255, 195)
-                };
+                    parkhouses = parkhouses
+                        .Where(u => u.name.ToString() == kereses.ToLowerInvariant())
+                        .ToList();
+                }
 
-                btn.Click += ParkingGarageButton_Click;
+                panel1.Controls.Clear();
 
-                dynamicButtonPanel.Controls.Add(btn);
 
-                button1.BringToFront();
-                button2.BringToFront();
+                for (int i = 0; i < parkhouses.Count; i++)
+                {
+                    var ph = parkhouses[i];
 
+
+
+                    var userControlParkhouses = new userControlParkhouses()
+                    {
+                        phID = ph.id,
+                        textBox1 = { Text = ph.name.ToString() },
+                        textBox2 = { Text = ph.capacity.ToString() },
+                        textBox3 = { Text = ph.address.ToString() },
+                        textBox4 = { Text = ph.opening.ToString() },
+                        textBox5 = { Text = ph.closing.ToString() },
+                    };
+
+
+
+                    userControlParkhouses.Location = new Point(xPosition, yPosition);
+                    userControlParkhouses.Size = new Size(controlWidth, controlHeight);
+
+                    panel1.Controls.Add(userControlParkhouses);
+
+                    if ((i + 1) % 2 == 0)
+                    {
+                        xPosition = 0;
+                        yPosition += controlHeight;
+                    }
+                    else
+                    {
+                        xPosition += controlWidth;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Valami nagyon el van baszva ", e.Message);
             }
         }
 
-        private void ParkingGarageButton_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (sender is Button btn && btn.Tag is Parkhouses garage)
-            {
-                MessageBox.Show($"Kiválasztott parkolóház: {garage.name}", "Információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Itt nyithatsz meg egy részletes formot, vagy végrehajthatsz más műveleteket.
-            }
+            string keresestext = textBox1.Text.Trim();
+            LoadUserControls(keresestext);
         }
     }
 }

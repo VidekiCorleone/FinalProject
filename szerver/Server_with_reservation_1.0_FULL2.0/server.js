@@ -682,7 +682,7 @@ server.put('/reservationUpdateAdmin/:id', authenticate(), async (req, res) => {
 
         res.json({ message: 'Foglalás sikeresen frissítve', reserve });
     } catch (error) {
-        console.error('Foglalási hiba:', error);
+        console.error('Frissítési hiba:', error);
         res.status(500).json({ error: 'Hiba történt az foglalás frissítésekor!' });
     }
 });
@@ -756,5 +756,83 @@ server.get('/parkhouseAdmin', authenticate(), async (req, res) => {
     } catch (error) {
         console.error('Foglalás lekérdezési hiba: ', error)
         res.status(500).json({ error: "Foglalás lekérdezési hiba!" })
+    }
+})
+
+server.put('/parkhousesUpdateAdmin/:id', authenticate(), async (req, res) => {
+    try {
+        const { name, capacity, address, opening, closing } = req.body;
+
+        const pHouse = await dbHandler.parkhouseTable.findOne({ where: { id: req.params.id } });
+
+        if (!pHouse) {
+            return res.status(404).json({ error: 'Parkolóház nem található!' });
+        }
+
+        pHouse.name = name || pHouse.name;
+        pHouse.capacity = capacity || pHouse.capacity;
+        pHouse.address = address || pHouse.address;
+        pHouse.opening = opening || pHouse.opening;
+        pHouse.closing = closing || pHouse.closing;
+
+        await pHouse.save();
+
+        res.json({ message: 'Parkolóház sikeresen frissítve', pHouse });
+    } catch (error) {
+        console.error('Frissítési hiba:', error);
+        res.status(500).json({ error: 'Hiba történt a parkolóház frissítésekor!' });
+    }
+})
+
+server.delete('/parkhouseDeleteAdmin/:id', authenticate(), async(req, res) => {
+    const pHouse = await dbHandler.parkhouseTable.findOne({
+        where:{
+            id: req.params.id
+        }
+    })
+
+    if(!pHouse){
+        return res.status(404).json({ error : 'Foglalás nem található!'})
+    }
+
+    await dbHandler.parkhouseTable.destroy({
+        where:{
+            id: req.params.id
+        }
+    })
+    res.status(200).json({'message' : 'Sikeres törlés!'}).end()
+})
+
+server.post('/registerParkhouseAdmin', authenticate(), async (req, res) => {
+    const { pName, pCapacity, add, open, close, cHeight, maxstay } = req.body
+
+    const existingParkhouse = await dbHandler.parkhouseTable.findOne({
+        where: {
+            name: pName,
+            address: add
+        }
+    })
+
+    try {
+        if (existingParkhouse) {
+            return res.status(409).json({ error: "Ez a parkolóház már létezik!" })
+        }
+    
+        const reserve = await dbHandler.parkhouseTable.create({
+            name: pName,
+            capacity: pCapacity,
+            address: add,
+            rating: 0, //default
+            opening: open,
+            closing: close,
+            car_height: cHeight,
+            max_stay_time: maxstay
+        });
+    
+        res.status(201).json({ message : "Parkolóház sikeresen létrehozva!", reserve })
+        
+    } catch (error) {
+        console.error("Létrehozási hiba!", error)
+        res.status(500).json({ error : "Hiba történt a parkolóház létrehozásakor."})
     }
 })

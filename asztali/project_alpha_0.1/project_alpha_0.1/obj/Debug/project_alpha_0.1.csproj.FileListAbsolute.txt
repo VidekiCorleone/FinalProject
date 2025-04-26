@@ -272,3 +272,5 @@ E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_a
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.pdb
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.CopyComplete
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlReservation.resources
+C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlParkhouses.resources
+C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.parkinGarageEditAdd.resources

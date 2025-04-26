@@ -358,5 +358,95 @@ namespace project_alpha_0._1.osztalyok
                 return parkhouseList;
             }
         }
+
+        public async Task<bool> putUpdateParkhouses(int id, string uName, int uCapacity, string uAddress, DateTime uOpening, DateTime uClosing)
+        {
+            string url = "http://127.1.1.1:3000/parkhousesUpdateAdmin/" + id;
+            Parkhouses message = null;
+
+            try
+            {
+                var JsonData = new
+                {
+                    name = uName,
+                    capacity = uCapacity,
+                    address = uAddress,
+                    opening = uOpening,
+                    closing = uClosing
+                };
+
+                string jsonString = JsonConvert.SerializeObject(JsonData);
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "Application/JSON");
+                HttpResponseMessage response = await client.PutAsync(url, sendThis);
+
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<Parkhouses>(result);
+
+
+                response.EnsureSuccessStatusCode();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> deleteParkhouses(int id)
+        {
+            string url = "http://127.1.1.1:3000/parkhouseDeleteAdmin/" + id;
+            Parkhouses message = null;
+
+            try
+            {
+                HttpResponseMessage response = await client.DeleteAsync(url);
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<Parkhouses>(result);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> postParkhouses(string name, int cap, string address, DateTime opening, DateTime closing, int carheight, int maxstaytime)
+        {
+            string url = "http://127.1.1.1:3000/registerParkhouseAdmin";
+            Parkhouses message = null;
+            try
+            {
+
+                var JsonData = new
+                {
+                    pName = name,
+                    pCapacity = cap,
+                    add = address,
+                    open = opening,
+                    close = closing,
+                    cHeight = carheight,
+                    maxstay = maxstaytime
+                };
+
+                string jsonString = JsonConvert.SerializeObject(JsonData);
+                StringContent sendThis = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(url, sendThis);
+
+                string result = await response.Content.ReadAsStringAsync();
+                message = JsonConvert.DeserializeObject<Parkhouses>(result);
+                response.EnsureSuccessStatusCode();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+
+            return true;
+        }
     }
 }
