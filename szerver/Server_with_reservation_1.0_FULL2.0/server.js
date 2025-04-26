@@ -351,6 +351,42 @@ server.put('/changePassword', authenticate(), async (req, res) => {
 
 //RESERVATION (down below)
 
+server.get('/reservation/details/:slotNumber', async (req, res) => {
+    try {
+        const { slotNumber } = req.params;
+
+        const reservationDetails = await dbHandler.reservationTable.findOne({
+            where: { park_slot: slotNumber },
+            include: [
+                {
+                    model: dbHandler.userTable,
+                    as: 'owner',
+                    attributes: ['name', 'email', 'phone_num']
+                },
+                {
+                    model: dbHandler.parkhouseTable,
+                    as: 'parkhouse',
+                    attributes: ['name', 'address']
+                }
+            ]
+        });
+
+        if (reservationDetails) {
+            res.json({
+                parkSlot: reservationDetails.park_slot,
+                parkHouse: reservationDetails.parkhouse.name, // Parkolóház neve
+                owner: reservationDetails.owner.name, // Tulajdonos neve
+                reserveTime: reservationDetails.reservation_time_hour
+            });
+        } else {
+            res.status(404).json({ error: 'Foglalás nem található!' });
+        }
+    } catch (error) {
+        console.error('Hiba történt a részletek lekérése során:', error);
+        res.status(500).json({ error: 'Hiba történt a foglalás részleteinek lekérésekor!' });
+    }
+});
+
 
 const checkReservationExpiryOptimized = async () => {
     try {
