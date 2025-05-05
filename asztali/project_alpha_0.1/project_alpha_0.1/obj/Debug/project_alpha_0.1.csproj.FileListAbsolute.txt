@@ -113,12 +113,10 @@ C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.Properties.Resources.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.reservationEdit.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.reservationEditAdd.resources
-C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.reservationEditEdit.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.signIn.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlProfile.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userEdit.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userEditAdd.resources
-C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userEditEdit.resources
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.GenerateResource.cache
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.CoreCompileInputs.cache
 C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.exe
@@ -270,7 +268,10 @@ E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_a
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.exe
 E:\proj\asztali2\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.pdb
-C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0.1.csproj.CopyComplete
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlReservation.resources
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlParkhouses.resources
 C:\Users\matez\Desktop\project\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.parkinGarageEditAdd.resources
+C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.parkinGarageEditAdd.resources
+C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlParkhouses.resources
+C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_alpha_0._1.userCoontrol_ok.userControlReservation.resources
+C:\Users\Zsiros.Mate.Ferenc\Desktop\projekt\FinalProject\asztali\project_alpha_0.1\project_alpha_0.1\obj\Debug\project_.853B4815.Up2Date
