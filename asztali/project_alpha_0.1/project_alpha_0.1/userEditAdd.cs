@@ -103,13 +103,11 @@ namespace project_alpha_0._1
             string password = textBox5.Text;
             int role = int.Parse(textBox6.Text);
 
-            if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox6.Text))
             {
                 const string message1 = "Kérlek töltsd ki az összes mezőt!";
                 const string caption1 = "Hiba";
-                MessageBox.Show(message1, caption1,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
+                MessageBox.Show(message1, caption1, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -121,7 +119,7 @@ namespace project_alpha_0._1
             if (result == DialogResult.Yes)
             {
                 bool reqResult = await request.postRegisterUsers(username, password, email, role, name, phone_num);
-                if(reqResult == true)
+                if (reqResult == true)
                 {
                     MessageBox.Show("Felhasználó hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

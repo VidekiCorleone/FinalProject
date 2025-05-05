@@ -102,7 +102,7 @@ namespace project_alpha_0._1
                 if (!string.IsNullOrWhiteSpace(kereses))
                 {
                     reservations = reservations
-                        .Where(u => u.reservation_owner_id.ToString() == kereses.ToLowerInvariant())
+                        .Where(u => u.reservation_owner_id.Equals(kereses))
                         .ToList();
                 }
 

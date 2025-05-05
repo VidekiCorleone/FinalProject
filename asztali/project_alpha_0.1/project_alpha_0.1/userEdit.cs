@@ -85,7 +85,7 @@ namespace project_alpha_0._1
                 if (!string.IsNullOrWhiteSpace(kereses))
                 {
                     userProfiles = userProfiles
-                        .Where(u => u.username.Equals(kereses, StringComparison.OrdinalIgnoreCase))
+                        .Where(u => u.username.Contains(kereses))
                         .ToList();
                 }
 

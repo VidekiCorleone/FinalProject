@@ -36,7 +36,6 @@ namespace project_alpha_0._1
             label1.BackColor = Color.FromArgb(93, 135, 54);
 
             label1.Text = "Parkolóház választó";
-            label1.Font = new Font("Arial", 20, FontStyle.Bold);
             label2.Text = "Szűrés névre:";
 
             button1.Text = "Vissza";
@@ -114,7 +113,7 @@ namespace project_alpha_0._1
                 if (!string.IsNullOrWhiteSpace(kereses))
                 {
                     parkhouses = parkhouses
-                        .Where(u => u.name.ToString() == kereses.ToLowerInvariant())
+                        .Where(u => u.name.Contains(kereses))
                         .ToList();
                 }
 

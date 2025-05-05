@@ -65,9 +65,9 @@ namespace project_alpha_0._1
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
                 button1.Enabled = false;
+                this.Hide();
                 Menu menu = new Menu();
                 menu.Show();
-                this.Hide();
             }
 
 

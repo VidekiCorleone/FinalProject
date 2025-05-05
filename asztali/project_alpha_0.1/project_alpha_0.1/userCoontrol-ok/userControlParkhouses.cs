@@ -93,6 +93,16 @@ namespace project_alpha_0._1.userCoontrol_ok
                 return;
             }
 
+            if (int.Parse(textBox2.Text) > 26)
+            {
+                const string message11 = "A parkolóház maximális kapacitása 26 hely!";
+                const string caption11 = "Hiba";
+                MessageBox.Show(message11, caption11,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+                return;
+            }
+
             bool result = await request.putUpdateParkhouses(phID, textBox1.Text, int.Parse(textBox2.Text), textBox3.Text, DateTime.Parse(textBox4.Text), DateTime.Parse(textBox5.Text));
             MessageBox.Show(result.ToString());
             if (result == true)

@@ -31,17 +31,21 @@ namespace project_alpha_0._1
 
             dataGridView1.BackgroundColor = Color.FromArgb(93, 135, 54);
             label1.BackColor = Color.FromArgb(93, 135, 54);
+            label2.BackColor = Color.FromArgb(93, 135, 54);
             pictureBox1.BackColor = Color.FromArgb(93, 135, 54);
 
-            label1.Text = "Cickányok parkolóháza";
+            label1.Text = "Park1t&Go";
+            label2.Text = "Admin felület";
             button1.Text = "Bejelentkezés";
             button2.Text = "Bezárás";
 
             int labelMid = label1.Width / 2;
+            int label2Mid = label2.Width / 2;
             int dGWmid = dataGridView1.Width / 2;
             int siBtnMid = button1.Width / 2;
             int exitBtnMid = button2.Width / 2;
             label1.Left = this.Width / 2 - labelMid;
+            label2.Left = this.Width / 2 - label2Mid;
             dataGridView1.Left = this.Width / 2 - dGWmid;
             button1.Left = this.Width / 2 - siBtnMid;
             button2.Left = this.Width / 2 - exitBtnMid;

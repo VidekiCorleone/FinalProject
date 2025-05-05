@@ -107,6 +107,8 @@ namespace project_alpha_0._1
 
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text) || string.IsNullOrEmpty(textBox7.Text))
             {
+                
+
                 const string message1 = "Kérlek töltsd ki az összes mezőt!";
                 const string caption1 = "Hiba";
                 MessageBox.Show(message1, caption1,
@@ -122,6 +124,16 @@ namespace project_alpha_0._1
             DateTime closing_time = DateTime.Parse(textBox5.Text);
             int max_height = int.Parse(textBox6.Text);
             int max_reservation_time = int.Parse(textBox7.Text);
+
+            if (capacity > 26)
+            {
+                const string message11 = "A parkolóház maximális kapacitása 26 hely!";
+                const string caption11 = "Hiba";
+                MessageBox.Show(message11, caption11,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+                return;
+            }
 
             const string message = "Biztosan hozzáadod ezt a Parkolóházat?";
             const string caption = "Hozzáadás";

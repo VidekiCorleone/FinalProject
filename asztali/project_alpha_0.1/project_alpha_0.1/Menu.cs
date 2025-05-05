@@ -82,7 +82,7 @@ namespace project_alpha_0._1
         {
             this.Hide();
             parkinGarageEdit parkingarageEdit = new parkinGarageEdit();
-            parkingarageEdit.ShowDialog();
+            parkingarageEdit.Show();
             
         }
 
@@ -90,7 +90,7 @@ namespace project_alpha_0._1
         {
             this.Hide();
             reservationEdit reservationedit = new reservationEdit();
-            reservationedit.ShowDialog();
+            reservationedit.Show();
             
         }
     }

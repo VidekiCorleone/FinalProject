@@ -59,7 +59,7 @@ namespace project_alpha_0._1.osztalyok
                 if (!response.IsSuccessStatusCode)
                 {
                     // Írjuk ki, melyik státuszkód és az esetleges hibaüzenet a válaszból
-                    MessageBox.Show($"Hiba: {response.StatusCode}\nVálasz: {result}");
+                    //MessageBox.Show($"Hiba: {response.StatusCode}\nVálasz: {result}");
                     return "Hiba történt a bejelentkezés során!";
                 }
 
