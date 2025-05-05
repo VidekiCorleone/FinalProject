@@ -351,43 +351,6 @@ server.put('/changePassword', authenticate(), async (req, res) => {
 
 //RESERVATION (down below)
 
-server.get('/reservation/details/:slotNumber', async (req, res) => {
-    try {
-        const { slotNumber } = req.params;
-
-        const reservationDetails = await dbHandler.reservationTable.findOne({
-            where: { park_slot: slotNumber },
-            include: [
-                {
-                    model: dbHandler.userTable,
-                    as: 'owner',
-                    attributes: ['name', 'email', 'phone_num']
-                },
-                {
-                    model: dbHandler.parkhouseTable,
-                    as: 'parkhouse',
-                    attributes: ['name', 'address']
-                }
-            ]
-        });
-
-        if (reservationDetails) {
-            res.json({
-                parkSlot: reservationDetails.park_slot,
-                parkHouse: reservationDetails.parkhouse.name, // Parkolóház neve
-                owner: reservationDetails.owner.name, // Tulajdonos neve
-                reserveTime: reservationDetails.reservation_time_hour
-            });
-        } else {
-            res.status(404).json({ error: 'Foglalás nem található!' });
-        }
-    } catch (error) {
-        console.error('Hiba történt a részletek lekérése során:', error);
-        res.status(500).json({ error: 'Hiba történt a foglalás részleteinek lekérésekor!' });
-    }
-});
-
-
 const checkReservationExpiryOptimized = async () => {
     try {
         const now = new Date();
@@ -472,7 +435,7 @@ setInterval(async () => {
 
 server.post('/reserve', authenticate(), async (req, res) => {
     try {
-        const { slotId, parkhouseId } = req.body;
+        const { slotId, parkhouseId, reserveTime } = req.body;
         const userId = req.user.id;
         
 
@@ -488,15 +451,19 @@ server.post('/reserve', authenticate(), async (req, res) => {
         if (existingReservation) {
             return res.status(400).json({ error: 'A parkolóhely már foglalt!' });
         }
-
+        
         // Új foglalás létrehozása
         const reservation = await dbHandler.reservationTable.create({
+            
             park_slot: slotId,
             parkhouse_id: parkhouseId,
             reservation_owner_id: userId,
             active: true,
             inactive: false,
-            reservation_time_hour: 1 // Például egy órás foglalás
+            reservation_time_hour: reserveTime,
+            sum: 1300 ,
+            start_time: req.body.startTime // Start time mentése
+
         });
 
         res.status(201).json({ message: 'Foglalás sikeresen létrehozva!', reservation });

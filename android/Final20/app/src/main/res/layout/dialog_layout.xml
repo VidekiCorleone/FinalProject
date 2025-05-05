@@ -24,14 +24,6 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/slot_text"
-        android:layout_width="382dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
-        android:text="Foglalj helyet!"
-        android:textAlignment="center" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,37 +96,21 @@
         android:textSize="20sp"
         android:textStyle="italic" />
 
-    <EditText
-        android:id="@+id/editTextText7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
-        android:ems="10"
-        android:inputType="text"
-        android:text="ReserveTime"
-        android:textAlignment="center"
-        android:textSize="24sp" />
-
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="392dp"
+        android:layout_height="69dp"
+        android:scrollbarSize="40dp"
+        android:textAlignment="center" />
 
-    <CheckedTextView
-        android:id="@+id/checkedTextView"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckedTextView" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
+        android:paddingTop="10dp"
         android:text="If you click on the &quot;Finish reservation&quot; button, you automatically accept our &quot;User agreenment and privacy policy&quot;"
         android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="italic" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/cancel_button"
@@ -148,11 +124,12 @@
 
     <Button
         android:id="@+id/booking_button"
-        android:layout_width="247dp"
-        android:layout_height="wrap_content"
+        android:layout_width="291dp"
+        android:layout_height="59dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30px"
         android:text="Finish reservation!"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="16sp" />
 
 </LinearLayout>

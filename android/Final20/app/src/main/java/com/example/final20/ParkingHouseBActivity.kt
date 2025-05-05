@@ -61,7 +61,9 @@ class ParkingHouseBActivity : AppCompatActivity() {
             }
             button.setOnClickListener {
                 selectedNum = i
-                val dialog = DialogFragment(selectedNum)
+                val parkhouseName = intent.getStringExtra("parkhouseName") ?: "Ismeretlen"
+                val parkhouseId = intent.getIntExtra("parkhouseId", 0) // ID lekérése
+                val dialog = DialogFragment(selectedNum,parkhouseName ,parkhouseId.toString()) // ID átadása
                 dialog.show(supportFragmentManager, "CustomDialog")
             }
             buttonContainer.addView(button)

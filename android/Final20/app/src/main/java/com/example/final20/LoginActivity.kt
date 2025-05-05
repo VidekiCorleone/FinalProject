@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
                             val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
                             sharedPreferences.edit().putString("TOKEN", token).apply()
                             sharedPreferences.edit().putString("USER_ID", userId).apply()
+                            sharedPreferences.edit().putString("USERNAME", username).apply()
 
 
 

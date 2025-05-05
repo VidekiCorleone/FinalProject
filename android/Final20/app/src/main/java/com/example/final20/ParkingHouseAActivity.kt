@@ -2,6 +2,7 @@ package com.example.final20
 
 
 import android.content.Intent
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -82,10 +83,22 @@ class ParkingHouseAActivity : AppCompatActivity() {
                 width = 500
                 height = GridLayout.LayoutParams.WRAP_CONTENT
                 setMargins(8, 8, 8, 8)
+
+
             }
+
+            val shape = GradientDrawable()
+            shape.cornerRadius = 16f // Set corner radius
+            shape.setColor(resources.getColor(android.R.color.holo_blue_light, theme)) // Set background color
+            button.background = shape
+
+
+
             button.setOnClickListener {
                 selectedNum = i
-                val dialog = DialogFragment(selectedNum)
+                val parkhouseName = intent.getStringExtra("parkhouseName") ?: "Ismeretlen"
+                val parkhouseId = intent.getIntExtra("parkhouseId", 0) // ID lekérése
+                val dialog = DialogFragment(selectedNum,parkhouseName ,parkhouseId.toString()) // ID átadása
                 dialog.show(supportFragmentManager, "CustomDialog")
             }
             buttonContainer.addView(button)
