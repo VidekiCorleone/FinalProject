@@ -99,7 +99,7 @@ namespace project_alpha_0._1
             string name = textBox1.Text;
             string username = textBox2.Text;
             string email = textBox3.Text;
-            int phone_num = int.Parse(textBox4.Text);
+            long phone_num = long.Parse(textBox4.Text);
             string password = textBox5.Text;
             int role = int.Parse(textBox6.Text);
 

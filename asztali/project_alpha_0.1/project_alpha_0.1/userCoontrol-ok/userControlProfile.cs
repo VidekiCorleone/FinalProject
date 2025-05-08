@@ -41,6 +41,7 @@ namespace project_alpha_0._1.userCoontrol_ok
             button1.Click += GetReady;
             button2.Click += editData;
             button3.Click += deleteUserProfile;
+
         }
 
         public async void Start()
@@ -74,7 +75,6 @@ namespace project_alpha_0._1.userCoontrol_ok
             button2.Left = panel1.Width / 2 - button2.Width / 2;
             button3.Left = button2.Left + button2.Width + 10;
 
-            
         }
 
         public void GetReady(object s, EventArgs e)
@@ -97,7 +97,31 @@ namespace project_alpha_0._1.userCoontrol_ok
                 return;
             }
 
-            string result = await request.putProfileDataUpdate(userID, textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, int.Parse(textBox4.Text));
+            if (textBox4.Text.Length > 11)
+            {
+                MessageBox.Show("Túl hosszú telefonszám!");
+            }
+            else{
+                long num = long.Parse(textBox4.Text);
+
+                string result = await request.putProfileDataUpdate(userID, textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, num);
+                MessageBox.Show(result);
+                if (result == "Adatok sikeresen frissítve!")
+                {
+                    textBox1.Enabled = false;
+                    textBox2.Enabled = false;
+                    textBox3.Enabled = false;
+                    textBox4.Enabled = false;
+                    textBox5.Enabled = false;
+
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                }
+            }
+
+            /*long num = long.Parse(textBox4.Text);
+
+            string result = await request.putProfileDataUpdate(userID, textBox2.Text, textBox1.Text, textBox5.Text, textBox3.Text, num);
             MessageBox.Show(result);
             if(result == "Adatok sikeresen frissítve!")
             {
@@ -109,7 +133,7 @@ namespace project_alpha_0._1.userCoontrol_ok
 
                 button1.Enabled = true;
                 button2.Enabled = false;
-            }
+            }*/
 
         }
 

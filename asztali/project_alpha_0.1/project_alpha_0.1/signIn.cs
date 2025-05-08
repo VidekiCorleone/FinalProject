@@ -24,6 +24,7 @@ namespace project_alpha_0._1
             button1.Click += closeFunc;
             button2.Click += signInFunc;
 
+            ;
 
             // enter gomb = bejelentkezés
             this.KeyPreview = true;
@@ -60,7 +61,7 @@ namespace project_alpha_0._1
         {
             string result = await request.postLogin(textBox1.Text, textBox2.Text);
             MessageBox.Show(result);
-            if (result == "Sikeres bejelentkezés, shalom!")
+            if (result == "Sikeres bejelentkezés!")
             {
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;

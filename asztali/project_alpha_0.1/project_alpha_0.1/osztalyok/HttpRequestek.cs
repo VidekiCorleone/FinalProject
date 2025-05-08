@@ -63,7 +63,7 @@ namespace project_alpha_0._1.osztalyok
                     return "Hiba történt a bejelentkezés során!";
                 }
 
-                return "Sikeres bejelentkezés, shalom!";
+                return "Sikeres bejelentkezés!";
             }
             catch (Exception e)
             {
@@ -103,7 +103,7 @@ namespace project_alpha_0._1.osztalyok
             }
         }
 
-        public async Task<string> putProfileDataUpdate(int id, string uName, string pName, string uPass, string uEmail, int uPhone)
+        public async Task<string> putProfileDataUpdate(int id, string uName, string pName, string uPass, string uEmail, long uPhone)
         {
             string url = "http://127.1.1.1:3000/profileDataUpdateAdmin/" + id;
             userData message = null;
@@ -177,7 +177,7 @@ namespace project_alpha_0._1.osztalyok
         }
 
 
-        public async Task<bool> postRegisterUsers(string uUname, string pass, string uEmail, int uRole, string uName, int phone)
+        public async Task<bool> postRegisterUsers(string uUname, string pass, string uEmail, int uRole, string uName, long phone)
         {
             string url = "http://127.1.1.1:3000/registerUser";
             userData message = null;
