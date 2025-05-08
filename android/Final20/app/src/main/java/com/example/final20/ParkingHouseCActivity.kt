@@ -1,16 +1,20 @@
 package com.example.final20
 
 import android.content.Intent
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -25,7 +29,7 @@ class ParkingHouseCActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_parking_house_bactivity)
+        setContentView(R.layout.activity_parking_house_cactivity)
 
         buttonContainer = findViewById(R.id.buttonContainer)
 
@@ -38,11 +42,13 @@ class ParkingHouseCActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        val parkHousename = intent.getStringExtra("parkhouseName")
+        val textView = findViewById<TextView>(R.id.textView6)
+        textView.text = parkHousename.toString()
 
     }
-    private fun generateButtons(numberOfButtons: Int) {
-        Log.d("ParkingHouseCActivity", "Gombok generálása, száma: $numberOfButtons")
+    private fun generateButtons(numberOfButtons: Int, reservedSlots: Set<Int>) {
+        Log.d("ParkingHouseACctivity", "Gombok generálása, száma: $numberOfButtons, Foglalt: $reservedSlots")
         buttonContainer.removeAllViews()
         buttonList.clear()
 
@@ -54,11 +60,22 @@ class ParkingHouseCActivity : AppCompatActivity() {
                 height = GridLayout.LayoutParams.WRAP_CONTENT
                 setMargins(8, 8, 8, 8)
             }
+
+            val shape = GradientDrawable().apply {
+                cornerRadius = 16f  // lekerekített sarkok
+                // Ha a slot szerepel a foglalt listában, piros, különben zöld
+                if (reservedSlots.contains(i))
+                    setColor(resources.getColor(android.R.color.holo_red_dark, theme))
+                else
+                    setColor(resources.getColor(android.R.color.holo_green_dark, theme))
+            }
+            button.background = shape
+
             button.setOnClickListener {
                 selectedNum = i
                 val parkhouseName = intent.getStringExtra("parkhouseName") ?: "Ismeretlen"
-                val parkhouseId = intent.getIntExtra("parkhouseId", 0) // ID lekérése
-                val dialog = DialogFragment(selectedNum,parkhouseName ,parkhouseId.toString()) // ID átadása
+                val parkhouseId = intent.getIntExtra("parkhouseId", 0)
+                val dialog = DialogFragment(selectedNum, parkhouseName, parkhouseId.toString())
                 dialog.show(supportFragmentManager, "CustomDialog")
             }
             buttonContainer.addView(button)
@@ -83,7 +100,7 @@ class ParkingHouseCActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val capacity = response.body()?.capacity ?: 0
                         Log.d("ParkingHouseCActivity", "API válasz kapacitás: $capacity")
-                        generateButtons(capacity)
+                        getReservedSlotsAndGenerateButtons(parkhouseId,capacity)
                     } else {
                         Log.d("ParkingHouseCActivity", "API válasz sikertelen.")
                         Toast.makeText(this@ParkingHouseCActivity, "Hiba a kapacitás lekérdezésénél", Toast.LENGTH_SHORT).show()
@@ -94,6 +111,29 @@ class ParkingHouseCActivity : AppCompatActivity() {
                     Log.e("ParkingHouseCActivity", "Hálózati hiba: ${t.message}")
                 }
             })
+    }
+
+
+    private fun getReservedSlotsAndGenerateButtons(parkhouseId: Int, capacity: Int) {
+        val reservedSlotsService = RetrofitClient.instance.create(ReservedSlotsService::class.java)
+        reservedSlotsService.getReservedSlots(parkhouseId).enqueue(object :
+            Callback<ReservedSlotsResponse> {
+            override fun onResponse(call: Call<ReservedSlotsResponse>, response: Response<ReservedSlotsResponse>) {
+                if (response.isSuccessful) {
+                    // A szerver által visszaküldött foglalt helyek listáját Set-é alakítjuk
+                    val reservedSlots = response.body()?.reservedSlots?.toSet() ?: emptySet()
+                    generateButtons(capacity, reservedSlots)
+                } else {
+                    // Hiba esetén üres foglalt lista
+                    generateButtons(capacity, emptySet())
+                }
+            }
+
+            override fun onFailure(call: Call<ReservedSlotsResponse>, t: Throwable) {
+                // Hálózati hiba esetén üres foglalt lista
+                generateButtons(capacity, emptySet())
+            }
+        })
     }
 }
 

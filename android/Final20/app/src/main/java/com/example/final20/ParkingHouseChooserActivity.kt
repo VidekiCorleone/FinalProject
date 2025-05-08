@@ -14,13 +14,26 @@ import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
 
+
+
 class ParkingHouseChooserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking_house_chooser)
 
         fetchParkhouses() // Parkolóházak lekérése szerverről
+
+
+        val back_to_menu = findViewById<Button>(R.id.back_to_the_menu)
+        back_to_menu.setOnClickListener {
+            val intent = Intent(this, ChoosingMenuActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+
+
+
 
     private fun fetchParkhouses() {
         val client = OkHttpClient()

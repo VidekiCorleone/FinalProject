@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Final2.0</string>
+    <string name="no_active_reservations">No active reservations</string>
+    <string name="no_inactive_reservations">No inactive reservations</string>
+    <string name="active_reservations">Active Reservations:\n%s</string>
+    <string name="inactive_reservations">Inactive Reservations:\n%s</string>
 </resources>

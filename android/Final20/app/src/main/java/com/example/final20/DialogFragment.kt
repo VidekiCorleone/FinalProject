@@ -16,12 +16,14 @@ import retrofit2.http.POST
 // Adatmodellek
 data class ReservationResponse(val message: String, val reservation: ReservationDetails)
 data class ReservationDetails(
-    val slotId: Int,
+    val park_slot: Int,
     val parkhouse_id: Int,
     val reservation_owner_id: String,
-    val reserveTime: Int,
+    val reservation_time_hour: Int,
     val start_time: String
 )
+
+
 
 // Retrofit interfész
 interface ReservationService {
@@ -59,6 +61,8 @@ class DialogFragment(
     private lateinit var ownerText: EditText
     private lateinit var reserveTimeText: Spinner
     private lateinit var finishButton: Button
+    private lateinit var cancelButton: Button
+    private lateinit var checkBox: CheckBox
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,6 +75,12 @@ class DialogFragment(
         ownerText = view.findViewById(R.id.editTextText6)
         reserveTimeText = view.findViewById(R.id.spinner)
         finishButton = view.findViewById(R.id.booking_button)
+        cancelButton = view.findViewById(R.id.cancel_button)
+        checkBox = view.findViewById(R.id.checkBox)
+
+        cancelButton.setOnClickListener {
+            dismiss()
+        }
 
         parkHouseText.setText(parkhouseName)
         slotText.setText(slotNumber.toString())
@@ -85,7 +95,14 @@ class DialogFragment(
         adapter.setDropDownViewResource(R.layout.spinner_item)
         reserveTimeText.adapter = adapter
 
+
+
         finishButton.setOnClickListener {
+            if (!checkBox.isChecked) {
+                Toast.makeText(context, "Foglaláshoz el kell fogadnod a felhasználási feltételeket!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             // Jelenlegi idő formázása
             val currentTime = System.currentTimeMillis()
             val formattedTime = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.getDefault())
@@ -93,10 +110,10 @@ class DialogFragment(
 
             // Foglalási adatok összeállítása
             val reservation = ReservationDetails(
-                slotId = slotText.text.toString().toIntOrNull() ?: -1,
+                park_slot = slotText.text.toString().toIntOrNull() ?: -1,
                 parkhouse_id = parkHouseID.toIntOrNull() ?: -1,
                 reservation_owner_id = ownerText.text.toString(),
-                reserveTime = reserveTimeText.selectedItem.toString().toIntOrNull() ?: 0,
+                reservation_time_hour = reserveTimeText.selectedItem.toString().toIntOrNull() ?: 0,
                 start_time = formattedTime
             )
 
@@ -116,7 +133,6 @@ class DialogFragment(
                         Toast.makeText(context, "Foglalás sikeres!", Toast.LENGTH_SHORT).show()
                         dismiss()
                     } else {
-                        // A szerver részletes hibaüzenetét is megkísérljük kiolvasni
                         val errorBody = response.errorBody()?.string() ?: "Ismeretlen hiba"
                         Toast.makeText(context, "Hiba történt: $errorBody", Toast.LENGTH_LONG).show()
                     }

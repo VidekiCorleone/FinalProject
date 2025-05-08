@@ -9,6 +9,29 @@
     android:backgroundTint="@color/backcolorGreen"
     tools:context=".MyProfileActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <Button
+            android:id="@+id/back_to_the_menu"
+            android:layout_width="303dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="800dp"
+            android:background="@color/backcolorText"
+            android:backgroundTint="@color/backcolorText"
+            android:text="Back to the menu!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/buttonContainer2"
         android:layout_width="0dp"
