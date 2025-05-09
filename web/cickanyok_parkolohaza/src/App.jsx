@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import clickSound from './assets/audio.mp3';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // Állapotok
@@ -14,9 +15,13 @@ function App() {
   const [regPassword, setRegPassword] = useState('');
   const [regName, setRegName] = useState('');
   const [regPhone, setRegPhone] = useState('');
-  const [carId, setCarId] = useState('');
-  const [reservationId, setReservationId] = useState('');
+  const [activeView, setActiveView] = useState(null);
+
   const [loggedIN, setLoggedIN] = useState(!!sessionStorage.getItem('token'));
+  const [parkhouses, setParkhouses] = useState([]);
+  const [reservations, setReservations] = useState([]);
+  const [feedbackView, setFeedbackView] = useState(null); // 'list' vagy 'write'
+  const [selectedRating, setSelectedRating] = useState(0);
 
   // Eseménykezelők
   const handleLoginClick = () => setShowLoginModal(true);
@@ -126,22 +131,141 @@ function App() {
     }
   };
 
+  const fetchParkhouses = async () => {
+    console.log('fetchParkhouses függvény meghívva');
+    try {
+      setShowUserData(false); // Profil adatok elrejtése
+      const response = await fetch('http://127.1.1.1:3000/parkhouses'); // Az endpoint URL-je
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Lekért adatok:', data);
+        setParkhouses(data); // Az adatok mentése az állapotba
+      } else {
+        alert('Nem sikerült lekérni a parkolóházak listáját!');
+      }
+    } catch (error) {
+      console.error('Hiba a parkolóházak lekérdezése során:', error);
+      alert('Hiba történt a parkolóházak lekérdezése során!');
+    }
+  };
+
+  const fetchReservations = async () => {
+    console.log('fetchReservations függvény meghívva');
+    try {
+      const token = sessionStorage.getItem('token'); // Token lekérése
+      if (!token) {
+        alert('Nincs token! Jelentkezz be újra.');
+        return;
+      }
+
+      const response = await fetch('http://127.1.1.1:3000/checkReservations', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`, // Token küldése a fejlécben
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Lekért foglalások:', data);
+        setReservations(data); // Az adatok mentése az állapotba
+      } else {
+        alert('Nem sikerült lekérni a foglalásokat!');
+      }
+    } catch (error) {
+      console.error('Hiba a foglalások lekérdezése során:', error);
+      alert('Hiba történt a foglalások lekérdezése során!');
+    }
+  };
+
+  const handleRatingSubmit = async () => {
+    if (selectedRating === 0) {
+      alert('Kérlek, válassz egy értékelést!');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://127.1.1.1:3000/rateParkhouse', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`, // Token küldése
+        },
+        body: JSON.stringify({
+          parkhouseId: selectedParkhouseId, // Az aktuális parkolóház ID-je
+          rating: selectedRating, // A kiválasztott értékelés
+        }),
+      });
+
+      if (response.ok) {
+        alert('Értékelés sikeresen mentve!');
+        setFeedbackView(null); // Visszatérés az alapértelmezett nézethez
+        fetchParkhouses(); // Parkolóházak frissítése
+      } else {
+        alert('Nem sikerült menteni az értékelést!');
+      }
+    } catch (error) {
+      console.error('Hiba az értékelés mentése során:', error);
+      alert('Hiba történt az értékelés mentése során!');
+    }
+  };
+
   // Komponensek
   const Menu = () => (
     <>
-      <div className="menu">
-        <h1>Menü</h1>
-        <div className="menu-buttons">
-          <button className="menu-button" onClick={handleShowUserData}>
-            Saját adatok
-          </button>
-          <button className="menu-button">Parkolóházak listája</button>
-          <button className="menu-button">Eddigi foglalásaim</button>
-          <button className="menu-button">Visszajelzések</button>
+      <div className="menu d-flex justify-content-start">
+        <div className="menu-buttons bg-light p-3">
+          <h1>Menü</h1>
+          <div className="row">
+            <div className="col-12 mb-3">
+              <button
+                className="btn btn-outline-primary w-100"
+                onClick={() => {
+                  setActiveView('userData');
+                  handleShowUserData();
+                }}
+              >
+                Saját adatok
+              </button>
+            </div>
+            <div className="col-12 mb-3">
+              <button
+                className="btn btn-outline-primary w-100"
+                onClick={() => {
+                  setActiveView('parkhouses');
+                  fetchParkhouses();
+                }}
+              >
+                Parkolóházak listája
+              </button>
+            </div>
+            <div className="col-12 mb-3">
+              <button
+                className="btn btn-outline-primary w-100"
+                onClick={() => {
+                  setActiveView('reservations');
+                  fetchReservations();
+                }}
+              >
+                Eddigi foglalásaim
+              </button>
+            </div>
+            <div className="col-12">
+              <button
+                className="btn btn-outline-primary w-100"
+                onClick={() => {
+                  setActiveView('feedback');
+                  setFeedbackView(null); // Alapértelmezett nézet
+                }}
+              >
+                Visszajelzések
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {showUserData && userData && (
+      {activeView === 'userData' && showUserData && userData && (
         <div className="user-data">
           <h2>Felhasználói adatok</h2>
           <p><strong>Felhasználónév:</strong> {userData.username}</p>
@@ -150,6 +274,123 @@ function App() {
           <p><strong>Szerepkör:</strong> {userData.role === 0 ? 'Felhasználó' : userData.role}</p>
           <p><strong>Rendszám:</strong> {userData.plate}</p>
           <p><strong>Típus:</strong> {userData.type}</p>
+        </div>
+      )}
+
+      {activeView === 'parkhouses' && parkhouses.length > 0 && (
+        <div className="parkhouse-list mt-4">
+          <h2>Parkolóházak listája</h2>
+          <div className="row">
+            {parkhouses.map((parkhouse) => {
+              const openingTime = new Date(parkhouse.opening);
+              const closingTime = new Date(parkhouse.closing);
+
+              const formattedOpening = openingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+              const formattedClosing = closingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+
+              return (
+                <div key={parkhouse.id} className="mb-4">
+                  <div className="card shadow-sm">
+                    <div className="card-body">
+                      <h5 className="card-title"><strong>{parkhouse.name}</strong></h5>
+                      <p className="card-text">
+                        <strong>Cím:</strong> {parkhouse.address} <br />
+                        <strong>Kapacitás:</strong> {parkhouse.capacity} <br />
+                        <strong>Értékelés:</strong> {parkhouse.rating} <br />
+                        <strong>Nyitás:</strong> {formattedOpening} <br />
+                        <strong>Zárás:</strong> {formattedClosing}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {activeView === 'reservations' && reservations.length > 0 && (
+        <div className="reservation-list mt-4">
+          <h2>Eddigi foglalásaim</h2>
+          <ul className="list-group">
+            {reservations.map((reservation) => (
+              <li key={reservation.id} className="list-group-item">
+                <strong>Parkolóhely:</strong> {reservation.park_slot} - 
+                <strong> Parkolóház ID:</strong> {reservation.parkhouse_id} - 
+                <strong> Időtartam:</strong> {reservation.reservation_time_hour} óra - 
+                <strong> Összeg:</strong> {reservation.sum} Ft
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {activeView === 'feedback' && (
+        <div className="feedback-options mt-4">
+          {!feedbackView && (
+            <div>
+              <h2>Visszajelzések</h2>
+              <button
+                className="btn btn-outline-primary w-100 mb-3"
+                onClick={() => setFeedbackView('list')}
+              >
+                Eddigi értékelések
+              </button>
+              <button
+                className="btn btn-outline-primary w-100"
+                onClick={() => setFeedbackView('write')}
+              >
+                Értékelés írása
+              </button>
+            </div>
+          )}
+
+          {feedbackView === 'list' && (
+            <div>
+              <h2>Eddigi értékelések</h2>
+              {/* Itt jelenítsd meg az értékelések listáját */}
+              <p>Az értékelések listája itt jelenik meg.</p>
+              <button
+                className="btn btn-secondary mt-3"
+                onClick={() => setFeedbackView(null)}
+              >
+                Vissza
+              </button>
+            </div>
+          )}
+
+          {feedbackView === 'write' && (
+            <div>
+              <h2>Értékelés írása</h2>
+              <div className="rating">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span
+                    key={star}
+                    className={`star ${star <= selectedRating ? 'selected' : ''}`}
+                    onClick={() => setSelectedRating(star)}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+              <button className="btn btn-primary mt-3" onClick={handleRatingSubmit}>
+                Küldés
+              </button>
+              <button
+                className="btn btn-secondary mt-3"
+                onClick={() => setFeedbackView(null)}
+              >
+                Vissza
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {activeView === null && (
+        <div className="welcome-message">
+          <h2>Üdvözlünk a Cickányok parkolóházában!</h2>
+          <p>Válassz egy opciót a menüből.</p>
         </div>
       )}
     </>
@@ -164,36 +405,28 @@ function App() {
   return (
     <>
       {/* Fejléc */}
-      <div className="header">
-        <img src="./src/assets/smartcar.png" alt="Logo" className="logo"  onClick={playSound}/>
+      <div className="header d-flex align-items-center justify-content-between p-3 bg-primary text-white">
+        <img src="./src/assets/smartcar.png" alt="Logo" className="logo" onClick={playSound} />
         <span className="headerText">Cickányok parkolóháza</span>
       </div>
 
       {/* Fő tartalom */}
-      {!loggedIN ? (
-        <>
-          <div className="card">
-            <button className="login" onClick={handleLoginClick}>
-              Login
-            </button>
-            <button className="registration" onClick={handleRegistrationClick}>
-              Registration
-            </button>
+      <div className="container text-center mt-5">
+        {!loggedIN ? (
+          <div className="row">
+            <div className="col-md-6 offset-md-3">
+              <button className="btn btn-primary w-100 mb-3" onClick={handleLoginClick}>
+                Login
+              </button>
+              <button className="btn btn-secondary w-100" onClick={handleRegistrationClick}>
+                Registration
+              </button>
+            </div>
           </div>
-          <div className="welcomeSign">
-            <p>
-              Üdvözöljük parkolóházunk weboldalán! Kényelmes és biztonságos parkolási lehetőségeket kínálunk, hogy az autója mindig jó kezekben legyen.
-              Parkolóházunk modern biztonsági rendszerekkel van felszerelve, beleértve a 24 órás kamerarendszert és az őrzött bejáratokat, hogy Ön mindig
-              nyugodt lehessen autója biztonságát illetően. Szolgáltatásaink közé tartozik az elektromos autók töltési lehetősége, a kényelmes fizetési
-              módok, valamint a fedett parkolóhelyek, amelyek megvédik autóját az időjárás viszontagságaitól. Emellett különleges kedvezményeket kínálunk
-              hosszú távú parkolás esetén, és rugalmas bérleti lehetőségeket biztosítunk, hogy minden igényt kielégítsünk. Látogasson el hozzánk, és
-              tapasztalja meg a kényelmes és biztonságos parkolás élményét! Várjuk szeretettel!
-            </p>
-          </div>
-        </>
-      ) : (
-        <Menu />
-      )}
+        ) : (
+          <Menu />
+        )}
+      </div>
 
       {/* Kijelentkezés gomb */}
       {loggedIN && (
@@ -204,35 +437,37 @@ function App() {
 
       {/* Bejelentkezési modal */}
       {showLoginModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={handleCloseModal}>
-              &times;
-            </span>
-            <h2>Bejelentkezés</h2>
-            <label htmlFor="loginUser">Felhasználónév:</label>
-            <br />
-            <input
-              type="text"
-              id="loginUser"
-              name="loginUser"
-              value={loginUser}
-              onChange={(e) => setLoginUser(e.target.value)}
-            />
-            <br />
-            <label htmlFor="loginPassword">Jelszó:</label>
-            <br />
-            <input
-              type="password"
-              id="loginPassword"
-              name="loginPassword"
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <br />
-            <button className="logreg" onClick={handleLoginSubmit}>
-              Bejelentkezés
-            </button>
+        <div className="modal show d-block" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Bejelentkezés</h5>
+                <button type="button" className="btn-close" onClick={handleCloseModal}></button>
+              </div>
+              <div className="modal-body">
+                <label htmlFor="loginUser">Felhasználónév:</label>
+                <input
+                  type="text"
+                  id="loginUser"
+                  className="form-control"
+                  value={loginUser}
+                  onChange={(e) => setLoginUser(e.target.value)}
+                />
+                <label htmlFor="loginPassword" className="mt-3">Jelszó:</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  className="form-control"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-primary" onClick={handleLoginSubmit}>
+                  Bejelentkezés
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

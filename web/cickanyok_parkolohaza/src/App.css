@@ -23,14 +23,24 @@
 }
 
 .card {
-  padding: 2em;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  display: inline-block; /* A doboz mérete igazodik a tartalomhoz */
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  color: black;
+  padding: 15px;
+  background-color: #f9f9f9;
+  margin: 10px; /* Távolság a dobozok között */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 button {
@@ -112,15 +122,18 @@ body {
 
 .menu {
   position: fixed; /* Rögzített pozíció a bal oldalon */
-  top: 70px;
+  top: 120px;
   left: 20px; /* Ugyanaz a távolság, mint a logónál */
-  width: 600px; /* Menüsáv szélessége */
+  width: 300px; /* Menüsáv szélessége */
   background-color: #f4f4f4; /* Háttérszín */
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Árnyék a menü jobb oldalán */
   border-radius: 8px; /* Lekerekített sarkok */
   color: black; /* Szöveg színe */
   z-index: 1000; /* Magasabb réteg, mint a háttér */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important;
 }
 
 .menu h1 {
@@ -130,8 +143,9 @@ body {
 }
 
 .menu-buttons {
-  display: flex;
-  flex-direction: column; /* Gombok egymás alá helyezése */
+  display: inline-block; /* Csak a tartalom szélességét foglalja el */
+  background-color: #f8f9fa; /* Világos háttérszín */
+  border-radius: 5px; /* Lekerekített sarkok (opcionális) */
 }
 
 .menu-button {
@@ -179,4 +193,72 @@ body {
   height: 400px;
   font-size: 18px; /* Nagyobb betűméret */
   font-weight: bold; /* Félkövér szöveg */
+}
+
+.welcome-message{
+  font-size: 24px; /* Nagyobb betűméret a köszöntő üzenethez */
+  font-weight: bold; /* Félkövér szöveg */
+  margin-bottom: 20px; /* További távolság a szöveg és a gomb között */
+  background-color: rgba(255, 255, 255, 0.9); /* Háttérszín */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+  padding: 20px; /* Nagyobb belső margó */
+}
+.parkhouse-list{
+  font-size: 24px; /* Nagyobb betűméret a köszöntő üzenethez */
+  font-weight: bold; /* Félkövér szöveg */
+  margin-bottom: 20px; /* További távolság a szöveg és a gomb között */
+  background-color: rgba(255, 255, 255, 0.9); /* Háttérszín */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+  padding: 20px; /* Nagyobb belső margó */
+  margin-top: 20px;
+}
+
+.list-group-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  list-style-type: none; /* Felsorolás jelzésének eltávolítása */
+}
+
+.feedback-options {
+  text-align: center;
+}
+
+.feedback-options button {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+.feedback-options{
+  font-size: 24px; /* Nagyobb betűméret a köszöntő üzenethez */
+  font-weight: bold; /* Félkövér szöveg */
+  margin-bottom: 20px; /* További távolság a szöveg és a gomb között */
+  background-color: rgba(255, 255, 255, 0.9); /* Háttérszín */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+  padding: 20px; /* Nagyobb belső margó */
+  margin-top: 20px;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.star {
+  font-size: 30px;
+  cursor: pointer;
+  color: #ccc;
+  margin: 0 5px;
+}
+
+.star.selected {
+  color: gold;
 }
