@@ -45,11 +45,6 @@ namespace project_alpha_0._1
 
             int label1Mid = label1.Width / 2;
             int button1Mid = button1.Width / 2;
-            //int button2Mid = button2.Width / 2;
-            //int label2Right = label2.Left - label2.Width;
-            //int label3Right = label3.Left - label3.Width;
-            //int label4Right = label4.Left - label4.Width;
-
 
             label1.Left = this.Width / 2 - label1Mid;
             button1.Left = this.Width / 2 - button1.Width - 40;
@@ -81,9 +76,7 @@ namespace project_alpha_0._1
         {
             const string message = "Biztosan vissza akarsz lépni?";
             const string caption = "Visszalépés";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Hide();
@@ -113,9 +106,7 @@ namespace project_alpha_0._1
 
             const string message = "Biztosan hozzáadod ezt a felhasználót?";
             const string caption = "Hozzáadás";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 bool reqResult = await request.postRegisterUsers(username, password, email, role, name, phone_num);
@@ -124,20 +115,6 @@ namespace project_alpha_0._1
                     MessageBox.Show("Felhasználó hozzáadva!", "Sikeres hozzáadás", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-            /*const string message = "Biztosan hozzáadod ezt a felhasználót?";
-            const string caption = "Hozzáadás";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                const string message1 = "Fejlesztés alatt";
-                const string caption1 = "Hiba";
-                MessageBox.Show(message1, caption1,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
-            }*/
         }
     }
 }

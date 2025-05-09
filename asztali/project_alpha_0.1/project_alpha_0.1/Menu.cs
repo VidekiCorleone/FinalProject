@@ -57,16 +57,13 @@ namespace project_alpha_0._1
         {
             const string message = "Biztosan ki akarsz jelentkezni?";
             const string caption = "Kijelentkezés";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
                 this.Hide();
                 signIn signin = new signIn();
-                signin.ShowDialog();
-                
+                signin.Show();
             }
         }
 
@@ -75,7 +72,6 @@ namespace project_alpha_0._1
             this.Hide();
             userEdit useredit = new userEdit();
             useredit.Show();
-            
         }
 
         public void parkingGarageEdit(object s, EventArgs e)
@@ -83,7 +79,6 @@ namespace project_alpha_0._1
             this.Hide();
             parkinGarageEdit parkingarageEdit = new parkinGarageEdit();
             parkingarageEdit.Show();
-            
         }
 
         public void reservationEdit(object s, EventArgs e)
@@ -91,7 +86,6 @@ namespace project_alpha_0._1
             this.Hide();
             reservationEdit reservationedit = new reservationEdit();
             reservationedit.Show();
-            
         }
     }
 }

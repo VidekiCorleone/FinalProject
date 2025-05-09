@@ -98,7 +98,7 @@ namespace project_alpha_0._1.osztalyok
             catch (Exception e)
             {
 
-                MessageBox.Show("Tyű valami nemjo " + e.Message);
+                MessageBox.Show("Hiba történt: " + e.Message);
                 return userList;
             }
         }
@@ -240,7 +240,7 @@ namespace project_alpha_0._1.osztalyok
             catch (Exception e)
             {
 
-                MessageBox.Show("Tyű valami nemjo " + e.Message);
+                MessageBox.Show("Hiba történt: " + e.Message);
                 return reservationList;
             }
         }
@@ -354,7 +354,7 @@ namespace project_alpha_0._1.osztalyok
             catch (Exception e)
             {
 
-                MessageBox.Show("Tyű valami nemjo " + e.Message);
+                MessageBox.Show("Hiba történt: " + e.Message);
                 return parkhouseList;
             }
         }

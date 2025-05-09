@@ -16,6 +16,7 @@ namespace project_alpha_0._1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.AddMessageFilter(new osztalyok.ClosingFilter());
             Application.Run(new Form1());
         }
     }

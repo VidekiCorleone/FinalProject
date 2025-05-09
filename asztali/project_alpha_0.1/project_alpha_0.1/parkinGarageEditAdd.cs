@@ -47,12 +47,6 @@ namespace project_alpha_0._1
 
             int label1Mid = label1.Width / 2;
             int button1Mid = button1.Width / 2;
-            //int button2Mid = button2.Width / 2;
-            //int label2Right = label2.Left - label2.Width;
-            //int label3Right = label3.Left - label3.Width;
-            //int label4Right = label4.Left - label4.Width;
-
-            
 
             label1.Left = this.Width / 2 - label1Mid;
             button1.Left = this.Width / 2 - button1.Width - 40;
@@ -87,15 +81,12 @@ namespace project_alpha_0._1
         {
             const string message = "Biztosan vissza akarsz lépni?";
             const string caption = "Visszalépés";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();
                 parkinGarageEdit parkingEdit = new parkinGarageEdit();
                 parkingEdit.Show();
-                //this.Close();
             }
         }
 
@@ -103,25 +94,21 @@ namespace project_alpha_0._1
         {
             HttpRequestek request = new HttpRequestek();
 
-            
-
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text) || string.IsNullOrEmpty(textBox7.Text))
             {
                 
 
                 const string message1 = "Kérlek töltsd ki az összes mezőt!";
                 const string caption1 = "Hiba";
-                MessageBox.Show(message1, caption1,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
+                MessageBox.Show(message1, caption1, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             string name = textBox1.Text;
             int capacity = int.Parse(textBox2.Text);
             string address = textBox3.Text;
-            DateTime opening_time = DateTime.Parse(textBox4.Text);
-            DateTime closing_time = DateTime.Parse(textBox5.Text);
+            DateTime opening_time = DateTime.Parse(textBox4.Text).AddHours(2);
+            DateTime closing_time = DateTime.Parse(textBox5.Text).AddHours(2);
             int max_height = int.Parse(textBox6.Text);
             int max_reservation_time = int.Parse(textBox7.Text);
 
@@ -129,17 +116,13 @@ namespace project_alpha_0._1
             {
                 const string message11 = "A parkolóház maximális kapacitása 26 hely!";
                 const string caption11 = "Hiba";
-                MessageBox.Show(message11, caption11,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
+                MessageBox.Show(message11, caption11, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             const string message = "Biztosan hozzáadod ezt a Parkolóházat?";
             const string caption = "Hozzáadás";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 bool reqResult = await request.postParkhouses(name, capacity, address, opening_time, closing_time, max_height, max_reservation_time);

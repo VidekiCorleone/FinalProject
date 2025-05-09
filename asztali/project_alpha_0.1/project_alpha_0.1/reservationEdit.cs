@@ -59,34 +59,24 @@ namespace project_alpha_0._1
         {
             const string message = "Biztosan vissza akarsz lépni?";
             const string caption = "Visszalépés";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Hide();
                 Menu menuForm = new Menu();
-                menuForm.ShowDialog();
-                //this.Close();
+                menuForm.Show();
             }
         }
 
         public void addBtn(object s, EventArgs e)
         {
-            //const string message = "Fejlesztés alatt";
-            //const string caption = "Hiba";
-            //var result = MessageBox.Show(message, caption,
-            //                             MessageBoxButtons.OK,
-            //                             MessageBoxIcon.Error);
-
             this.Hide();
             reservationEditAdd reservationEditAddForm = new reservationEditAdd();
             reservationEditAddForm.Show();
         }
 
-        private async void LoadUserControls(string kereses = "")
+        private async void LoadUserControls(string search = "")
         {
-
             try
             {
                 int xPosition = 0;
@@ -99,21 +89,16 @@ namespace project_alpha_0._1
 
                 List<Reservations> reservations = await request.getReservations();
 
-                if (!string.IsNullOrWhiteSpace(kereses))
+                if (!string.IsNullOrWhiteSpace(search))
                 {
-                    reservations = reservations
-                        .Where(u => u.reservation_owner_id.Equals(kereses))
-                        .ToList();
+                    reservations = reservations.Where(u => u.reservation_owner_id.Equals(search)).ToList();
                 }
 
                 panel1.Controls.Clear();
 
-
                 for (int i = 0; i < reservations.Count; i++)
                 {
                     var res = reservations[i];
-
-                    
 
                     var userControlReservation = new userControlReservation()
                     {
@@ -145,14 +130,14 @@ namespace project_alpha_0._1
             }
             catch (Exception e)
             {
-                MessageBox.Show("Valami nagyon el van baszva ", e.Message);
+                MessageBox.Show("Hiba történt: ", e.Message);
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keresestext = textBox1.Text.Trim();
-            LoadUserControls(keresestext);
+            string searchText = textBox1.Text.Trim();
+            LoadUserControls(searchText);
         }
     }
 }

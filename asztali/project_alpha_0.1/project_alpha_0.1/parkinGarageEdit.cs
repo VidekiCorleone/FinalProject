@@ -22,7 +22,6 @@ namespace project_alpha_0._1
 
             LoadUserControls();
 
-
             button1.Click += backBtn;
             button2.Click += addBtn;
 
@@ -54,48 +53,29 @@ namespace project_alpha_0._1
             label2.Top = button1.Top + button1.Height / 2 - label2.Height / 2;
             textBox1.Top = button1.Top + button1.Height / 2 - textBox1.Height / 2;
             textBox1.Left = panel1.Left + panel1.Width - textBox1.Width;
-
-            //button2.Left = button1.Width + ;
         }
 
         public void backBtn(object s, EventArgs e)
         {
             const string message = "Biztosan vissza akarsz lépni?";
             const string caption = "Visszalépés";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();
                 Menu menuForm = new Menu();
                 menuForm.Show();
-                //this.Close();
             }
         }
 
         public void addBtn(object s, EventArgs e)
         {
-            /*const string message = "Fejlesztés alatt";
-            const string caption = "Hiba";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Error);*/
             this.Close();
             parkinGarageEditAdd addForm = new parkinGarageEditAdd();
             addForm.Show();
         }
 
-        /*public void errorBtn(object s, EventArgs e)
-        {
-            const string message = "Fejlesztés alatt";
-            const string caption = "Hiba";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Error);
-        }*/
-
-        private async void LoadUserControls(string kereses = "")
+        private async void LoadUserControls(string search = "")
         {
 
             try
@@ -110,11 +90,9 @@ namespace project_alpha_0._1
 
                 List<Parkhouses> parkhouses = await request.getParkhouses();
 
-                if (!string.IsNullOrWhiteSpace(kereses))
+                if (!string.IsNullOrWhiteSpace(search))
                 {
-                    parkhouses = parkhouses
-                        .Where(u => u.name.Contains(kereses))
-                        .ToList();
+                    parkhouses = parkhouses.Where(u => u.name.Contains(search)).ToList();
                 }
 
                 panel1.Controls.Clear();
@@ -123,8 +101,6 @@ namespace project_alpha_0._1
                 for (int i = 0; i < parkhouses.Count; i++)
                 {
                     var ph = parkhouses[i];
-
-
 
                     var userControlParkhouses = new userControlParkhouses()
                     {
@@ -135,8 +111,6 @@ namespace project_alpha_0._1
                         textBox4 = { Text = ph.opening.ToString() },
                         textBox5 = { Text = ph.closing.ToString() },
                     };
-
-
 
                     userControlParkhouses.Location = new Point(xPosition, yPosition);
                     userControlParkhouses.Size = new Size(controlWidth, controlHeight);
@@ -156,14 +130,14 @@ namespace project_alpha_0._1
             }
             catch (Exception e)
             {
-                MessageBox.Show("Valami nagyon el van baszva ", e.Message);
+                MessageBox.Show("Hiba történt: ", e.Message);
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keresestext = textBox1.Text.Trim();
-            LoadUserControls(keresestext);
+            string searchText = textBox1.Text.Trim();
+            LoadUserControls(searchText);
         }
     }
 }

@@ -103,8 +103,15 @@ namespace project_alpha_0._1.userCoontrol_ok
                 return;
             }
 
-            bool result = await request.putUpdateParkhouses(phID, textBox1.Text, int.Parse(textBox2.Text), textBox3.Text, DateTime.Parse(textBox4.Text), DateTime.Parse(textBox5.Text));
-            MessageBox.Show(result.ToString());
+            bool result = await request.putUpdateParkhouses(phID, textBox1.Text, int.Parse(textBox2.Text), textBox3.Text, DateTime.Parse(textBox4.Text).AddHours(2), DateTime.Parse(textBox5.Text).AddHours(1));
+            if (result == true)
+            {
+                MessageBox.Show("Sikeres módosítás!");
+            }
+            else
+            {
+                MessageBox.Show("Hiba történt a módosítás során!");
+            }
             if (result == true)
             {
                 textBox1.Enabled = false;

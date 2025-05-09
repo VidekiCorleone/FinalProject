@@ -57,7 +57,7 @@ namespace project_alpha_0._1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(93, 453);
+            this.button1.Location = new System.Drawing.Point(93, 470);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 56);
             this.button1.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace project_alpha_0._1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 453);
+            this.button2.Location = new System.Drawing.Point(245, 470);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(145, 56);
             this.button2.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace project_alpha_0._1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(397, 475);
+            this.label2.Location = new System.Drawing.Point(397, 492);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace project_alpha_0._1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(547, 472);
+            this.textBox1.Location = new System.Drawing.Point(547, 489);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 5;
