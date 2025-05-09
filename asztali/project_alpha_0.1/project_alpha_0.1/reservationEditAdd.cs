@@ -36,7 +36,7 @@ namespace project_alpha_0._1
             label1.Text = "Foglalás hozzáadása";
             label2.Text = "Foglalás kezdete:";
             label3.Text = "Foglalás időtartama:";
-            label4.Text = "Foglaló:";
+            label4.Text = "Foglaló azonosítója:";
             label5.Text = "Parkolóhely:";
             label6.Text = "Parkolóház:";
             button1.Text = "Vissza";

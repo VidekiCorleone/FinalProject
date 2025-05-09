@@ -34,7 +34,7 @@ namespace project_alpha_0._1
             this.BackColor = Color.FromArgb(93, 135, 54);
             label1.BackColor = Color.FromArgb(93, 135, 54);
 
-            label1.Text = "Parkolóház választó";
+            label1.Text = "Parkolóházak kezelése";
             label2.Text = "Szűrés névre:";
 
             button1.Text = "Vissza";
