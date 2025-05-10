@@ -582,7 +582,7 @@ server.post('/loginAdmin', async (req, res) => {
         const isValidPassword = await bcrypt.compare(req.body.loginPassword, user.password);
 
         if (!isValidPassword) {
-            return res.status(401).json({ error: 'Hibás felhasználónév vagy jelszó' });
+            return res.status(401).json({ error: 'Hibás jelszó' });
         }
 
         const token = JWT.sign(
@@ -848,7 +848,7 @@ server.delete('/parkhouseDeleteAdmin/:id', authenticate(), async(req, res) => {
     })
 
     if(!pHouse){
-        return res.status(404).json({ error : 'Foglalás nem található!'})
+        return res.status(404).json({ error : 'Parkolóház nem található!'})
     }
 
     await dbHandler.parkhouseTable.destroy({
