@@ -15,24 +15,55 @@ Az androidos és webes felület felhasználói célra készült:
 
 Az asztali alkalmazás rendszergazdai használatra készült:
 - Tartalmazza:
- - felhasználók felülvizsgálata, létrehozása és törlése valamint azok adatainak szerkesztése
- - parkolóházak felülvizsgálata, létrehozása és törlése valamint azok adatainak szerkesztése
- - foglalások felülvizsgálata, létrehozása és törlése valamint azok adatainak szerkesztése
+  - felhasználók felülvizsgálata, létrehozása és törlése valamint azok adatainak szerkesztése
+  - parkolóházak felülvizsgálata, létrehozása és törlése valamint azok adatainak szerkesztése
+  - foglalások felülvizsgálata, létrehozása és törlése valamint azok adatainak szerkesztése
 
 A backend futtatásához szükséges források:
+- Node
+- Git
 - NuGet csomagok:
- - Express
- - Sequelize
- - JsonWebToken
- - Cors
- - MySQL2
- - dotenv:
-  - A backend futtatásához a '.env' fájlt, a fejlesztőnek kell létrehoznia manuálisan és a következő adatokat kell tartalmaznia:
-   - SECRETKEY
-   - PASSWORD
-   - USERNAME
-   - HOST
-   - PORT 
+  - Express
+  - Sequelize
+  - JsonWebToken
+  - Cors
+  - MySQL2
+  - dotenv:
+    - A backend futtatásához a '.env' fájlt, a fejlesztőnek kell létrehoznia manuálisan és a következő adatokat kell tartalmaznia:
+      - SECRETKEY
+      - PASSWORD
+      - USERNAME
+      - HOST
+      - PORT
+
+- Mappa létrehozása a projektnek
+- A mappa megnyitása terminálban
+- Git inicializálása
+
+```sh
+git init
+```
+
+- Git repo klónozása
+
+```sh
+git clone https://github.com/VidekiCorleone/FinalProject.git
+```
+
+- Elindítani a XAMPP Apache és MySQL szerverét
+- PHP MyAdmin segítségével létrehozni egy parkhouse nevű utf8mb4_hungarian_ci kódolású adatbázist
+- Ezután a projekt mappájának megnyitása parancssorban
+- Csomagok telepítése
+
+```sh
+npm install
+```
+
+- Szerver elindítása
+
+```sh
+node server.js
+```
 
 ## Minimum rendszerkövetelmények:
 - Android ™ 13.0 (Tiramisu), vagy újabb
@@ -41,4 +72,8 @@ A backend futtatásához szükséges források:
 
 ## Telepítés
 - Fejlesztőknek a projekt klónozását követően az alkalmazás indításához az Android Studio programcsomag használata javasolt.
-- Asztali 
+- Asztali alkalmazás fejlesztőknek, a Visual Studio 2022-es verziója javasolt.
+- Webfejlesztőknek a Visual Studio Code használata javasolt.
+
+## Dokumentáció
+- [Dokumentáció](https://github.com/VidekiCorleone/FinalProject/blob/main/Dokument%C3%A1ci%C5%91.docx)
