@@ -42,6 +42,7 @@ dbHandler.userTable.sync({ alter: true })
     .then(() => dbHandler.carTable.sync({ alter: true }))
     .then(() => dbHandler.parkhouseTable.sync({ alter: true }))
     .then(() => dbHandler.reservationTable.sync({ alter: true }))
+    .then(() => dbHandler.ratingTable.sync({ alter: true })) // EZT ADD HOZZÁ
     .then(() => {
         server.listen(PORT, () => {
             console.log(`A szerver fut a ${PORT}-es porton`);
@@ -488,32 +489,41 @@ server.post('/reserve', authenticate(), async (req, res) => {
 
 server.post('/rateParkhouse', authenticate(), async (req, res) => {
     try {
-      const { parkhouseId, rating } = req.body;
-  
-      if (!parkhouseId || !rating) {
-        return res.status(400).json({ error: 'Hiányzó adatok!' });
-      }
-  
-      const parkhouse = await dbHandler.parkhouseTable.findOne({ where: { id: parkhouseId } });
-  
-      if (!parkhouse) {
-        return res.status(404).json({ error: 'Parkolóház nem található!' });
-      }
-  
-      // Frissítsd az értékeléseket
-      const updatedRatings = [...parkhouse.rating, rating]; // Új értékelés hozzáadása
-      const averageRating = updatedRatings.reduce((sum, r) => sum + r, 0) / updatedRatings.length;
-  
-      await parkhouse.update({
-        rating: updatedRatings, // Frissített értékelések
-      });
-  
-      res.json({ message: 'Értékelés sikeresen mentve!', averageRating });
+        const { parkhouseId, rating } = req.body;
+        const userId = req.user.id;
+
+        if (!parkhouseId || !rating) {
+            return res.status(400).json({ error: 'Hiányzó adatok!' });
+        }
+
+        // Új értékelés mentése
+        await dbHandler.ratingTable.create({
+            user_id: userId,
+            parkhouse_id: parkhouseId,
+            rating: rating
+        });
+
+        // Átlag újraszámolása
+        const allRatings = await dbHandler.ratingTable.findAll({
+            where: { parkhouse_id: parkhouseId }
+        });
+
+        const avg = allRatings.length > 0
+            ? allRatings.reduce((sum, r) => sum + r.rating, 0) / allRatings.length
+            : 0;
+
+        // Frissítsd a parkolóház rekordját az új átlaggal
+        await dbHandler.parkhouseTable.update(
+            { rating: avg },
+            { where: { id: parkhouseId } }
+        );
+
+        res.json({ message: 'Értékelés sikeresen mentve!', averageRating: avg });
     } catch (error) {
-      console.error('Hiba az értékelés mentése során:', error);
-      res.status(500).json({ error: 'Hiba történt az értékelés mentése során!' });
+        console.error('Hiba az értékelés mentése során:', error);
+        res.status(500).json({ error: 'Hiba történt az értékelés mentése során!' });
     }
-  });
+});
 
 //Admin lekérdezések
 
@@ -842,3 +852,12 @@ server.post('/registerParkhouseAdmin', authenticate(), async (req, res) => {
         res.status(500).json({ error : "Hiba történt a parkolóház létrehozásakor."})
     }
 })
+
+server.get('/feedbacks', authenticate(), async (req, res) => {
+    try {
+        const feedbacks = await dbHandler.ratingTable.findAll();
+        res.json(feedbacks);
+    } catch (error) {
+        res.status(500).json({ error: 'Nem sikerült lekérni az értékeléseket!' });
+    }
+});
