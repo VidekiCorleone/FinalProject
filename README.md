@@ -68,7 +68,7 @@ node server.js
 ```
 
 ## Minimum rendszerkövetelmények:
-- Android ™ 13.0 (Tiramisu), vagy újabb
+- Android ™ API 35, vagy újabb
 - FireFox 136.0.4, vagy újabb
 - Visual Studio 2022 v17.13, vagy újabb
 
