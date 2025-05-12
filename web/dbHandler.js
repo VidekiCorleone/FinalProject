@@ -211,6 +211,32 @@ Reservation.init({
    modelName:'reservation'
 })
 
+class Rating extends Model{}
+
+Rating.init({
+    'id':{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+        autoIncrement:true,
+        primaryKey:true
+    },
+    'user_id':{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    'parkhouse_id':{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    'rating':{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    }
+},{
+   sequelize:dbHandler,
+   modelName:'rating'
+})
+
 // Define associations
 User.hasOne(Car, {
     foreignKey: 'owner_id',
@@ -275,8 +301,8 @@ User.getNextReservationId = async () => {
   }
 };
 
-// Az exportálás változatlan marad
 exports.userTable = User;
 exports.parkhouseTable = Parkhouse;
 exports.carTable = Car;
 exports.reservationTable = Reservation;
+exports.ratingTable = Rating;
