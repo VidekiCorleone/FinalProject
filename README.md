@@ -1,3 +1,5 @@
+![GKN_logo](https://github.com/VidekiCorleone/FinalProject/blob/main/asztali/project_alpha_0.1/project_alpha_0.1/bin/kiskocsi.png)
+
 # Park1t&Go
 
 ## Feladatspecifikáció
