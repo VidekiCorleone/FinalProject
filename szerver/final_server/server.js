@@ -47,13 +47,13 @@ const loginLimiter = rateLimit({
 
 server.get('/parkhouse/capacity/:id', async (req, res) => {
     try {
-        const { id } = req.params; // Az ID kiolvasása az útvonalból
+        const { id } = req.params; 
         const parkhouse = await dbHandler.parkhouseTable.findOne({
-            where: { id } // Dinamikus ID használata
+            where: { id } 
         });
 
         if (parkhouse) {
-            res.json({ capacity: parkhouse.capacity }); // Kapacitás visszaküldése
+            res.json({ capacity: parkhouse.capacity }); 
         } else {
             res.status(404).json({ error: 'Parkolóház nem található' });
         }
@@ -95,8 +95,6 @@ server.get('/profile', authenticate(), async (req, res) => {
         });
 
         if (user) {
-            //console.log("KOLBÁSZ");
-            //console.log(user)
             res.json(user);
         } else {
             res.status(404).json({ error: 'Felhasználó nem található!' });
@@ -138,7 +136,7 @@ server.put('/profileDataUpdate', authenticate(), async (req, res) => {
 // Felhasználó regisztráció
 server.post('/register', async (req, res) => {
     try {
-        console.log('Request body:', req.body); // Hibakereséshez
+        console.log('Request body:', req.body); 
 
         if (!req.body.registerUser || !req.body.registerPassword || !req.body.registerEmail) {
             return res.status(400).json({ error: 'Hiányzó adat a regisztrációs kérésben!' });
@@ -207,7 +205,7 @@ server.use((err, req, res, next) => {
     });
 });
 
-// Bejelentkezés ID alapú tokennel
+
 server.post('/login', loginLimiter, async (req, res) => {
     try {
         const user = await dbHandler.userTable.findOne({
@@ -244,31 +242,27 @@ server.post('/registerCar', authenticate(), async (req, res) => {
     try {
         const { plate, height, type } = req.body;
 
-        // Lekérjük a bejelentkezett felhasználót az adatbázisból.
+    
         const user = await dbHandler.userTable.findOne({ where: { id: req.user.id } });
         if (!user) {
             return res.status(404).json({ error: 'Felhasználó nem található!' });
         }
 
-        // Ellenőrizzük, hogy a felhasználónak már legyen autója.
         if (user.car_id) {
             return res
                 .status(400)
                 .json({ error: 'A felhasználónak már van regisztrált autója!' });
         }
 
-        // Ellenőrizzük, hogy minden szükséges adat megvan-e.
         if (!plate || !height || !type) {
             return res.status(400).json({ error: 'Hiányzó adat az autó regisztrációhoz!' });
         }
 
-        // Ellenőrizzük, hogy a megadott rendszámú autó még nem létezik-e.
         const existingCar = await dbHandler.carTable.findOne({ where: { plate } });
         if (existingCar) {
             return res.status(400).json({ error: 'Ez a rendszám már regisztrálva van!' });
         }
 
-        // Új autó létrehozása, a tulajdonos azonosítója a bejelentkezett felhasználó id-je.
         const car = await dbHandler.carTable.create({
             plate,
             height,
@@ -276,7 +270,6 @@ server.post('/registerCar', authenticate(), async (req, res) => {
             owner_id: req.user.id
         });
 
-        // Frissítjük a felhasználó rekordját úgy, hogy a car_id az új autó id-jére változik.
         await user.update({ car_id: car.id });
 
         res.status(201).json({
@@ -292,7 +285,6 @@ server.post('/registerCar', authenticate(), async (req, res) => {
 server.get('/myCar', authenticate(), async (req, res) => {
     try {
         const userId = req.user.id;
-        // Keressük meg az autót, amelynek az owner_id megegyezik a bejelentkezett felhasználó id-jével.
         const car = await dbHandler.carTable.findOne({ where: { owner_id: userId } });
         if (!car) {
             return res.status(404).json({ message: 'Nincs regisztrált autó ehhez a felhasználóhoz.' });
@@ -381,12 +373,11 @@ const checkReservationExpiryOptimized = async () => {
     try {
         const now = new Date();
 
-        // Csak azok a foglalások, amelyek kezdési ideje alapján lehetséges, hogy lejártak
         const reservations = await dbHandler.reservationTable.findAll({
             where: {
                 active: true,
                 start_time: {
-                    [Op.lte]: new Date(now.getTime() - 2 * 60 * 60 * 1000) // Az elmúlt 2 órán belüli foglalások
+                    [Op.lte]: new Date(now.getTime() - 2 * 60 * 60 * 1000) 
                 }
             }
         });
@@ -397,7 +388,6 @@ const checkReservationExpiryOptimized = async () => {
             const expiryTime = new Date(startTime.getTime() + reservation.reservation_time_hour * 60 * 60 * 1000);
 
             if (now > expiryTime) {
-                // A foglalás lejárt
                 await reservation.update({ active: false, inactive: true });
                 expiredReservations.push(reservation.id);
             }
@@ -415,7 +405,7 @@ checkReservationExpiryOptimized();
 server.get('/checkReservations', authenticate(), async (req, res) => {
     try {
         const reservations = await dbHandler.reservationTable.findAll({
-            where: { active: true } // Csak az aktív foglalásokat ellenőrizd
+            where: { active: true } 
         });
 
         const now = new Date();
@@ -423,11 +413,10 @@ server.get('/checkReservations', authenticate(), async (req, res) => {
 
         reservations.forEach(async (reservation) => {
             const startTime = reservation.start_time;
-            const duration = reservation.reservation_time_hour; // Foglalási idő órában
+            const duration = reservation.reservation_time_hour; 
             const expiryTime = new Date(startTime.getTime() + duration * 60 * 60 * 1000);
 
             if (now > expiryTime) {
-                // Frissítsd a státuszt, ha lejárt
                 await reservation.update({ active: false, inactive: true });
                 expiredReservations.push(reservation.id);
             }
@@ -461,16 +450,13 @@ setInterval(async () => {
 
 server.post('/reserve', authenticate(), async (req, res) => {
     try {
-        // A kliensed által elküldött mezők:
         const { park_slot, parkhouse_id, reservation_time_hour, start_time } = req.body;
-        const reservation_owner_id = req.user.id; // A tokenből kinyert felhasználói azonosító
+        const reservation_owner_id = req.user.id; 
         
-        // Ellenőrzés: ha valamelyik kötelező adat hiányzik:
         if (park_slot === undefined || parkhouse_id === undefined || reservation_time_hour === undefined || !start_time) {
             return res.status(400).json({ error: 'Hiányzó adatok!' });
         }
         
-        // Ellenőrzés, hogy a felhasználónak nem létezik-e már aktív foglalása
         const existingUserReservation = await dbHandler.reservationTable.findOne({
             where: {
                 reservation_owner_id: reservation_owner_id,
@@ -481,7 +467,6 @@ server.post('/reserve', authenticate(), async (req, res) => {
             return res.status(400).json({ error: 'Már rendelkezel aktív foglalással!' });
         }
         
-        // Ellenőrizzük, hogy az adott parkolóhely ne legyen már foglalt
         const existingReservation = await dbHandler.reservationTable.findOne({
             where: { 
                 park_slot: park_slot, 
@@ -493,7 +478,6 @@ server.post('/reserve', authenticate(), async (req, res) => {
             return res.status(400).json({ error: 'A parkolóhely már foglalt!' });
         }
         
-        // Új foglalás létrehozása
         const reservation = await dbHandler.reservationTable.create({
             park_slot: park_slot,
             parkhouse_id: parkhouse_id,
@@ -515,19 +499,15 @@ server.post('/reserve', authenticate(), async (req, res) => {
 
 server.get('/parkhouse/reservedSlots/:id', async (req, res) => {
     try {
-        // Paraméterben érkező parkolóház azonosító (id)
         const { id } = req.params;
 
-        // Lekérjük azokat a foglalásokat, amelyeknél az adott parkolóházhoz tartozik
-        // és amelyek aktívak (active: true)
+       
         const reservations = await dbHandler.reservationTable.findAll({
             where: { parkhouse_id: id, active: true }
         });
 
-        // Kinyerjük a foglalt slot sorszámokat a "park_slot" oszlopból
         const reservedSlots = reservations.map(reservation => reservation.park_slot);
 
-        // Visszaküldjük az eredményt JSON objektumban
         res.status(200).json({ reservedSlots });
     } catch (error) {
         console.error("Hiba a foglalt helyek lekérdezésekor:", error);
@@ -539,22 +519,16 @@ server.get('/parkhouse/reservedSlots/:id', async (req, res) => {
 
 server.get('/reservations/my', authenticate(), async (req, res) => {
     try {
-        // A tokenből kinyert felhasználói azonosító
         const userId = req.user.id;
 
-        // Lekérjük az adott felhasználó összes foglalását
         const reservations = await dbHandler.reservationTable.findAll({
             where: { reservation_owner_id: userId }
         });
 
-        // Szétválogatjuk az aktív és inaktív foglalásokat.
-        // Feltételezzük, hogy az "active" mező true, ha a foglalás még érvényes,
-        // és false (vagy az "inactive" true), ha már lejárt/inaktív.
+        
         const activeReservations = reservations.filter(r => r.active);
         const inactiveReservations = reservations.filter(r => !r.active); 
-        // vagy: r.inactive === true
 
-        // Visszaküldjük az eredményt JSON objektumban
         res.status(200).json({ activeReservations, inactiveReservations });
     } catch (error) {
         console.error('Hiba a felhasználó foglalásainak lekérésekor:', error);
@@ -878,7 +852,7 @@ server.post('/registerParkhouseAdmin', authenticate(), async (req, res) => {
             name: pName,
             capacity: pCapacity,
             address: add,
-            rating: 0, //default
+            rating: 0, 
             opening: open,
             closing: close,
             car_height: cHeight,
