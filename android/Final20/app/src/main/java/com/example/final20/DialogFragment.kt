@@ -49,7 +49,7 @@ private fun getRetrofit(token: String): Retrofit {
         .build()
 }
 
-// DialogFragment
+
 class DialogFragment(
     private val slotNumber: Int,
     private val parkhouseName: String,
