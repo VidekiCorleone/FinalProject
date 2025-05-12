@@ -22,16 +22,18 @@ function App() {
   const [reservations, setReservations] = useState([]);
   const [feedbackView, setFeedbackView] = useState(null); // 'list' vagy 'write'
   const [selectedRating, setSelectedRating] = useState(0);
+  const [feedbacks, setFeedbacks] = useState([]); // Új állapot az értékelésekhez
+  const [selectedParkhouseId, setSelectedParkhouseId] = useState(null); // Aktuálisan kiválasztott parkolóház ID
 
   // Eseménykezelők
   const handleLoginClick = () => setShowLoginModal(true);
-  const handleRegistrationClick = () => setShowRegistrationModal(true);
+  const handleRegistrationClick = () =>setShowRegistrationModal(true);
   const handleCloseModal = () => {
     setShowLoginModal(false);
     setShowRegistrationModal(false);
   };
 
-  const handleRegistrationSubmit = async () => {
+    const handleRegistrationSubmit = async () => {
     try {
       const response = await fetch('http://127.1.1.1:3000/register', {
         method: 'POST',
@@ -183,30 +185,49 @@ function App() {
       alert('Kérlek, válassz egy értékelést!');
       return;
     }
-
+    if (!selectedParkhouseId) {
+      alert('Nincs kiválasztva parkolóház!');
+      return;
+    }
     try {
       const response = await fetch('http://127.1.1.1:3000/rateParkhouse', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${sessionStorage.getItem('token')}`, // Token küldése
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify({
-          parkhouseId: selectedParkhouseId, // Az aktuális parkolóház ID-je
-          rating: selectedRating, // A kiválasztott értékelés
+          parkhouseId: selectedParkhouseId,
+          rating: selectedRating,
         }),
       });
 
       if (response.ok) {
         alert('Értékelés sikeresen mentve!');
-        setFeedbackView(null); // Visszatérés az alapértelmezett nézethez
-        fetchParkhouses(); // Parkolóházak frissítése
+        setFeedbackView(null);
+        setActiveView('parkhouses');
+        fetchParkhouses();
       } else {
         alert('Nem sikerült menteni az értékelést!');
       }
     } catch (error) {
       console.error('Hiba az értékelés mentése során:', error);
       alert('Hiba történt az értékelés mentése során!');
+    }
+  };
+
+  const fetchFeedbacks = async () => {
+    try {
+      const response = await fetch('http://127.1.1.1:3000/feedbacks');
+      if (response.ok) {
+        const data = await response.json();
+        setFeedbacks(data);
+      } else {
+        alert('Nem sikerült lekérni az értékeléseket!');
+      }
+    } catch (error) {
+      console.error('Hiba az értékelések lekérdezése során:', error);
+      alert('Hiba történt az értékelések lekérdezése során!');
     }
   };
 
@@ -250,17 +271,7 @@ function App() {
                 Eddigi foglalásaim
               </button>
             </div>
-            <div className="col-12">
-              <button
-                className="btn btn-outline-primary w-100"
-                onClick={() => {
-                  setActiveView('feedback');
-                  setFeedbackView(null); // Alapértelmezett nézet
-                }}
-              >
-                Visszajelzések
-              </button>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -271,7 +282,13 @@ function App() {
           <p><strong>Felhasználónév:</strong> {userData.username}</p>
           <p><strong>Email:</strong> {userData.email}</p>
           <p><strong>Telefonszám:</strong> {userData.phone_num}</p>
-          <p><strong>Szerepkör:</strong> {userData.role === 0 ? 'Felhasználó' : userData.role}</p>
+          <p><strong>Szerepkör:</strong> {
+  userData.role === 1
+    ? 'Felhasználó'
+    : userData.role === 2
+      ? 'Admin'
+      : userData.role
+}</p>
           <p><strong>Rendszám:</strong> {userData.plate}</p>
           <p><strong>Típus:</strong> {userData.type}</p>
         </div>
@@ -300,6 +317,17 @@ function App() {
                         <strong>Nyitás:</strong> {formattedOpening} <br />
                         <strong>Zárás:</strong> {formattedClosing}
                       </p>
+                      <button
+                        className="btn btn-sm btn-outline-success mt-2"
+                        onClick={() => {
+                          setSelectedParkhouseId(parkhouse.id);
+                          setActiveView('feedback');
+                          setFeedbackView('write');
+                          setSelectedRating(0); // alaphelyzetbe állítja a csillagokat
+                        }}
+                      >
+                        Értékelés
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -332,7 +360,10 @@ function App() {
               <h2>Visszajelzések</h2>
               <button
                 className="btn btn-outline-primary w-100 mb-3"
-                onClick={() => setFeedbackView('list')}
+                onClick={() => {
+                  setFeedbackView('list');
+                  fetchFeedbacks(); // Értékelések lekérése
+                }}
               >
                 Eddigi értékelések
               </button>
@@ -348,8 +379,19 @@ function App() {
           {feedbackView === 'list' && (
             <div>
               <h2>Eddigi értékelések</h2>
-              {/* Itt jelenítsd meg az értékelések listáját */}
-              <p>Az értékelések listája itt jelenik meg.</p>
+              {feedbacks.length === 0 ? (
+                <p>Nincs még értékelés.</p>
+              ) : (
+                <ul className="list-group">
+                  {feedbacks.map((fb, idx) => (
+                    <li key={idx} className="list-group-item">
+                      <strong>Felhasználó:</strong> {fb.username || 'Ismeretlen'}<br />
+                      <strong>Értékelés:</strong> {fb.rating} / 5<br />
+                      <strong>Szöveg:</strong> {fb.comment || 'Nincs szöveges értékelés'}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <button
                 className="btn btn-secondary mt-3"
                 onClick={() => setFeedbackView(null)}
@@ -474,58 +516,62 @@ function App() {
 
       {/* Regisztrációs modal */}
       {showRegistrationModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={handleCloseModal}>
-              &times;
-            </span>
-            <h2>Regisztráció</h2>
-            <label htmlFor="regEmail">Email:</label>
-            <br />
-            <input
-              type="email"
-              id="regEmail"
-              name="regEmail"
-              value={regEmail}
-              onChange={(e) => setRegEmail(e.target.value)}
-            />
-            <br />
-            <label htmlFor="regName">Felhasználónév:</label>
-            <br />
-            <input
-              type="text"
-              id="regName"
-              name="regName"
-              value={regName}
-              onChange={(e) => setRegName(e.target.value)}
-            />
-            <br />
-            <label htmlFor="regPassword">Jelszó:</label>
-            <br />
-            <input
-              type="password"
-              id="regPassword"
-              name="regPassword"
-              value={regPassword}
-              onChange={(e) => setRegPassword(e.target.value)}
-            />
-            <br />
-            <label htmlFor="regPhone">Telefonszám:</label>
-            <br />
-            <input
-              type="tel"
-              id="regPhone"
-              name="regPhone"
-              value={regPhone}
-              onChange={(e) => setRegPhone(e.target.value)}
-            />
-            <br />
-            <button className="logreg" onClick={handleRegistrationSubmit}>
-              Regisztráció
-            </button>
-          </div>
+  <div className="modal show d-block">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">Regisztráció</h5>
+          <button type="button" className="btn-close" onClick={handleCloseModal}></button>
         </div>
-      )}
+        <div className="modal-body">
+          <label htmlFor="regEmail">Email:</label>
+          <br />
+          <input
+            type="email"
+            id="regEmail"
+            value={regEmail}
+            onChange={(e) => setRegEmail(e.target.value)}
+          />
+          <br />
+          <label htmlFor="regName">Felhasználónév:</label>
+          <br />
+          <input
+            type="text"
+            id="regName"
+            value={regName}
+            onChange={(e) => setRegName(e.target.value)}
+          />
+          <br />
+          <label htmlFor="regPassword">Jelszó:</label>
+          <br />
+          <input
+            type="password"
+            id="regPassword"
+            value={regPassword}
+            onChange={(e) => setRegPassword(e.target.value)}
+          />
+          <br />
+          <label htmlFor="regPhone">Telefonszám:</label>
+          <br />
+          <input
+            type="tel"
+            id="regPhone"
+            value={regPhone}
+            onChange={(e) => setRegPhone(e.target.value)}
+          />
+        </div>
+        <div className="modal-footer">
+          <button className="btn btn-primary" onClick={handleRegistrationSubmit}>
+            Regisztráció
+          </button>
+          <button className="btn btn-secondary" onClick={handleCloseModal}>
+            Bezárás
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
     </>
   );
 }

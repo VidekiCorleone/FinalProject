@@ -84,7 +84,6 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  color: black;
 }
 
 .modal-content {
@@ -261,4 +260,57 @@ textarea {
 
 .star.selected {
   color: gold;
+}
+
+/* btn btn-secondary stílus */
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #0d6efd;
+    --bs-btn-border-color: #0d6efd;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+.btn-secondary:hover {
+  background-color: #0056b3; /* Sötétebb kék szín hover állapotban */
+}
+
+/* Box a login és registration gombokhoz */
+.auth-box {
+  position: fixed; /* Rögzített pozíció */
+  top: 20px; /* Távolság a felső éltől */
+  right: 20px; /* Távolság a jobb éltől */
+  background-color: rgba(255, 255, 255, 0.8); /* Fehér, átlátszó háttér */
+  padding: 20px; /* Belső margó */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
+  z-index: 1000; /* Magasabb réteg */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Login és Registration gombok */
+.auth-box button {
+  background-color: #28a745; /* Zöldes háttérszín */
+  color: white; /* Fehér szöveg */
+  border: none; /* Nincs keret */
+  padding: 10px 20px; /* Gomb mérete */
+  border-radius: 5px; /* Lekerekített sarkok */
+  cursor: pointer; /* Mutatóváltás */
+  display: inline-block; /* Csak a szöveg hosszáig tart */
+  text-align: center; /* Szöveg középre igazítása */
+  margin-bottom: 10px; /* Távolság a gombok között */
+}
+
+.auth-box button:hover {
+  background-color: #218838; /* Sötétebb zöld hover állapotban */
 }
