@@ -148,12 +148,13 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="osztalyok\HttpRequestek.cs" />
-    <Compile Include="osztalyok\Parkhouses.cs" />
-    <Compile Include="osztalyok\Reservations.cs" />
-    <Compile Include="osztalyok\TokenValasz.cs" />
-    <Compile Include="osztalyok\userData.cs" />
-    <Compile Include="osztalyok\UserProfile.cs" />
+    <Compile Include="classes\ClosingFilter.cs" />
+    <Compile Include="classes\HttpRequestek.cs" />
+    <Compile Include="classes\Parkhouses.cs" />
+    <Compile Include="classes\Reservations.cs" />
+    <Compile Include="classes\TokenValasz.cs" />
+    <Compile Include="classes\userData.cs" />
+    <Compile Include="classes\UserProfile.cs" />
     <Compile Include="parkinGarageEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,13 +187,13 @@
     <Compile Include="signIn.Designer.cs">
       <DependentUpon>signIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="userCoontrol-ok\userControlParkhouses.cs">
+    <Compile Include="userControls\userControlParkhouses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="userCoontrol-ok\userControlProfile.cs">
+    <Compile Include="userControls\userControlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="userCoontrol-ok\userControlReservation.cs">
+    <Compile Include="userControls\userControlReservation.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="userEdit.cs">
@@ -238,13 +239,13 @@
     <EmbeddedResource Include="signIn.resx">
       <DependentUpon>signIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userCoontrol-ok\userControlParkhouses.resx">
+    <EmbeddedResource Include="userControls\userControlParkhouses.resx">
       <DependentUpon>userControlParkhouses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userCoontrol-ok\userControlProfile.resx">
+    <EmbeddedResource Include="userControls\userControlProfile.resx">
       <DependentUpon>userControlProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userCoontrol-ok\userControlReservation.resx">
+    <EmbeddedResource Include="userControls\userControlReservation.resx">
       <DependentUpon>userControlReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userEdit.resx">

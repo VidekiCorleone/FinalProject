@@ -36,7 +36,7 @@ namespace project_alpha_0._1
             label1.Text = "Foglalás hozzáadása";
             label2.Text = "Foglalás kezdete:";
             label3.Text = "Foglalás időtartama:";
-            label4.Text = "Foglaló:";
+            label4.Text = "Foglaló azonosítója:";
             label5.Text = "Parkolóhely:";
             label6.Text = "Parkolóház:";
             button1.Text = "Vissza";
@@ -44,11 +44,6 @@ namespace project_alpha_0._1
 
             int label1Mid = label1.Width / 2;
             int button1Mid = button1.Width / 2;
-            //int button2Mid = button2.Width / 2;
-            //int label2Right = label2.Left - label2.Width;
-            //int label3Right = label3.Left - label3.Width;
-            //int label4Right = label4.Left - label4.Width;
-
 
             label1.Left = this.Width / 2 - label1Mid;
             button1.Left = this.Width / 2 - button1.Width - 40;
@@ -77,9 +72,7 @@ namespace project_alpha_0._1
         {
             const string message = "Biztosan vissza akarsz lépni?";
             const string caption = "Visszalépés";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Hide();
@@ -92,7 +85,7 @@ namespace project_alpha_0._1
         {
             HttpRequestek request = new HttpRequestek();
 
-            DateTime start_time = DateTime.Parse(textBox1.Text);
+            DateTime start_time = DateTime.Parse(textBox1.Text).AddHours(2);
             int reservation_time_hour = int.Parse(textBox2.Text);
             int reservation_owner_id = int.Parse(textBox3.Text);
             int park_slot = int.Parse(textBox4.Text);
@@ -102,17 +95,13 @@ namespace project_alpha_0._1
             {
                 const string message1 = "Kérlek töltsd ki az összes mezőt!";
                 const string caption1 = "Hiba";
-                MessageBox.Show(message1, caption1,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
+                MessageBox.Show(message1, caption1, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             const string message = "Biztosan hozzáadod ezt a felhasználót?";
             const string caption = "Hozzáadás";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 bool reqResult = await request.postReservation(start_time, reservation_time_hour, reservation_owner_id, park_slot, parkHouse_id);

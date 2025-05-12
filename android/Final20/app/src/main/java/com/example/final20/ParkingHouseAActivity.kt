@@ -42,7 +42,7 @@ class ParkingHouseAActivity : AppCompatActivity() {
         setContentView(R.layout.activity_parking_house_aactivity)
         buttonContainer = findViewById(R.id.buttonContainer)
 
-        // API hívások: először lehívjuk a kapacitást, majd a foglalt helyeket
+
         createDynamicButtons()
 
         val BTN_back = findViewById<Button>(R.id.backBTN)
@@ -61,12 +61,12 @@ class ParkingHouseAActivity : AppCompatActivity() {
         val parkhouseId = 1 // Az aktuális parkolóház azonosítója
         val parkhouseService = RetrofitClient.instance.create(ParkhouseService::class.java)
 
-        // Lekérjük a parkolóház kapacitását
+
         parkhouseService.getParkhouseCapacity(parkhouseId).enqueue(object : Callback<ParkhouseCapacity> {
             override fun onResponse(call: Call<ParkhouseCapacity>, response: Response<ParkhouseCapacity>) {
                 if (response.isSuccessful) {
                     val capacity = response.body()?.capacity ?: 0
-                    // A kapacitás lekérése után kérjük le a foglalt slotok sorszámát
+
                     getReservedSlotsAndGenerateButtons(parkhouseId, capacity)
                 } else {
                     Toast.makeText(this@ParkingHouseAActivity, "Error fetching capacity", Toast.LENGTH_SHORT).show()
@@ -84,17 +84,17 @@ class ParkingHouseAActivity : AppCompatActivity() {
         reservedSlotsService.getReservedSlots(parkhouseId).enqueue(object : Callback<ReservedSlotsResponse> {
             override fun onResponse(call: Call<ReservedSlotsResponse>, response: Response<ReservedSlotsResponse>) {
                 if (response.isSuccessful) {
-                    // A szerver által visszaküldött foglalt helyek listáját Set-é alakítjuk
+
                     val reservedSlots = response.body()?.reservedSlots?.toSet() ?: emptySet()
                     generateButtons(capacity, reservedSlots)
                 } else {
-                    // Hiba esetén üres foglalt lista
+
                     generateButtons(capacity, emptySet())
                 }
             }
 
             override fun onFailure(call: Call<ReservedSlotsResponse>, t: Throwable) {
-                // Hálózati hiba esetén üres foglalt lista
+
                 generateButtons(capacity, emptySet())
             }
         })
@@ -115,8 +115,8 @@ class ParkingHouseAActivity : AppCompatActivity() {
             }
 
             val shape = GradientDrawable().apply {
-                cornerRadius = 16f  // lekerekített sarkok
-                // Ha a slot szerepel a foglalt listában, piros, különben zöld
+                cornerRadius = 16f
+
                 if (reservedSlots.contains(i))
                     setColor(resources.getColor(android.R.color.holo_red_dark, theme))
                 else

@@ -17,7 +17,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import java.util.concurrent.TimeUnit
 
-// Adatmodell a foglaláshoz
+
 data class Reservation(
     val reservation_owner_id: Int,
     val start_time: String,
@@ -29,25 +29,22 @@ data class Reservation(
     val sum: Int
 )
 
-// API válasz modell: aktív és inaktív foglalások
+
 data class MyReservationResponse(
     val activeReservations: List<Reservation>,
     val inactiveReservations: List<Reservation>
 )
 
-// Retrofit interfész a /reservations/my endpointhoz.
-// Bár az interceptorunk hozzáadja az Authorization fejlécet,
-// itt mégis paraméterként megmutatom, hogyan lehet átadni, ha szükséges.
 interface MyReservationService {
     @GET("reservations/my")
     fun getMyReservations(@Header("Authorization") authHeader: String): Call<MyReservationResponse>
 }
 
-// Retrofit kliens, interceptorral, mely minden kérésnél hozzáadja az Authorization fejlécet.
+
 object RetrofitClientst {
     private var retrofit: Retrofit? = null
 
-    // Ezt a metódust úgy hívjuk, hogy átadjuk a contextet a SharedPreferences eléréséhez.
+
     fun getInstance(context: Context): Retrofit {
         if (retrofit == null) {
             // A token SharedPreferences-ből
@@ -77,7 +74,7 @@ object RetrofitClientst {
     }
 }
 
-// MyReservationActivity, amely lekéri és megjeleníti a felhasználó foglalásait
+
 class MyReservationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,12 +89,11 @@ class MyReservationActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Retrofit kliens létrehozása és a MyReservationService inicializálása
+
         val retrofitInstance = RetrofitClientst.getInstance(this)
         val myReservationService = retrofitInstance.create(MyReservationService::class.java)
 
-        // Kinyerjük a token értékét (opcionális, mivel az interceptor már hozzáadja a fejlécet),
-        // de itt explicit módon is átadhatjuk.
+
         val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("TOKEN", "") ?: ""
 

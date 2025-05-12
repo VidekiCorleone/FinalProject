@@ -40,25 +40,25 @@
                 android:id="@+id/tv_parkfelirat_h1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Parking house"
+                android:text="Park1@Go"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="48sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.038" />
 
             <Button
                 android:id="@+id/LoginBTN"
                 android:layout_width="260dp"
                 android:layout_height="65dp"
                 android:backgroundTint="@color/white"
-                android:text="Sign in"
-                android:textAlignment="center"
+                android:text="Bejelentkezés"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textColorLink="@color/white"
                 android:textSize="29sp"
@@ -77,10 +77,10 @@
                 android:layout_height="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.883"
+                app:layout_constraintHorizontal_bias="0.959"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.321"
+                app:layout_constraintVertical_bias="0.324"
                 app:srcCompat="@drawable/baseline_exit_to_app_24" />
 
             <Button
@@ -88,7 +88,7 @@
                 android:layout_width="260dp"
                 android:layout_height="65dp"
                 android:backgroundTint="@color/white"
-                android:text="Registration"
+                android:text="Regisztráció"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textColorLink="@color/white"

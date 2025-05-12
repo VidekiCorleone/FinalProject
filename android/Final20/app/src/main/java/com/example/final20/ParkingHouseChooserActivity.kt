@@ -21,7 +21,7 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking_house_chooser)
 
-        fetchParkhouses() // Parkolóházak lekérése szerverről
+        fetchParkhouses()
 
 
         val back_to_menu = findViewById<Button>(R.id.back_to_the_menu)
@@ -78,7 +78,7 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
             val parkhouse = jsonArray.getJSONObject(i)
             val button = Button(this)
 
-            // Gomb szöveg beállítása
+
             button.text = parkhouse.optString("name", "Ismeretlen parkolóház")
             button.layoutParams = GridLayout.LayoutParams().apply {
                 width = 550
@@ -88,7 +88,7 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
 
             }
 
-            // Gombhoz megfelelő Activity hozzárendelése
+
             button.setOnClickListener {
                 val intent = when (parkhouse.getInt("id")) {
                     1 -> Intent(this, ParkingHouseAActivity::class.java)
@@ -101,11 +101,11 @@ class ParkingHouseChooserActivity : AppCompatActivity() {
                     }
                 }
 
-                // Ha további adatokat kell átadni az Activity-nek:
+
                 intent.putExtra("parkhouseId", parkhouse.getInt("id"))
                 intent.putExtra("parkhouseName", parkhouse.optString("name", "Ismeretlen"))
 
-                startActivity(intent) // Új Activity indítása
+                startActivity(intent)
             }
 
             layout.addView(button)

@@ -57,9 +57,6 @@ namespace project_alpha_0._1
 
             int pbMiddle = pictureBox1.Width / 2;
             pictureBox1.Left = this.Width / 2 - pbMiddle;
-
-            //button1.Text = "Bejelentkezés";
-            //button2.Text = "Bezárás";
         }
 
         public void signinFunction(object s, EventArgs e)
@@ -67,17 +64,13 @@ namespace project_alpha_0._1
             this.Hide();
             signIn signInForm = new signIn();
             signInForm.Show();
-            //signIn signInForm = new signIn();
-            //signInForm.ShowDialog();
         }
 
         public void closingFunction(object s, EventArgs e)
         {
             const string message = "Biztosan be akarod zárni?";
             const string caption = "Bezárás";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {

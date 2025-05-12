@@ -24,9 +24,7 @@ namespace project_alpha_0._1
             button1.Click += closeFunc;
             button2.Click += signInFunc;
 
-            ;
-
-            // enter gomb = bejelentkezés
+            // signing in on enter button
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
         }
@@ -53,8 +51,6 @@ namespace project_alpha_0._1
             label1.BackColor = Color.FromArgb(93, 135, 54);
             label2.BackColor = Color.FromArgb(93, 135, 54);
             label3.BackColor = Color.FromArgb(93, 135, 54);
-
-            //Image kiskocsi = Image.FromFile("kiskocsi.png");
         }
 
         public async void signInFunc(object s, EventArgs e)
@@ -70,21 +66,6 @@ namespace project_alpha_0._1
                 Menu menu = new Menu();
                 menu.Show();
             }
-
-
-            /*if (user == "admin" && pass == "admin")
-            {
-                this.Hide();
-                Menu menu = new Menu();
-                menu.ShowDialog();
-            }
-            else
-            {
-                //MessageBox.Show("Helytelen felhasználónév vagy jelszó!");
-                const string message = "Helytelen felhasználónév vagy jelszó!";
-                const string caption = "Helytelen adat";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
         }
 
         public void closeFunc(object s, EventArgs e)
@@ -95,10 +76,6 @@ namespace project_alpha_0._1
 
             if (result == DialogResult.Yes)
             {
-                /*this.Hide();
-                Form1 form1 = new Form1();
-                form1.ShowDialog();*/
-
                 Application.Exit();
             }
         }

@@ -38,7 +38,7 @@
                 android:id="@+id/registerTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User interface"
+                android:text="Felhasználói menü"
                 android:textColor="@color/white"
                 android:textSize="48sp"
                 android:textStyle="bold"
@@ -71,10 +71,10 @@
 
             <Button
                 android:id="@+id/myCarBTN"
-                android:layout_width="189dp"
-                android:layout_height="69dp"
+                android:layout_width="291dp"
+                android:layout_height="62dp"
                 android:backgroundTint="@color/white"
-                android:text="My car"
+                android:text="Kocsim adatai"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textColorLink="@color/white"
@@ -94,10 +94,10 @@
                 android:layout_height="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.69"
+                app:layout_constraintHorizontal_bias="0.816"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.235"
+                app:layout_constraintVertical_bias="0.231"
                 app:srcCompat="@drawable/baseline_directions_car_24" />
 
             <Button

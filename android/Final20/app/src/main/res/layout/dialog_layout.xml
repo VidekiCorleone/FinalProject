@@ -7,18 +7,11 @@
     android:padding="16dp"
     tools:context=".DialogFragment">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reservation summary!"
+        android:text="Parkolás véglegesítése!"
         android:textAlignment="center"
         android:textSize="48sp"
         android:textStyle="bold" />
@@ -28,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10px"
-        android:text="Reserved parkslot:"
+        android:text="Lefoglalt parkolóhely:"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="italic" />
@@ -49,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10px"
-        android:text="Parkhouse where the reservation is for:"
+        android:text="A parkolóház neve ahova szól a foglalás:"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="italic" />
@@ -70,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10px"
-        android:text="The owner of this reservation:"
+        android:text="A foglaló személy:"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="italic" />
@@ -91,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10px"
-        android:text="Reserved time:"
+        android:text="Az idő amennyire foglalni szeretne:"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="italic" />
@@ -106,9 +99,9 @@
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="76dp"
         android:paddingTop="10dp"
-        android:text="If you click on the &quot;Finish reservation&quot; button, you automatically accept our &quot;User agreenment and privacy policy&quot;"
+        android:text="Ha rányom a &quot;Foglalás véglegesítésére&quot; gombra, you azzal automatikusan elfogadja a &quot;Felhasználói feltételeinket és a Adatvédelmi politikánkat&quot;"
         android:textAlignment="center"
         android:textStyle="bold" />
 
@@ -119,7 +112,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30px"
         android:gravity="center"
-        android:text="Back!"
+        android:text="Vissza"
         android:textAlignment="center" />
 
     <Button
@@ -128,7 +121,7 @@
         android:layout_height="59dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30px"
-        android:text="Finish reservation!"
+        android:text="Foglalás véglegesítése!"
         android:textAlignment="center"
         android:textSize="16sp" />
 

@@ -34,7 +34,7 @@ class MyProfileActivity : AppCompatActivity() {
             return
         }
 
-        // Profil adatok betöltése ID alapján
+
         loadUserProfile(token, userId, nameET, emailET, telnumberET, usernameET)
 
         backBTN.setOnClickListener {
