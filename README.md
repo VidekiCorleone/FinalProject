@@ -29,6 +29,7 @@ A backend futtatásához szükséges források:
   - Sequelize
   - JsonWebToken
   - Cors
+  - Bcrypt
   - MySQL2
   - dotenv:
     - A backend futtatásához a '.env' fájlt, a fejlesztőnek kell létrehoznia manuálisan és a következő adatokat kell tartalmaznia:
