@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-// Adatmodellek
+
 data class ReservationResponse(val message: String, val reservation: ReservationDetails)
 data class ReservationDetails(
     val park_slot: Int,
@@ -25,13 +25,13 @@ data class ReservationDetails(
 
 
 
-// Retrofit interfész
+
 interface ReservationService {
     @POST("/reserve")
     fun makeReservation(@Body reservation: ReservationDetails): Call<ReservationResponse>
 }
 
-// Retrofit kliens interceptorral, mely hozzáadja az "Authorization" fejlécet
+
 private fun getRetrofit(token: String): Retrofit {
     val client = OkHttpClient.Builder()
         .addInterceptor { chain ->
@@ -89,7 +89,7 @@ class DialogFragment(
         val username = sharedPreferences.getString("USERNAME", "Unknown User")
         ownerText.setText(username)
 
-        // Spinner feltöltése (1-6 értékek)
+
         val numbers = (1..6).toList()
         val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, numbers)
         adapter.setDropDownViewResource(R.layout.spinner_item)
@@ -103,12 +103,12 @@ class DialogFragment(
                 return@setOnClickListener
             }
 
-            // Jelenlegi idő formázása
+
             val currentTime = System.currentTimeMillis()
             val formattedTime = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.getDefault())
                 .format(java.util.Date(currentTime))
 
-            // Foglalási adatok összeállítása
+
             val reservation = ReservationDetails(
                 park_slot = slotText.text.toString().toIntOrNull() ?: -1,
                 parkhouse_id = parkHouseID.toIntOrNull() ?: -1,

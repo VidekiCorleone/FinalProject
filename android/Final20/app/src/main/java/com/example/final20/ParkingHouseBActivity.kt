@@ -38,7 +38,7 @@ class ParkingHouseBActivity : AppCompatActivity() {
 
         buttonContainer = findViewById(R.id.buttonContainer)
 
-        // Call `createDynamicButtons` when the app starts
+
         createDynamicButtons()
 
         val BTN_back = findViewById<Button>(R.id.backBTN)
@@ -67,8 +67,7 @@ class ParkingHouseBActivity : AppCompatActivity() {
             }
 
             val shape = GradientDrawable().apply {
-                cornerRadius = 16f  // lekerekített sarkok
-                // Ha a slot szerepel a foglalt listában, piros, különben zöld
+                cornerRadius = 16f
                 if (reservedSlots.contains(i))
                     setColor(resources.getColor(android.R.color.holo_red_dark, theme))
                 else
@@ -93,8 +92,8 @@ class ParkingHouseBActivity : AppCompatActivity() {
     private fun createDynamicButtons() {
         val service = RetrofitClient.instance.create(ParkhouseService::class.java)
 
-        // A parkolóház ID-t dinamikusan adhatod át
-        val parkhouseId = 2 // Példa ID, dinamikusan is átadható
+
+        val parkhouseId = 2
         service.getParkhouseCapacity(parkhouseId)
             .enqueue(object : retrofit2.Callback<ParkhouseCapacity> {
                 override fun onResponse(
@@ -124,17 +123,17 @@ class ParkingHouseBActivity : AppCompatActivity() {
             Callback<ReservedSlotsResponse> {
             override fun onResponse(call: Call<ReservedSlotsResponse>, response: Response<ReservedSlotsResponse>) {
                 if (response.isSuccessful) {
-                    // A szerver által visszaküldött foglalt helyek listáját Set-é alakítjuk
+
                     val reservedSlots = response.body()?.reservedSlots?.toSet() ?: emptySet()
                     generateButtons(capacity, reservedSlots)
                 } else {
-                    // Hiba esetén üres foglalt lista
+
                     generateButtons(capacity, emptySet())
                 }
             }
 
             override fun onFailure(call: Call<ReservedSlotsResponse>, t: Throwable) {
-                // Hálózati hiba esetén üres foglalt lista
+
                 generateButtons(capacity, emptySet())
             }
         })
