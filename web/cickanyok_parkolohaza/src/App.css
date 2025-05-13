@@ -145,6 +145,7 @@ body {
   display: inline-block; /* Csak a tartalom szélességét foglalja el */
   background-color: #f8f9fa; /* Világos háttérszín */
   border-radius: 5px; /* Lekerekített sarkok (opcionális) */
+  max-width: 250px;
 }
 
 .menu-button {
@@ -203,6 +204,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Árnyék */
   padding: 20px; /* Nagyobb belső margó */
 }
+
 .parkhouse-list{
   font-size: 24px; /* Nagyobb betűméret a köszöntő üzenethez */
   font-weight: bold; /* Félkövér szöveg */
@@ -313,4 +315,68 @@ textarea {
 
 .auth-box button:hover {
   background-color: #218838; /* Sötétebb zöld hover állapotban */
+}
+
+/* Fejléc fixen a tetején */
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #0d6efd;
+  min-height: 60px;
+}
+
+/* Fejléc tartalom */
+.header-bar {
+  min-height: 60px;
+}
+
+/* Tartalom padding, hogy ne takarja a fejléc */
+.main-content {
+  min-height: 90vh;
+  padding-top: 75px;
+}
+
+/* Menü kártya */
+.menu-buttons {
+  max-width: 250px;
+}
+
+/* Parkolóház kártya */
+.card.mx-auto,
+.card.shadow-sm {
+  max-width: 400px;
+}
+
+/* Feedback kártya */
+.feedback-options.mx-auto {
+  max-width: 400px;
+}
+
+/* Welcome card */
+.welcome-message .card.mx-auto {
+  max-width: 400px;
+  padding: 1.5rem;
+}
+
+/* Responsive igazítások */
+@media (max-width: 767.98px) {
+  .menu-buttons {
+    max-width: 100%;
+  }
+  .card.mx-auto,
+  .card.shadow-sm,
+  .feedback-options.mx-auto,
+  .welcome-message .card.mx-auto {
+    max-width: 100%;
+  }
+}
+
+.custom-btn-fit {
+  display: inline-block;
+  width: auto !important;
+  min-width: 0 !important;
+  white-space: nowrap;
 }
